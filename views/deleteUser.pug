@@ -1,0 +1,35 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/common.css")
+  body 
+    .container
+      h1.formTitle 
+        a(href="/findId")
+          span 회원 
+          span.fontRed 탈퇴
+      form(action="", method="" class="formSection")
+        input(type="text" ,class="formContent" , name="", placeholder="이름" maxlength="")
+        input(type="password",id="pwInput" ,class="formContent" , name="", placeholder="비밀번호" maxlength="" required)
+        button(type="submit",id="openModalBtn" ,class="formContent formBtn") 
+          span 회원 
+          span.fontRed 탈퇴
+    .modal
+      .modalContent
+        .modalTitle 
+          span 회원
+          span.fontRed 탈퇴
+        .modalDesc
+          span 정말로 
+          span.fontRed 탈퇴
+          span 하시겠습니까?
+        a(href="#")
+          button.modalBtn 취소
+        a(href="#")
+          button(class="deleteUser") 확인
+    script(src="./js/modal.js")
+    script(src="./js/validate.js" type="module")

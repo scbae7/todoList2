@@ -31,6 +31,12 @@ app.get('/join',(req,res)=>{
 app.get('/admin',(req,res)=>{
   res.render('admin');
 })
+app.get('/todo',(req,res)=>{
+  res.render('todo');
+})
+app.get('/deleteUser',(req,res)=>{
+  res.render('deleteUser');
+})
 
 app.listen(port,()=>{
   console.log(`${port} port open!`);

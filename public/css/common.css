@@ -117,4 +117,19 @@ body .modalContent .modalBtn {
   width: 120px;
   height: 50px;
   border-radius: 10px;
+}
+body .modalDesc span {
+  font-size: 30px;
+}
+body .fontRed {
+  color: #f7253b;
+  margin-left: 6px;
+}
+body .deleteUser {
+  color: #fff;
+  width: 120px;
+  height: 50px;
+  border-radius: 10px;
+  margin-left: 10px;
+  background-color: #E96573;
 }/*# sourceMappingURL=common.css.map */

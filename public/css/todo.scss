@@ -1,0 +1,342 @@
+body {
+  .todoContainer {
+    border:1px solid #000;
+    width: 560px;
+    height: 800px;
+    padding: 20px;
+    background-color: #92E4FF;
+    .navSection {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        border-radius: 6px;
+        color:#fff;
+        background-color: #179BC7;
+        font-weight: bold;
+        font-size: 24px;
+        height: 40px;
+      }
+      .tagSearchBtn {
+        width: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          margin-left: 4px;
+          font-size: 16px;
+        }
+      }
+      .myPaegBtn {
+        width: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .myPageIcon {
+          background-image: url(../images/face.svg);
+          width: 30px;
+          height: 30px;
+          background-size: cover;
+          border-radius: 4px;
+          display: inline-block;
+          margin-right: 4px;
+        }
+      }
+      .logout {
+        width: 180px;
+      }
+    }
+  }
+  .processSection {
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .processLabel {
+      font-size: 24px;
+      font-weight: bold;
+      color: #179BC7;
+      margin-left: 10px;
+    }
+    .processNumber {
+      width: 80px;
+      height: 60px;
+      color:#179BC7;
+      border: 1px solid #179BC7;
+      border-radius :6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      font-size: 24px;
+    }
+    .processBar {
+      width: 320px;
+      height: 60px;
+      border-radius: 6px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .barFull {
+        width: 300px;
+        height: 40px;
+        border-radius: 6px;
+        background-color: #d9d9d9;
+        display: flex;
+        align-items: center;
+      }
+      .barNumber {
+        width: 240px;
+        height: 40px;
+        border-radius: 6px;
+        background-color: #179BC7;
+      }
+    }
+  }
+  .headerSection {
+    margin-top: 20px;
+    display: flex;
+    flex-direction :column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    .headerTitle {
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .headerIcon {
+      background-image: url(../images/list.svg);
+      background-size: cover;
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .headerHello {
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+  .todoSection {
+    border-radius:20px;
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+    overflow: hidden;
+    .todoHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 26px;
+      height: 60px;
+      .todoCont {
+        background-color: #179BC7;
+        flex: 1;
+        width: calc(100% / 3);
+        height: inherit;
+        border-top-left-radius: 20px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .addCont {
+        background-color: #E96573;
+        flex: 1;
+        width: calc(100% / 3);
+        height: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .DoneCont {
+        background-color: #07A467;
+        flex: 1;
+        width: calc(100% / 3);
+        height: inherit;
+        border-top-right-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+    }
+    .todoRow {
+      width: 100%;
+      height: 120px;
+      background-color: #179BC7;
+      border-top:1px solid #364954;
+      border-bottom:1px solid #364954;
+      text-align-last: left;
+      padding:10px;
+      position: relative;
+      &:hover {
+        background-color: #2E7289;
+        border-left:10px solid #364954;
+      }
+      .rowDate {
+        font-size: 16px;
+        color: #fff;
+      }
+      .rowDesc {
+        font-size: 24px;
+        color: #fff;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+      .rowTag {
+        margin-top: 10px;
+        .rowTagData {
+          font-size: 16px;
+          padding: 6px;
+          padding-right: 14px;
+          background-color: #FF6347;
+          border-radius:6px;
+          margin-right: 10px;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+      .rowControl {
+        position: absolute;
+        top: 30%;
+        left: 85%;
+        background-color: #005E87;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border:1px solid #000;
+        .rowControlIcon {
+          position: absolute;
+          top: 8%;
+          left: 8%;
+          background-image: url(../images/order.svg);
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+  .modal {
+    .myPageModalCont {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: 20px;
+      width: 360px;
+      height: 620px;
+      transform: translate(-50%, -50%);
+      border: 1px solid var(--main-color);
+      color: #005E87;
+      background-color: #92E4FF;
+      border-radius: 20px;
+      padding: 10px;
+      .myPageTitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .myIcon {
+          background-image: url(../images/face.svg);
+          width: 36px;
+          height: 36px;
+          background-size: cover;
+          border-radius: 4px;
+          display: inline-block;
+          margin-right: 4px;
+          
+        }
+        .myPageLabel {
+          font-size: 32px;
+          font-weight: bold;
+          color: #fff;
+          margin-left: 6px;
+        }
+      }
+      .myPageSection {
+        display: flex;
+        flex-direction :column;
+        align-items: center;
+        border: 1px solid #000;
+        margin-top: 20px;
+        border-radius:20px;
+        width: 100%;
+        height: 500px;
+        background-color: #179BC7;
+        .myPageImg {
+          background-image: url(../images/picture.svg);
+          width: 200px;
+          height: 200px;
+          background-size: cover;
+          border-radius: 4px;
+          
+        }
+        .myContInfo {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          margin-bottom: 10px;
+          text-align-last: left;
+          color: #fff;
+          height: 60px;
+          margin-left: 30px;
+          .myLabel {
+            width: 20%;
+          }
+          .myDesc {
+            width: 60%;
+          }
+          .myEdit {
+            width: 20%;
+            .myEditBtn {
+              background-color: #005E87;
+              background-image: url(../images/edit.svg);
+              width: 40px;
+              height: 40px;
+              background-size: cover;
+              border-radius: 4px;
+              
+            }
+          }
+        }
+        .myBtn {
+          width: 75%;
+          height: 50px;
+          background-color: #005E87;
+          border-radius:10px;
+          color: #fff;
+          margin-top: 10px;
+        }
+      }
+    }
+    .todoModalCont {
+      position: absolute;
+      top: 46%;
+      left: 58%;
+      width: 360px;
+      height: 240px;
+      transform: translate(-50%, -50%);
+      border: 1px solid var(--main-color);
+      color: #005E87;
+      background-color: #92E4FF;
+      opacity:0.5;
+      border-radius: 20px;
+      padding: 10px;
+    }
+  }
+}
