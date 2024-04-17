@@ -1,0 +1,76 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/common.css")
+    link(rel="stylesheet", href="./css/admin.css")
+  body 
+    .container.adminContainer
+      .adminHeader
+        .adTitle ADMIN
+        .adNoti 
+          span.notiIcon
+            button.iconNumber 3
+          span 승급요청
+        button.adminHeaderBtn LOG OUT
+      .adminManage
+        .subTitle 사용자 관리
+        .subCount 회원수 : 10명
+      .adminSetting
+        .adminFilter
+        button.deleteBtn 선택 삭제
+        button.deleteBtn 전체 삭제
+      .adminContent
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+      .adminManage
+        .subTitle 투두리스트 관리
+        .subCount 할일 : 50개
+      .adminSetting
+        .adminFilter
+        button.deleteBtn 선택 삭제
+        button.deleteBtn 전체 삭제
+      .adminContent
+        .adminRow
+          .check X
+          .table 할일 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn
+      
+    .modal
+      .modalContent
+        .modalTitle SIGN UP
+        .modalDesc
+          p 회원가입이 성공적으로
+          p 완료되었습니다.
+        a(href="/login")
+          button.modalBtn 확인
+    script(src="./js/modal.js")
+    //- script(src="./js/validate/joinValidate.js" type="module")
+    script(src="./js/validate.js" type="module")

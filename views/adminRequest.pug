@@ -1,0 +1,29 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="../css/reset.css")
+    link(rel="stylesheet", href="../css/common.css")
+  body 
+    .container
+      h1.formTitle 
+        a(href="/admin/request") 관리자 승급 요청
+      form(action="", method="" class="formSection")
+        input(type="text", id="idInput",class="formContent" , name="", placeholder="아이디" maxlength="" required)
+        input(type="password",id="pwInput" ,class="formContent" , name="", placeholder="비밀번호" maxlength="" required)
+        button(type="submit",id="" ,class="formContent formBtn") 요청하기
+        .supLink
+          a(href="/admin/login")
+            span 관리자 로그인
+    .modal
+      .modalContent
+        .modalTitle 관리자 승급 요청
+        .modalDesc
+          p 관리자 승급 요청이
+          p 완료되었습니다.
+        a(href="/admin/login")
+          button.modalBtn 확인
+    script(src="../js/modal.js")
+    script(src="../js/validate/loginValidate.js" type="module")

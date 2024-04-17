@@ -1,0 +1,154 @@
+body .adminContainer {
+  width: 600px;
+  height: 800px;
+  background-color: #92E4FF;
+}
+body .adminContainer .adminHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+body .adminContainer .adminHeader .adTitle {
+  font-size: 44px;
+  color: #fff;
+  font-weight: bold;
+}
+body .adminContainer .adminHeader .adNoti {
+  font-size: 20px;
+  color: #005E87;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+body .adminContainer .adminHeader .adNoti .notiIcon {
+  background-image: url(../images/noti.svg);
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  margin-right: 14px;
+}
+body .adminContainer .adminHeader .adNoti .notiIcon .iconNumber {
+  position: absolute;
+  top: -6px;
+  left: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 24px;
+  height: 24px;
+  color: red;
+  font-size: 16px;
+}
+body .adminContainer .adminHeader .adminHeaderBtn {
+  width: 140px;
+  height: 50px;
+  background-color: #005E87;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 20px;
+}
+body .adminManage {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  color: #005E87;
+}
+body .adminManage .subTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+body .adminManage .subCount {
+  font-size: 18px;
+}
+body .adminSetting {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+body .adminSetting .adminFilter {
+  background-image: url(../images/filter.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+}
+body .adminSetting .deleteBtn {
+  width: 80px;
+  height: 20px;
+  border-radius: 6px;
+  background: #005E87;
+  font-size: 12px;
+  color: #fff;
+  margin-left: 20px;
+}
+body .adminContent {
+  width: 560px;
+  height: 130px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+body .adminContent .adminRow {
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  width: 98%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background-color: #92E4FF;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+body .adminContent .check {
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+body .adminContent .btnCont {
+  display: flex;
+}
+body .adminContent .btnCont .button {
+  width: 28px;
+  height: 28px;
+  background-color: #005E87;
+  color: #fff;
+}
+body .adminContent .btnCont .editBtn {
+  background-image: url(../images/edit.svg);
+  background-size: cover;
+  width: 28px;
+  height: 28px;
+  background-color: #005E87;
+  border-radius: 4px;
+}
+body .adminContent .btnCont .deleteBtn {
+  margin-left: 6px;
+  background-image: url(../images/delete.svg);
+  background-size: cover;
+  width: 28px;
+  height: 28px;
+  background-color: #005E87;
+  border-radius: 4px;
+}/*# sourceMappingURL=admin.css.map */

@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+:root {
+  --main-color: #009BB6;
+  --secondary-color: #aaa;
+  --main-font: "Nanum Gothic", sans-serif;
+}
+
+body {
+  font-family: var(--main-font);
+  background: radial-gradient(#ffc47b, #009BB6);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    border: 1px solid #000;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+
+    .formTitle {
+      font-size: 32px;
+      font-weight: bold;
+      color: var(--main-color);
+      padding-top: 70px;
+      padding-bottom: 60px;
+    }
+
+    .formSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        padding-left: 10px;
+      }
+
+      .formContent {
+        width: 200px;
+        height: 50px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: normal;
+        border: 1px solid var(--main-color);
+      }
+
+      .formContent:focus {
+        outline: none;
+        border: 3px solid var(--main-color);
+      }
+
+      .formBtn {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: var(--main-color);
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .supLink {
+        color: #aaa;
+        font-size: 16px;
+
+        span {
+          border-right: 3px solid #777777;
+          padding-left: 6px;
+          padding-right: 6px;
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+
+  }
+
+  .bigContainer {
+    width: 600px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modalContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    text-align: center;
+    background-color: #fff;
+    border-radius:20px;
+
+    .modalTitle {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .modalDesc {
+      margin-bottom: 30px;
+      p {
+        font-size: 24px;
+      }
+    }
+
+    .modalBtn {
+      background-color: var(--main-color);
+      color:#fff;
+      width: 120px;
+      height: 50px;
+      border-radius:10px;
+    }
+  }
+}

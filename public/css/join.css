@@ -1,0 +1,17 @@
+body .joinContainer {
+  width: 500px;
+  height: 800px;
+}
+body .joinContainer .formSection .formContent {
+  width: 340px;
+  font-size: 16px;
+}
+body .joinContainer .formSection .joinBtnSection {
+  width: 340px;
+  display: flex;
+  justify-content: space-between;
+}
+body .joinContainer .formSection .joinBtnSection .formBtn {
+  width: 140px;
+  font-size: 20px;
+}/*# sourceMappingURL=join.css.map */

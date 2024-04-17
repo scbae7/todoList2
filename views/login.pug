@@ -1,0 +1,25 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/common.css")
+  body 
+    .container
+      h1.formTitle
+        a(href="/login") LOG IN
+      form(action="", method="" class="formSection")
+        input(type="text", id="idInput",class="formContent" , name="", placeholder="아이디" maxlength="" required)
+        input(type="password",id="pwInput" ,class="formContent" , name="", placeholder="비밀번호" maxlength="" required)
+        button(type="submit" ,class="formContent formBtn") 로그인
+        .supLink
+          a(href="/findId")
+            span 아이디 찾기
+          a(href="/findPw")
+            span 비밀번호 찾기
+          a(href="/join")
+            span 회원가입
+    //- script(src="./js/validate/loginValidate.js" type="module")
+    script(src="./js/validate.js" type="module")

@@ -1,0 +1,23 @@
+body {
+  .joinContainer {
+    width: 500px;
+    height: 800px;
+    
+    .formSection {
+      .formContent {
+        width: 340px;
+        font-size: 16px;
+      }
+      .joinBtnSection {
+        width: 340px;
+        display: flex;
+        justify-content: space-between;
+        .formBtn {
+          width: 140px;
+          font-size: 20px;
+        }
+      }
+    }
+
+   }
+}

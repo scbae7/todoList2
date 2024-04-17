@@ -1,0 +1,31 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/common.css")
+  body 
+    .container
+      h1.formTitle 
+        a(href="/findId") 아이디 찾기
+      form(action="", method="" class="formSection")
+        input(type="text" ,class="formContent" , name="", placeholder="이름" maxlength="")
+        input(type="text" ,class="formContent" , name="", placeholder="이메일" maxlength="")
+        button(type="submit",id="openModalBtn" ,class="formContent formBtn") 아이디 찾기
+        .supLink
+          a(href="/findPw")
+            span 비밀번호 찾기
+          a(href="/login") 
+            span 로그인
+    .modal
+      .modalContent
+        .modalTitle 아이디 발급
+        .modalDesc
+          p 이메일로 아이디가
+          p 발급되었습니다.
+        a(href="/login")
+          button.modalBtn 확인
+    script(src="./js/modal.js")
+    script(src="./js/validate.js" type="module")

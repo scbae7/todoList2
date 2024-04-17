@@ -1,0 +1,34 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/common.css")
+    link(rel="stylesheet", href="./css/join.css")
+  body 
+    .container.joinContainer
+      h1.formTitle SIGN UP
+      form(action="", method="" class="formSection")
+        input(type="text", id="idInput",class="formContent" , name="", placeholder="아이디 (4~10자)" maxlength="" required)
+        input(type="password",id="pwInput" ,class="formContent" , name="", placeholder="비밀번호 (문자, 숫자, 특수문자 포함 6자)" maxlength="" required)
+        input(type="password",id="pwConfirmInput",class="formContent" , name="", placeholder="비밀번호 확인" maxlength="" required)
+        input(type="email",id="emailInput",class="formContent" , name="", placeholder="이메일 (abcd@naver.com)" maxlength="" required)
+        input(type="text",id="nameInput" ,class="formContent" , name="", placeholder="이름 (홍길동)" maxlength="" required)
+        input(type="text" ,class="formContent" , name="", placeholder="캡챠" maxlength="")
+        .joinBtnSection
+          button(type="submit",id="" ,class="formContent formBtn") 회원가입
+          a(href="/login")
+            button(type="submit" ,class="formContent formBtn") 가입취소
+    .modal
+      .modalContent
+        .modalTitle SIGN UP
+        .modalDesc
+          p 회원가입이 성공적으로
+          p 완료되었습니다.
+        a(href="/login")
+          button.modalBtn 확인
+    script(src="./js/modal.js")
+    //- script(src="./js/validate/joinValidate.js" type="module")
+    script(src="./js/validate.js" type="module")

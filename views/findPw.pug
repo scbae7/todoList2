@@ -1,0 +1,31 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/common.css")
+  body 
+    .container
+      h1.formTitle 
+        a(href="/findPw") 비밀번호 찾기
+      form(action="", method="" class="formSection")
+        input(type="text" ,class="formContent" , name="", placeholder="아이디" maxlength="")
+        input(type="text" ,class="formContent" , name="", placeholder="이메일" maxlength="")
+        button(type="submit",id="openModalBtn",class="formContent formBtn") 비밀번호 찾기
+        .supLink
+          a(href="/findId")
+            span 아이디 찾기
+          a(href="/login")
+            span 로그인
+    .modal
+      .modalContent
+        .modalTitle 비밀번호 변경
+        .modalDesc
+          p 비밀번호가 1234a!로
+          p 변경되었습니다.
+        a(href="/resetPw")
+          button.modalBtn 확인
+    script(src="./js/modal.js")
+    script(src="./js/validate.js" type="module")
