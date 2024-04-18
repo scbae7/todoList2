@@ -3,7 +3,7 @@ html(lang="ko")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
+    title SIGN UP
     link(rel="stylesheet", href="./css/reset.css")
     link(rel="stylesheet", href="./css/common.css")
     link(rel="stylesheet", href="./css/join.css")
@@ -11,14 +11,14 @@ html(lang="ko")
     .container.joinContainer
       h1.formTitle SIGN UP
       form(action="/join", method="POST" ,class="formSection", enctype="multipart/form-data")
-        input(type="text", id="idInput",class="formContent" , name="userId", placeholder="아이디 (4~10자)", maxlength="10", required)
-        input(type="password",id="pwInput" ,class="formContent" , name="userPassword", placeholder="비밀번호 (문자, 숫자, 특수문자 포함 6자)" maxlength="" required)
-        input(type="password",id="pwConfirmInput",class="formContent" , name="userPasswordConfirm", placeholder="비밀번호 확인", maxlength="" required)
-        input(type="email",id="emailInput",class="formContent" , name="userEmail", placeholder="이메일 (abcd@naver.com)" maxlength="" required)
-        input(type="text",id="nameInput" ,class="formContent" , name="userName", placeholder="이름 (홍길동)" maxlength="" required)
-        input(type="text" ,class="formContent" , name="", placeholder="캡챠" maxlength="")
+        input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 (4~10자)", maxlength="10", required)
+        input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호 (문자, 숫자, 특수문자 포함 6자)", maxlength="", required)
+        input(type="password",id="pwConfirmInput",class="formContent" , name="pwConfirmInput", placeholder="비밀번호 확인", maxlength="", required)
+        input(type="email",id="emailInput",class="formContent" , name="emailInput", placeholder="이메일 (abcd@naver.com)", maxlength="", required)
+        input(type="text",id="nameInput" ,class="formContent" , name="nameInput", placeholder="이름 (홍길동)", maxlength="", required)
+        input(type="text" ,class="formContent" , name="", placeholder="캡챠", maxlength="")
         .joinBtnSection
-          button(type="submit",id="" ,class="formContent formBtn") 회원가입
+          button(type="submit",id="joinBtn" ,class="formContent formBtn") 회원가입
           a(href="/login")
             button(type="submit" ,class="formContent formBtn") 가입취소
     .modal
@@ -32,3 +32,4 @@ html(lang="ko")
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")
+    script(src="./js/user/join.js")

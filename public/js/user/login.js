@@ -9,7 +9,7 @@ document.getElementById('loginBtn').addEventListener('click', (e) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      username: idInput,
+      userId: idInput,
       password: pwInput,
     }),
   })

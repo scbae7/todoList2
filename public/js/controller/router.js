@@ -41,9 +41,9 @@ router.get('/login',(req,res)=>{
 //   });
 // });
 router.post('/login', (req, res) => {
-  const { username, password } = req.body;
+  const { userId, password } = req.body;
 
-  data.query('select * from userTable where userID = ? and userPassword = ?', [username, password], (err, results) => {
+  data.query('select * from userTable where userID = ? and userPassword = ?', [userId, password], (err, results) => {
     if (err) {
       console.error(err);
       res.status(500).json({ success: false, message: '서버 오류' });
@@ -61,8 +61,33 @@ router.get('/join',(req,res)=>{
   res.render('join');
 })
 router.post('/join',(req,res)=>{
-  const data3 = req.body;
-  console.log(data3)
+  const { userId, password,email,name } = req.body;
+  console.log(`userId:${userId}`);
+  console.log(`password:${password}`);
+  console.log(`email:${email}`);
+  console.log(`name:${name}`);
+
+  data.query('select count(*) as count from userTable where userId = ?', [userId],(err,results)=>{
+    if(err){
+      console.error('쿼리 실행 중 오류 발생:',err);
+      return res.status(500).json({ success: false, message: '서버 오류' });
+    }
+    const count = results[0].count;
+
+    if(count > 0){
+      return res.status(400).json({ success: false, message: '이미 존재하는 아이디입니다.' });
+    }
+    data.query('insert into userTable (userId, userPassword, userEmail, userName) values (?,?,?,?)',
+    [userId, password, email, name],(err,results)=>{
+      if(err){
+        console.err('쿼리 실행 중 오류 발생:',err);
+        return res.status(500).json({ success: false, message: '서버 오류' });
+      }else{
+        console.log(results);
+        res.status(200).json({ success: true })
+      }
+    });
+  })
 })
 
 router.get('/findId',(req,res)=>{
