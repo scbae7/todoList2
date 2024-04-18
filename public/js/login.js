@@ -1,5 +1,5 @@
-document.getElementById('loginBtn').addEventListener('click',(e)=>{
-  e.preventDefault()
+document.getElementById('loginBtn').addEventListener('click', (e) => {
+  e.preventDefault();
 
   const idInput = document.getElementById('idInput').value;
   const pwInput = document.getElementById('pwInput').value;
@@ -9,23 +9,18 @@ document.getElementById('loginBtn').addEventListener('click',(e)=>{
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      // POST 요청으로 전송할 데이터
       username: idInput,
       password: pwInput,
     }),
   })
-  .then(response => {
-    if (response.ok) {
-      // POST 요청이 성공한 경우 처리
-      console.log('Join successful');
-    } else {
-      // POST 요청이 실패한 경우 처리
-      console.error('Join failed');
-    }
-  })
-  .catch(error => {
-    // 네트워크 오류 등으로 인한 실패 처리
-    console.error('Error:', error);
-  });
-  
-})
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        window.location.href = "/todo";
+      } else {
+        console.error('로그인 실패:', data.message);
+        // 로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리
+      }
+    })
+    .catch(error => console.error('에러 발생', error));
+});

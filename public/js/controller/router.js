@@ -6,14 +6,57 @@ const data = mysql.createConnection(db);
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
-
 router.get('/login',(req,res)=>{
   res.render('login');
 })
-router.post('/login',(req,res)=>{
-  const {username,password} = req.body;
-  console.log(username,password);
-})
+// router.post('/login',(req,res)=>{
+//   const {username,password} = req.body;
+//   console.log(username,password);
+//   data.query('select * from userTable',(err,results)=>{
+//     if(err){
+//       console.error('쿼리 실행 중 오류 발생 : ', err);
+//       res.redirect('/login');
+//     }else{
+//       results.forEach(row=>{
+//         console.log(row);
+//       })
+//     }
+//   })
+// })
+// router.post('/login', (req, res) => {
+//   const { username, password } = req.body;
+
+//   data.query('select * from userTable where userID =? and userPassword =?',[username, password],(err,results) => {
+//     if (err) {
+//       console.error(err);
+//       res.status(500).send('서버 오류');
+//     } else {
+//       if (results.length > 0) {
+//         // req.session.user = results[0];
+//         res.redirect('/todo');
+//       } else {
+//         res.redirect('/login')
+//       }
+//     }
+//   });
+// });
+router.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  data.query('select * from userTable where userID = ? and userPassword = ?', [username, password], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ success: false, message: '서버 오류' });
+    } else {
+      if (results.length > 0) {
+        res.status(200).json({ success: true });
+      } else {
+        res.status(401).json({ success: false, message: '아이디나 비밀번호가 잘못되었습니다.' });
+      }
+    }
+  });
+});
+
 router.get('/join',(req,res)=>{
   res.render('join');
 })
