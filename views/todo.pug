@@ -85,10 +85,10 @@ html(lang="ko")
             .filterCont aaa@naver.com
       .modalContent.modalFormContent
         .modalFormTitle 
-          span 할 일 추가
+          span 추가하기
           button.closeBtn 
             span.closeIcon
-        form(class="modalForm", action="/editTodo",method="put" entype="multupart/form-data")
+        form(class="modalForm", action="/editTodo",method="put", entype="multupart/form-data")
           input(type="hidden", id="editTodoId", name="todo_id")
           .inputRow
             label(class="inputLabel", for="todo_content") 할일
@@ -101,7 +101,15 @@ html(lang="ko")
             textarea.editTodoDesc(id="editTodoDesc",class="inputInfo", name="todo_desc" placeholder="설명" maxlength="50") 설명
           .inputRow
             label(class="inputLabel",for="editTodoDesc") 태그
-            input(type="text", id="editTodoDesc", name="editTodoDesc", placeholder="설명" maxlength="15")
+            input(type="text", id="editTodoDesc", class="inputInfo",name="editTodoDesc", placeholder="설명" maxlength="15")
+          .inputRow
+            label(class="inputLabel",for="") 파일
+            input(class="inputInfo" type="file", id="", name="", placeholder="설명" maxlength="15")
+            label(id="fileLabel")
+          .inputRow
+            label(class="inputLabel",for="") 녹음
+            input(class="inputInfo" type="file", id="", name="fileLabel", placeholder="설명")
+            label(id="fileLabel")
           .inputRow2
             label(class="inputLabel2",for="") 파일
             input(class="inputInfo2" type="file", id="", name="", placeholder="설명" maxlength="15")

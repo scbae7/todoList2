@@ -10,10 +10,10 @@ html(lang="ko")
     .container
       h1.formTitle
         a(href="/login") LOG IN
-      form(action="", method="" class="formSection")
-        input(type="text", id="idInput",class="formContent" , name="", placeholder="아이디" maxlength="" required)
-        input(type="password",id="pwInput" ,class="formContent" , name="", placeholder="비밀번호" maxlength="" required)
-        button(type="submit" ,class="formContent formBtn") 로그인
+      form(action="/login", method="post", class="formSection")
+        input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디" ,maxlength="", required)
+        input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호" ,maxlength="", required)
+        button(id="loginBtn", type="submit" ,class="formContent formBtn") 로그인
         .supLink
           a(href="/findId")
             span 아이디 찾기
@@ -23,3 +23,4 @@ html(lang="ko")
             span 회원가입
     //- script(src="./js/validate/loginValidate.js" type="module")
     script(src="./js/validate.js" type="module")
+    script(src="./js/login.js")
