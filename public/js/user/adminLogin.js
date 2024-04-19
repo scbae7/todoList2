@@ -3,8 +3,7 @@ document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
 
   const idInput = document.getElementById('idInput').value;
   const pwInput = document.getElementById('pwInput').value;
-  // admin/login
-  fetch('/login', {
+  fetch('/admin/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +18,7 @@ document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
       if (data.success) {
         window.location.href = "/admin";
       } else {
-        console.error('로그인 실패:', data.message);
+        console.error('관리자 로그인 실패:', data.message);
         // 로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리
       }
     })

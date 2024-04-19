@@ -11,9 +11,9 @@ class UserModel {
         data.query(
           'select * from userTable where userId = ? and userPassword = ?', 
           [userId, password],
-          (err, results) => {
+          (err, result) => {
             if (err) reject(err);
-            resolve(results);
+            resolve(result);
           }
         );
       });
@@ -24,25 +24,28 @@ class UserModel {
   }
   async adminUserLogin(userId, password){
     try {
+      console.log('s')
       const results = await new Promise ( (resolve, reject)=>{
         data.query(
-          'select * from userTable where userId = ? and userPassword =? and userRole = "admin"',
+          'select * from userTable where userId = ? and userPassword = ? and userRole = "admin"',
           [userId, password],
-          (err, results) => {
+          (err, result) => {
             if (err) reject(err);
-            resolve(results);
+            resolve(result);
           }
-        )
-      } )
+        );
+      });
+      return results;
     } catch (err) {
       throw err;
     }
   }
+  
   async idCheck(userId){
     try{
       const results = await new Promise( (resolve, reject)=>{
         data.query(
-          'select count(*) as count from userTable where userId =?,', [userId],
+          'select count(*) as count from userTable where userId =?', [userId],
           (err,results)=> {
             if (err) reject(err);
             resolve(results);
@@ -65,12 +68,29 @@ class UserModel {
           'insert into userTable (userId, userPassword, userEmail, userName) values (?, ?, ?, ?)',
           [userId, password, email, name],
           (err,results)=>{
-            if(err) reject(err);
-            resolve(results);
+            if(err){
+              reject(err);
+            } else {
+              resolve(results);
+            }
           }
         );
       });
       return {success:true, message:'회원가입 성공'};
+    } catch (err) {
+      throw err;
+    }
+  }
+  async getUserInfoByUserId(userId) {
+    try {
+      const query = 'SELECT userId,userName FROM userTable WHERE userId = ?';
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [userId], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
     } catch (err) {
       throw err;
     }

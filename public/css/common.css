@@ -19,7 +19,6 @@ body .container {
   width: 400px;
   height: 500px;
   transform: translate(-50%, -50%);
-  border: 1px solid #000;
   text-align: center;
   background-color: #fff;
   border-radius: 20px;

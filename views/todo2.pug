@@ -27,29 +27,30 @@ html(lang="ko")
         .headerTitle
           span.headerIcon
           span TODO LIST
-        .headerHello= todos[0].userName + '님 안녕하세요'
-      .todoHeader
+        .headerHello 홍길동님 안녕하세요
+      .todoSection
+        .todoHeader
           .todoCont TODO
           .addCont + NEW
-          .DoneCont DONE  
-      .todoSection
-        
-        each todo in todos
-          - if (todo)
-            .todoRow
-              - if (todo.due_date)
-                - var dueDate = new Date(todo.due_date);
-                - var formattedDueDate = dueDate.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                .rowDate= formattedDueDate
-              - if (todo.todolist_cont)
-                .rowDesc= todo.todolist_cont
-              .rowTag
-                - if (todo.todo_tag)
-                  each tag in todo.todo_tag.split(',')
-                    span.rowTagData= tag.trim()
-              - if (todo.todo_file)
-                button.rowControl
-                  span.rowControlIcon
+          .DoneCont DONE
+        .todoRow
+          .rowDate 2024. 04. 11.
+          .rowDesc 밥먹기
+          .rowTag
+            span.rowTagData # 코딩
+            span.rowTagData # 과제
+            span.rowTagData # 회사
+            span.rowTagData # 집
+          button.rowControl
+            span.rowControlIcon
+        .todoRow
+          .rowDate 2024. 04. 11.
+          .rowDesc 밥먹기
+          .rowTag
+            span.rowTagData # 코딩
+            span.rowTagData # 과제
+          button.rowControl
+            span#openModalBtn.rowControlIcon
     .modal
       //- div(class="modalContent myPageModalCont")
       //-   .myPageTitle

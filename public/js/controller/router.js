@@ -10,67 +10,41 @@ const UserModel = require('../model/user/userModel');
 const myUser = new UserModel('myUser');
 const TodoModel = require('../model/todo/todoModel');
 const myTodo = new TodoModel('myTodo');
+const session = require('express-session');
+
+router.use(session({
+  secret: 'your_secret_key', // 세션을 서명하는 데 사용되는 비밀키 (필수)
+  resave: false, // 변경되지 않은 세션을 다시 저장할지 여부를 나타내는 옵션 (권장: false)
+  saveUninitialized: false, // 초기화되지 않은 세션을 저장소에 저장할지 여부를 나타내는 옵션 (권장: false)
+  // store: sessionStore, // 세션을 저장할 저장소 설정 (선택 사항)
+  cookie: { secure: false } // 클라이언트에 전송되는 세션 쿠키 설정 (예: HTTPS를 사용할 때 true로 설정)
+}));
+
+
 router.get('/login',(req,res)=>{
   res.render('login');
 })
-// router.post('/login',(req,res)=>{
-//   const {username,password} = req.body;
-//   console.log(username,password);
-//   data.query('select * from userTable',(err,results)=>{
-//     if(err){
-//       console.error('쿼리 실행 중 오류 발생 : ', err);
-//       res.redirect('/login');
-//     }else{
-//       results.forEach(row=>{
-//         console.log(row);
-//       })
-//     }
-//   })
-// })
-// router.post('/login', (req, res) => {
-//   const { username, password } = req.body;
-
-//   data.query('select * from userTable where userID =? and userPassword =?',[username, password],(err,results) => {
-//     if (err) {
-//       console.error(err);
-//       res.status(500).send('서버 오류');
-//     } else {
-//       if (results.length > 0) {
-//         // req.session.user = results[0];
-//         res.redirect('/todo');
-//       } else {
-//         res.redirect('/login')
-//       }
-//     }
-//   });
-// });
-router.post('/login', (req, res) => {
-  const { userId, password } = req.body;
-
-  myUser.userLogin(userId, password, (err,results)=>{
-    if(err){
-      console.error(err);
-      return res.status(500).json({ success:false, message: '서버 오류' });
+router.post('/login', async (req, res) => {
+  try {
+    const { userId, password } = req.body;
+    const results = await myUser.userLogin(userId, password);
+    if (results.length > 0) {
+      const userName = await myUser.getUserInfoByUserId(userId); // 사용자의 이름만 가져옵니다.
+      req.session.user = {
+        userId: userId,
+        name: userName // 여기서는 사용자 이름만 저장합니다.
+      };
+      console.log(req.session.user.userId);
+      console.log(req.session.user.name);
+      console.log('로그인 성공!')
+      return res.status(200).json({ success: true });
+    } else {
+      return res.status(401).json({ success: false, message: '아이디나 비밀번호가 잘못되었습니다.' })
     }
-    if(results.length>0){
-      return res.status(200).json({success:true});
-    }else{
-      return res.status(401).json({success:false, message:'아이디나 비밀번호가 잘못되었습니다.'})
-    }
-  })
-
-  // data.query('select * from userTable where userID = ? and userPassword = ?', [userId, password], (err, results) => {
-  //   if (err) {
-  //     console.error(err);
-  //     res.status(500).json({ success: false, message: '서버 오류' });
-  //   } else {
-  //     if (results.length > 0) {
-  //       res.status(200).json({ success: true });
-  //     } else {
-  //       res.status(401).json({ success: false, message: '아이디나 비밀번호가 잘못되었습니다.' });
-  //     }
-  //   }
-  // });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ success: false, message: '서버 오류' });
+  }
 });
 
 router.get('/join',(req,res)=>{
@@ -90,49 +64,6 @@ router.post('/join', async (req,res)=>{
     console.error('에러발생:',err);
     res.status(500).json({success:false, message:'서버 오류'});
   }
-  // const { userId, password,email,name } = req.body;
-
-  // myUser.idCheck(userId, (err,results)=>{
-  //   if(err){
-  //     console.error('쿼리 실행 중 오류 발생:',err);
-  //     return res.status(500).json({success:false, message:'서버 오류 '});
-  //   }
-  //   const count = results[0].count;
-  //   if(count > 0){
-  //     return res.status(400).json({ sucess: false, message: '이미 존재하는 아이디입니다.'});
-  //   }
-  //   myUser.userJoin(userId,password,email,name, (err,results)=>{
-  //     if(err){
-  //       console.err('쿼리 실행 중 오류 발생:',err);
-  //       return res.status(500).json({success:false, message:'서버 오류'});
-  //     }else{
-  //       console.log(results);
-  //       res.status(200).json({success:true});
-  //     }
-  //   })
-  // })
-
-  // data.query('select count(*) as count from userTable where userId = ?', [userId],(err,results)=>{
-  //   if(err){
-  //     console.error('쿼리 실행 중 오류 발생:',err);
-  //     return res.status(500).json({ success: false, message: '서버 오류' });
-  //   }
-  //   const count = results[0].count;
-
-  //   if(count > 0){
-  //     return res.status(400).json({ success: false, message: '이미 존재하는 아이디입니다.' });
-  //   }
-  //   data.query('insert into userTable (userId, userPassword, userEmail, userName) values (?,?,?,?)',
-  //   [userId, password, email, name],(err,results)=>{
-  //     if(err){
-  //       console.err('쿼리 실행 중 오류 발생:',err);
-  //       return res.status(500).json({ success: false, message: '서버 오류' });
-  //     }else{
-  //       console.log(results);
-  //       res.status(200).json({ success: true })
-  //     }
-  //   });
-  // })
 })
 
 router.get('/findId',(req,res)=>{
@@ -161,36 +92,24 @@ router.get('/admin/login',(req,res)=>{
   res.render('adminLogin');
 })
 router.post('/admin/login', async (req,res)=>{
-  const { userId, password } = req.body;
-
   try {
+    const { userId, password } = req.body;
     const results = await myUser.adminUserLogin(userId, password);
     if(results.length>0){
-      res.status(200).json({success:true});
+      console.log('관리자 로그인 성공!')
+      return res.status(200).json({success:true});
     }else{
       const userResults = await myUser.userLogin(userId, password);
       if(userResults.length>0){
-        res.status(401).json({ success:false, message: '관리자 권한이 없습니다.'});
+        return res.status(401).json({success:false, message: '관리자 권한이 없습니다.'});
       }else{
-        res.status(401).json({success:false, message: '아이디나 비밀번호가 잘못되었습니다.'});
+        return res.status(401).json({success:false, message: '아이디나 비밀번호가 잘못되었습니다.'});
       }
     }
   } catch (err) {
     console.error(err);
     res.status(500).json({success:false, message:'서버 오류'});
   }
-
-  myUser.adminUserLogin(userId, password, (err,results)=>{
-    if(err){
-      console.error(err);
-      return res.status(500).json({ success:false, message:'서버 오류'});
-    }
-    if(results.length>0){
-      return res.status(200).json({ success:true });
-    }else{
-      return res.status(401).json({ success:false, message:'아이디나 비밀번호가 잘못되었습니다.'});
-    }
-  })
 })
 router.get('/admin/request',(req,res)=>{
   res.render('adminRequest');
@@ -199,17 +118,26 @@ router.get('/admin/request',(req,res)=>{
 router.get('/admin',(req,res)=>{
   res.render('admin');
 })
+
 router.get('/todo', async(req,res)=>{
-  // try {
-  //   const userId = req.session.user.id;
-  //   const todos = await todoModel.getTodoUserId(userId);
-  //   res.render('todo',{todos:todos});
-  // }catch(err){
-  //   console.error(err);
-  //   res.status(500).send('서버 오류');
-  // }
-  res.render('todo');
+  try {
+    const userId = req.session.user.userId;
+    const userName = req.session.user.name;
+    // console.log(userId);
+    // console.log(userName);
+    const todos = await myTodo.getTodosForUser(userId);
+    // console.log(todos);
+    res.render('todo',{todos:todos});
+  } catch(err){
+    console.error(err);
+    res.status(500).send('서버 오류');
+  }
 })
+router.get('/todo2', async(req,res)=>{
+  res.render('todo2')
+})
+
+
 router.get('/deleteUser',(req,res)=>{
   res.render('deleteUser');
 })
