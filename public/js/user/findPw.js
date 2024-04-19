@@ -1,8 +1,8 @@
 document.getElementById('findPwBtn').addEventListener('click', (e) => {
   e.preventDefault();
-
   const idInput = document.getElementById('idInput').value;
   const emailInput = document.getElementById('emailInput').value;
+  console.log(idInput,emailInput);
   fetch('/findPw', {
     method: 'POST',
     headers: {

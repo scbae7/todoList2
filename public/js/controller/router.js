@@ -138,8 +138,21 @@ router.post('/join', async (req,res)=>{
 router.get('/findId',(req,res)=>{
   res.render('findId');
 })
+router.post('/findId', (req,res)=>{
+  const { userName, email } = req.body;
+  console.log(userName, email);
+  // try {
+
+  // } catch (err) {
+
+  // }
+})
 router.get('/findPw',(req,res)=>{
   res.render('findPw');
+})
+router.post('/findPw',(req,res)=>{
+  const { userId, email } = req.body;
+  console.log(req.body);
 })
 router.get('/resetPw',(req,res)=>{
   res.render('resetPw');
@@ -187,14 +200,14 @@ router.get('/admin',(req,res)=>{
   res.render('admin');
 })
 router.get('/todo', async(req,res)=>{
-  try {
-    const userId = req.session.user.id;
-    const todos = await todoModel.getTodoUserId(userId);
-    res.render('todo',{todos:todos});
-  }catch(err){
-    console.error(err);
-    res.status(500).send('서버 오류');
-  }
+  // try {
+  //   const userId = req.session.user.id;
+  //   const todos = await todoModel.getTodoUserId(userId);
+  //   res.render('todo',{todos:todos});
+  // }catch(err){
+  //   console.error(err);
+  //   res.status(500).send('서버 오류');
+  // }
   res.render('todo');
 })
 router.get('/deleteUser',(req,res)=>{

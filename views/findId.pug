@@ -10,10 +10,10 @@ html(lang="ko")
     .container
       h1.formTitle 
         a(href="/findId") 아이디 찾기
-      form(action="", method="" class="formSection")
-        input(type="text" ,class="formContent" , name="", placeholder="이름" maxlength="")
-        input(type="text" ,class="formContent" , name="", placeholder="이메일" maxlength="")
-        button(type="submit",id="openModalBtn" ,class="formContent formBtn") 아이디 찾기
+      form(action="/findId",method="post",class="formSection")
+        input(type="text",id="nameInput",class="formContent",name="nameInput",placeholder="이름",maxlength="")
+        input(type="text",id="emailInput",class="formContent",name="emailInput",placeholder="이메일",maxlength="")
+        button(type="submit",id="findIdBtn",class="formContent formBtn") 아이디 찾기
         .supLink
           a(href="/findPw")
             span 비밀번호 찾기
@@ -29,3 +29,4 @@ html(lang="ko")
           button.modalBtn 확인
     script(src="./js/modal.js")
     script(src="./js/validate.js" type="module")
+    script(src="./js/user/findId.js")

@@ -3,6 +3,7 @@ document.getElementById('findIdBtn').addEventListener('click', (e) => {
 
   const nameInput = document.getElementById('nameInput').value;
   const emailInput = document.getElementById('emailInput').value;
+  console.log(nameInput, emailInput);
   fetch('/findId', {
     method: 'POST',
     headers: {
