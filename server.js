@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const controller = require('./public/js/controller/router');
-
 
 
 app.set('view engine', 'pug');
