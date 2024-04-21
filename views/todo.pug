@@ -8,7 +8,8 @@ html(lang="ko")
     link(rel="stylesheet", href="./css/common.css")
     link(rel="stylesheet", href="./css/todo.css")
     link(rel="stylesheet", href="./css/todoForm.css")
-  body 
+  body
+    include ./modal/addTodoModal.pug
     .container.todoContainer
       .navSection
         button.tagSearchBtn # 
@@ -27,7 +28,10 @@ html(lang="ko")
         .headerTitle
           span.headerIcon
           span TODO LIST
-        .headerHello= todos[0].userName + '님 안녕하세요'
+        if (fUserName)
+            .headerHello= fUserName.userName + '님 안녕하세요'
+        else
+            .headerHello 회원 이름이 없어
       .todoHeader
           .todoCont TODO
           .addCont + NEW
@@ -47,7 +51,6 @@ html(lang="ko")
                 - if (todo.todo_tag)
                   each tag in todo.todo_tag.split(',')
                     span.rowTagData= tag.trim()
-              - if (todo.todo_file)
                 button.rowControl
                   span.rowControlIcon
     .modal
@@ -82,43 +85,8 @@ html(lang="ko")
           .filterSection
             .filterLabel E-MAIL
             .filterCont aaa@naver.com
-      .modalContent.modalFormContent
-        .modalFormTitle 
-          span 추가하기
-          button.closeBtn 
-            span.closeIcon
-        form(class="modalForm", action="/editTodo",method="put", entype="multupart/form-data")
-          input(type="hidden", id="editTodoId", name="todo_id")
-          .inputRow
-            label(class="inputLabel", for="todo_content") 할일
-            input(class="inputInfo", type="text", id="editTodoContent", name="todo_content", placeholder="할 일을 입력해주세요!" maxlength="15")
-          .inputRow
-            label(class="inputLabel" for="editTodoDueDate") 날짜
-            input(class="inputInfo" type="date", id="editDueDate", name="due_date")
-          .inputRow
-            label(class="inputLabel",for="editTodoDesc") 설명
-            textarea.editTodoDesc(id="editTodoDesc",class="inputInfo", name="todo_desc" placeholder="설명" maxlength="50") 설명
-          .inputRow
-            label(class="inputLabel",for="editTodoDesc") 태그
-            input(type="text", id="editTodoDesc", class="inputInfo",name="editTodoDesc", placeholder="설명" maxlength="15")
-          .inputRow
-            label(class="inputLabel",for="") 파일
-            input(class="inputInfo" type="file", id="", name="", placeholder="설명" maxlength="15")
-            label(id="fileLabel")
-          .inputRow
-            label(class="inputLabel",for="") 녹음
-            input(class="inputInfo" type="file", id="", name="fileLabel", placeholder="설명")
-            label(id="fileLabel")
-          .inputRow2
-            label(class="inputLabel2",for="") 파일
-            input(class="inputInfo2" type="file", id="", name="", placeholder="설명" maxlength="15")
-            label(id="fileLabel")
-            label(class="inputLabel2",for="") 음성 녹음
-            input(class="inputInfo2" type="file", id="", name="fileLabel", placeholder="설명")
-            label(id="fileLabel")
-          .modalFormBtnCont
-            button(id="",class="modalFormBtn",type="submit") 추가하기
-            button(id="" class="modalFormBtn") 취소
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")
+    script(src="./js/todoData/addTodo.js")
+

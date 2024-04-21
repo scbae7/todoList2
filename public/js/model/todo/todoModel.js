@@ -36,5 +36,41 @@ class TodoModel {
       throw err;
     }
   }
+  async addTodo(
+    todoCont,
+    todoDate,
+    todoDesc,
+    todoUserId,
+    todoTag = null,
+    todoFile = null,
+    todoSound = null
+  ){
+    try {
+      await new Promise((resolve, reject)=>{
+        data.query(
+          'insert into todotable (todolist_cont, due_date, todo_desc, userId, todo_tag, todo_file, todo_sound) values (?, ?, ?, ?, ?, ?, ?)',
+          [
+            todoCont,
+            todoDate,
+            todoDesc,
+            todoUserId,
+            todoTag,
+            todoFile,
+            todoSound,
+          ],
+          (err,results)=>{
+            if(err){
+              reject(err);
+            } else {
+              resolve(results);
+            }
+          }
+        );
+      });
+      return {success:true, message:'투두 추가 성공'};
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 module.exports = TodoModel;

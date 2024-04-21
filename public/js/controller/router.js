@@ -127,7 +127,7 @@ router.get('/todo', async(req,res)=>{
     // console.log(userName);
     const todos = await myTodo.getTodosForUser(userId);
     // console.log(todos);
-    res.render('todo',{todos:todos});
+    res.render('todo',{todos:todos,fUserName:userName,fUserId:userId});
   } catch(err){
     console.error(err);
     res.status(500).send('서버 오류');
@@ -136,7 +136,36 @@ router.get('/todo', async(req,res)=>{
 router.get('/todo2', async(req,res)=>{
   res.render('todo2')
 })
-
+router.post('/addTodo', async(req,res)=>{
+  try{
+    const {
+      todoCont,
+      todoDate,
+      todoDesc,
+      todoTag,
+      todoFile,
+      todoSound,
+      todoUserId
+    } = req.body;
+    console.log(
+      req.body
+    );
+    await myTodo.addTodo(
+      todoCont,
+      todoDate,
+      todoDesc,
+      todoUserId,
+      todoTag,
+      todoFile,
+      todoSound
+    );
+    console.log('투두추가 성공');
+    res.status(200).json({success: true});
+  }catch(err){
+    console.error('에러발생:',err);
+    res.status(500).json({success:false, message:'서버 오류'});
+  }
+})
 
 router.get('/deleteUser',(req,res)=>{
   res.render('deleteUser');
