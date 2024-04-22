@@ -5,6 +5,20 @@ class TodoModel {
   constructor(id) {
     this.id = id;
   }
+  async getTodoAll(){
+    try {
+      const todos = await new Promise((resolve, reject) =>{
+        data.query('select * from todotable',
+        (err,results)=>{
+          if(err) reject(err);
+          resolve(results);
+        });
+      });
+      return todos;
+    } catch (err) {
+      throw err;
+    }
+  }
   async getTodoUserId(userId) {
     try {
       const todos = await new Promise((resolve, reject) => {

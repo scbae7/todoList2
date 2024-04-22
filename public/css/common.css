@@ -52,6 +52,14 @@ body .container .formSection .formContent:focus {
   outline: none;
   border: 3px solid var(--main-color);
 }
+body .container .formSection .formMessage {
+  width: 100%;
+  height: 10px;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 body .container .formSection .formBtn {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -63,12 +71,12 @@ body .container .formSection .supLink {
   color: #aaa;
   font-size: 16px;
 }
-body .container .formSection .supLink span {
+body .container .formSection .supLink a {
   border-right: 3px solid #777777;
   padding-left: 6px;
   padding-right: 6px;
 }
-body .container .formSection .supLink span:last-child {
+body .container .formSection .supLink a:last-child {
   border-right: none;
 }
 body .bigContainer {

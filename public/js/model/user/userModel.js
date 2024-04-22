@@ -5,6 +5,20 @@ class UserModel {
   constructor(id){
     this.id = id;
   }
+  async getUserAll(){
+    try {
+      const users = await new Promise((resolve, reject) =>{
+        data.query('select * from usertable',
+        (err,results)=>{
+          if(err) reject(err);
+          resolve(results);
+        });
+      });
+      return users;
+    } catch (err) {
+      throw err;
+    }
+  }
   async userLogin(userId, password){
     try {
       const results = await new Promise ((resolve, reject)=>{

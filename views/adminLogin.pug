@@ -13,6 +13,7 @@ html(lang="ko")
       form(action="/admin/login",method="post",class="formSection")
         input(type="text",id="idInput",class="formContent",name="idInput",placeholder="아이디",maxlength="",required)
         input(type="password",id="pwInput",class="formContent",name="pwInput",placeholder="비밀번호",maxlength="",required)
+        .formMessage 로그인 실패
         button(type="submit",id="adminLoginBtn",class="formContent formBtn") 로그인
         .supLink
           a(href="/admin/request")

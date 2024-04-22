@@ -1,8 +1,10 @@
+import FormMessage from './formMessage';
 document.getElementById('loginBtn').addEventListener('click', (e) => {
   e.preventDefault();
 
   const idInput = document.getElementById('idInput').value;
   const pwInput = document.getElementById('pwInput').value;
+  // const formMessage = document.querySelector('.formMessage');
   fetch('/login', {
     method: 'POST',
     headers: {
@@ -19,7 +21,9 @@ document.getElementById('loginBtn').addEventListener('click', (e) => {
         window.location.href = "/todo";
       } else {
         console.error('로그인 실패:', data.message);
-        // 로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리
+        // formMessage.textContent = `로그인 실패: ${data.message}`;
+        const myError = new FormMessage('myError');
+        myError.errMessage('로그인 실패');
       }
     })
     .catch(error => console.error('에러 발생', error));

@@ -1,0 +1,118 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./css/reset.css")
+    link(rel="stylesheet", href="./css/common.css")
+    link(rel="stylesheet", href="./css/admin.css")
+  body 
+    .container.adminContainer
+      .adminHeader
+        .adTitle ADMIN
+        .adNoti 
+          span.notiIcon
+            button.iconNumber 3
+          span 승급요청
+        button.adminHeaderBtn LOG OUT
+      .adminManage
+        .subTitle 사용자 관리
+        .subCount 회원수 : 10명
+      .adminSetting
+        button#openModalBtn.adminFilter
+        button.deleteBtn 선택 삭제
+        button.deleteBtn 전체 삭제
+      .adminContent
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+        .adminRow
+          .check X
+          .table 회원 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn  
+      .adminManage
+        .subTitle 투두리스트 관리
+        .subCount 할일 : 50개
+      .adminSetting
+        .adminFilter
+        button.deleteBtn 선택 삭제
+        button.deleteBtn 전체 삭제
+      .adminContent
+        .adminRow
+          .check X
+          .table 할일 ROW
+          .btnCont
+            button.editBtn
+            button.deleteBtn
+      
+    .modal
+      div(class="modalContent requestContent")
+        .requestModalTitle 관리자 승급 요청
+        .requestRowCont 
+          .requestRow
+            .requestName 홍길동
+            .requestBtnCont
+              button 수락 
+              button 거절
+          .requestRow
+            .requestName 홍길동
+            .requestBtnCont
+              button 수락 
+              button 거절
+          .requestRow
+            .requestName 홍길동
+            .requestBtnCont
+              button.okBtn 수락 
+              button.noBtn 거절
+        a(href="/admin")
+          button.modalBtn 확인
+      div(class="modalContent userFilterContent")
+        .requestModalTitle 사용자 관리
+        .adminFilterCont
+          .filterSection
+            .filterLabel 아이디
+            .filterCont abc
+              span.filterSearch
+          .filterSection
+            .filterLabel 이름
+            .filterCont 홍길동
+          .filterSection
+            .filterLabel E-MAIL
+            .filterCont aaa@naver.com
+      div(class="modalContent todoFilterContent")
+        .requestModalTitle 할일 관리
+        .adminFilterCont
+          .filterSection
+            .filterLabel 날짜
+            .filterCont 과거순
+              span.filterDown
+          .filterSection
+            .filterLabel 상태
+            .filterCont todo
+          .filterSection
+            .filterLabel 아이디
+            .filterCont abc
+          .filterSection
+            .filterLabel 태그
+            .filterCont # 태그  
+    script(src="./js/modal.js")
+    //- script(src="./js/validate/joinValidate.js" type="module")
+    script(src="./js/validate.js" type="module")

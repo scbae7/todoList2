@@ -1,3 +1,4 @@
+import FormMessage from './formMessage';
 document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -19,7 +20,8 @@ document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
         window.location.href = "/admin";
       } else {
         console.error('관리자 로그인 실패:', data.message);
-        // 로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리
+        const myError = new FormMessage('myError');
+        myError.errMessage('회원가입 실패');
       }
     })
     .catch(error => console.error('에러 발생', error));

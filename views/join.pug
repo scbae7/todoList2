@@ -8,6 +8,7 @@ html(lang="ko")
     link(rel="stylesheet", href="./css/common.css")
     link(rel="stylesheet", href="./css/join.css")
   body 
+    include ./modal/completeJoin.pug
     .container.joinContainer
       h1.formTitle SIGN UP
       form(action="/join", method="POST" ,class="formSection", enctype="multipart/form-data")
@@ -17,19 +18,20 @@ html(lang="ko")
         input(type="email",id="emailInput",class="formContent" , name="emailInput", placeholder="이메일 (abcd@naver.com)", maxlength="", required)
         input(type="text",id="nameInput" ,class="formContent" , name="nameInput", placeholder="이름 (홍길동)", maxlength="", required)
         input(type="text" ,class="formContent" , name="", placeholder="캡챠", maxlength="")
+        .formMessage 회원가입 실패
         .joinBtnSection
           button(type="submit",id="joinBtn" ,class="formContent formBtn") 회원가입
           a(href="/login")
             button(type="submit" ,class="formContent formBtn") 가입취소
-    .modal
-      .modalContent
-        .modalTitle SIGN UP
-        .modalDesc
-          p 회원가입이 성공적으로
-          p 완료되었습니다.
-        a(href="/login")
-          button.modalBtn 확인
+    //- .modal
+    //-   .modalContent
+    //-     .modalTitle SIGN UP
+    //-     .modalDesc
+    //-       p 회원가입이 성공적으로
+    //-       p 완료되었습니다.
+    //-     a(href="/login")
+    //-       button.modalBtn 확인
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")
-    script(src="./js/user/join.js")
+    script(src="./js/user/join.js" type="module")

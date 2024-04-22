@@ -1,5 +1,6 @@
 document.getElementById('findIdBtn').addEventListener('click', (e) => {
   e.preventDefault();
+  console.log('hi');
 
   const nameInput = document.getElementById('nameInput').value;
   const emailInput = document.getElementById('emailInput').value;

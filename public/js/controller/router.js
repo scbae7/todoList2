@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql');
-const db = require('../model/db')();
-const data = mysql.createConnection(db);
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -11,6 +8,7 @@ const myUser = new UserModel('myUser');
 const TodoModel = require('../model/todo/todoModel');
 const myTodo = new TodoModel('myTodo');
 const session = require('express-session');
+const nodemailer = require('nodemailer');
 
 router.use(session({
   secret: 'your_secret_key', // 세션을 서명하는 데 사용되는 비밀키 (필수)
@@ -69,15 +67,44 @@ router.post('/join', async (req,res)=>{
 router.get('/findId',(req,res)=>{
   res.render('findId');
 })
-router.post('/findId', (req,res)=>{
-  const { userName, email } = req.body;
-  console.log(userName, email);
-  // try {
+// 구글 앱 비밀번호나 보안설정을 풀어야함
+// router.post('/findId', (req,res)=>{
+//   console.log('findId');
+//   const { userName, email } = req.body;
+//   console.log(userName, email);
+//   try {
+//     const trans = nodemailer.createTransport({
+//       service: 'google',
+//       auth: {
+//         // 내 구글 아이디
+//         user:'scbae27@gmail.com',
+//         pass:'구글 비밀번호'
+//       }
+//     });
+//     const userId = '배석찬 아이디';
+//     const userEmail = 'sna12345@naver.com';
 
-  // } catch (err) {
+//     const mailOptions = {
+//       from : 'scbae27@gmail.com',
+//       to : userEmail,
+//       subject: '유저 아이디를 보냅니다.',
+//       text: `유저 아이디는 ${userId}`
+//     };
 
-  // }
-})
+//     trans.sendMail(mailOptions,(error,info)=>{
+//       if(error){
+//         console.error('이메일 전송 실패:',error);
+//         // res.status(500).send('이메일 전송에 실패했습니다.');
+//       }else{
+//         console.log('이메일 전송 성공:',info.response);
+//         res.send('이메일을 성공적으로 보냈습니다.');
+//       }
+//     })
+//   } catch (err) {
+//     console.error('에러발생:',err);
+//     res.status(500).json({success:false, message:'서버 오류'});
+//   }
+// })
 router.get('/findPw',(req,res)=>{
   res.render('findPw');
 })
@@ -115,8 +142,20 @@ router.get('/admin/request',(req,res)=>{
   res.render('adminRequest');
 })
 
-router.get('/admin',(req,res)=>{
-  res.render('admin');
+router.get('/admin', async (req,res)=>{
+  try {
+    const users = await myUser.getUserAll();
+    const todos = await myTodo.getTodoAll();
+    res.render('admin',{todos:todos,users:users});
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('서버 오류');
+  }
+  
+})
+
+router.get('/admin2',(req,res)=>{
+  res.render('admin2');
 })
 
 router.get('/todo', async(req,res)=>{

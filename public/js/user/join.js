@@ -1,3 +1,4 @@
+import FormMessage from './formMessage';
 document.getElementById('joinBtn').addEventListener('click', (e) => {
     e.preventDefault();
     const idInput = document.getElementById('idInput').value;
@@ -23,7 +24,8 @@ document.getElementById('joinBtn').addEventListener('click', (e) => {
           window.location.href = "/login";
         } else {
           console.error('회원가입 실패:', data.message);
-          // 로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리
+          const myError = new FormMessage('myError');
+          myError.errMessage('회원가입 실패');
         }
       })
       .catch(error => console.error('에러 발생', error));
