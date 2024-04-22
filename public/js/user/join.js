@@ -1,4 +1,5 @@
-import FormMessage from './formMessage';
+import FormMessage from './formMessage.mjs';
+
 document.getElementById('joinBtn').addEventListener('click', (e) => {
     e.preventDefault();
     const idInput = document.getElementById('idInput').value;
@@ -25,7 +26,7 @@ document.getElementById('joinBtn').addEventListener('click', (e) => {
         } else {
           console.error('회원가입 실패:', data.message);
           const myError = new FormMessage('myError');
-          myError.errMessage('회원가입 실패');
+          myError.errMessage('회원가입 실패',data);
         }
       })
       .catch(error => console.error('에러 발생', error));

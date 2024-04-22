@@ -21,7 +21,7 @@ html(lang="ko")
         button.adminHeaderBtn LOG OUT
       .adminName 관리자 홍길동님 환영합니다!
       if(users)
-        .adminName= users.userName + '님 안녕하세요'
+        .adminName= userName + '님 안녕하세요'
       else
         .adminName 관리자 이름 없음
       .adminManage
@@ -32,17 +32,18 @@ html(lang="ko")
         button.deleteBtn 선택 삭제
         button.deleteBtn 전체 삭제
       .adminContent
-        .adminRow
-          .check X
-          each user in users
+        each user in users 
+          .adminRow
+            .check X 
             if(users)
-              .table= users.userId + '의 테이블'
+              .table
+                span= user.userId + ' : ID'
+                span= user.userName + ' : Name'
             else
               .table 테이블 없음
-          .table 회원 ROW
-          .btnCont
-            button.editBtn
-            button.deleteBtn  
+            .btnCont
+              button.editBtn
+              button.deleteBtn  
       .adminManage
         .subTitle 투두리스트 관리
         .subCount 할일 : 50개
@@ -51,17 +52,18 @@ html(lang="ko")
         button.deleteBtn 선택 삭제
         button.deleteBtn 전체 삭제
       .adminContent
-        .adminRow
-          .check X
-          each todo in todos
+        each todo in todos 
+          .adminRow
+            .check X 
             if(todos)
-              .table= todos.userId + '의 테이블'
+              .table
+                span= todo.todo_num + ' : num'
+                span= todo.todolist_cont + ' : cont'
             else
               .table 테이블 없음
-          .table 할일 ROW
-          .btnCont
-            button.editBtn
-            button.deleteBtn
+            .btnCont
+              button.editBtn
+              button.deleteBtn  
       
     .modal
       //- div(class="modalContent requestContent")

@@ -124,6 +124,13 @@ router.post('/admin/login', async (req,res)=>{
     const results = await myUser.adminUserLogin(userId, password);
     if(results.length>0){
       console.log('관리자 로그인 성공!')
+      req.session.user = {
+        userId: userId,
+        name: results[0].userName // 예를 들어, results 객체에서 사용자의 이름을 가져옵니다.
+      };
+      console.log(results);
+      console.log(req.session.user.userId);
+      console.log(req.session.user.name);
       return res.status(200).json({success:true});
     }else{
       const userResults = await myUser.userLogin(userId, password);
@@ -146,7 +153,12 @@ router.get('/admin', async (req,res)=>{
   try {
     const users = await myUser.getUserAll();
     const todos = await myTodo.getTodoAll();
-    res.render('admin',{todos:todos,users:users});
+    const userId = req.session.user.userId;
+    const userName = req.session.user.name;
+   
+    console.log(userId);
+    console.log(userName);
+    res.render('admin',{todos:todos,users:users,userName:userName});
   } catch (err) {
     console.error(err);
     res.status(500).send('서버 오류');

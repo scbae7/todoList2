@@ -8,7 +8,7 @@ html(lang="ko")
     link(rel="stylesheet", href="./css/common.css")
     link(rel="stylesheet", href="./css/join.css")
   body 
-    include ./modal/completeJoin.pug
+    include ./modal/completeJoinModal.pug
     .container.joinContainer
       h1.formTitle SIGN UP
       form(action="/join", method="POST" ,class="formSection", enctype="multipart/form-data")
@@ -34,4 +34,6 @@ html(lang="ko")
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")
+    script(src="./js/user/formMessage.mjs" type="module")
     script(src="./js/user/join.js" type="module")
+  

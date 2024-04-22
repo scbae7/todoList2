@@ -23,7 +23,7 @@ class UserModel {
     try {
       const results = await new Promise ((resolve, reject)=>{
         data.query(
-          'select * from userTable where userId = ? and userPassword = ?', 
+          'select * from usertable where userId = ? and userPassword = ?', 
           [userId, password],
           (err, result) => {
             if (err) reject(err);
@@ -41,7 +41,7 @@ class UserModel {
       console.log('s')
       const results = await new Promise ( (resolve, reject)=>{
         data.query(
-          'select * from userTable where userId = ? and userPassword = ? and userRole = "admin"',
+          'select * from usertable where userId = ? and userPassword = ? and userRole = "admin"',
           [userId, password],
           (err, result) => {
             if (err) reject(err);
@@ -59,7 +59,7 @@ class UserModel {
     try{
       const results = await new Promise( (resolve, reject)=>{
         data.query(
-          'select count(*) as count from userTable where userId =?', [userId],
+          'select count(*) as count from usertable where userId =?', [userId],
           (err,results)=> {
             if (err) reject(err);
             resolve(results);
@@ -79,7 +79,7 @@ class UserModel {
       }
       await new Promise((resolve, reject)=>{
         data.query(
-          'insert into userTable (userId, userPassword, userEmail, userName) values (?, ?, ?, ?)',
+          'insert into usertable (userId, userPassword, userEmail, userName) values (?, ?, ?, ?)',
           [userId, password, email, name],
           (err,results)=>{
             if(err){
@@ -97,7 +97,7 @@ class UserModel {
   }
   async getUserInfoByUserId(userId) {
     try {
-      const query = 'SELECT userId,userName FROM userTable WHERE userId = ?';
+      const query = 'SELECT userId,userName FROM usertable WHERE userId = ?';
       const [userInfo] = await new Promise((resolve, reject) => {
         data.query(query, [userId], (err, result) => {
           if (err) reject(err);

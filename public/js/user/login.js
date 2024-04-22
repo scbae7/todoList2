@@ -1,4 +1,4 @@
-import FormMessage from './formMessage';
+import FormMessage from './formMessage.mjs';
 document.getElementById('loginBtn').addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -23,7 +23,7 @@ document.getElementById('loginBtn').addEventListener('click', (e) => {
         console.error('로그인 실패:', data.message);
         // formMessage.textContent = `로그인 실패: ${data.message}`;
         const myError = new FormMessage('myError');
-        myError.errMessage('로그인 실패');
+        myError.errMessage('로그인 실패',data);
       }
     })
     .catch(error => console.error('에러 발생', error));
