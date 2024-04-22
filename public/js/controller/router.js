@@ -221,5 +221,18 @@ router.post('/addTodo', async(req,res)=>{
 router.get('/deleteUser',(req,res)=>{
   res.render('deleteUser');
 })
+
+router.delete('/deleteTodo/:todoNum', async (req,res)=>{
+  try {
+    const todoNum = req.params.todoNum;
+    console.log(todoNum);
+    const deletedTodo = await myTodo.deleteTodo(todoNum);
+    console.log(`할일이 삭제되었습니다:`, deletedTodo);
+    res.status(200).json({success: true});
+  } catch (err) {
+    console.error('할일 삭제 중 오류 발생:',err);
+    res.status(500).json({success:false, message:'서버 오류'});
+  }
+})
 module.exports = router;
 

@@ -10,6 +10,7 @@ html(lang="ko")
     link(rel="stylesheet", href="./css/todoForm.css")
   body
     include ./modal/addTodoModal.pug
+    include ./modal/deleteTodoModal.pug
     .container.todoContainer
       .navSection
         button.tagSearchBtn # 
@@ -40,7 +41,7 @@ html(lang="ko")
         
         each todo in todos
           - if (todo)
-            .todoRow
+            .todoRow(data-todoNum=todo.todo_num)
               - if (todo.due_date)
                 - var dueDate = new Date(todo.due_date);
                 - var formattedDueDate = dueDate.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
@@ -51,9 +52,9 @@ html(lang="ko")
                 - if (todo.todo_tag)
                   each tag in todo.todo_tag.split(',')
                     span.rowTagData= tag.trim()
-                button.rowControl
+              button.rowControl.deleteTodoBtn
                   span.rowControlIcon
-    .modal
+    //- .modal
       //- div(class="modalContent myPageModalCont")
       //-   .myPageTitle
       //-     span.myIcon
@@ -89,4 +90,6 @@ html(lang="ko")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")
     script(src="./js/todoData/addTodo.js")
+    script(src="./js/todoData/deleteTodo.js")
+    
 
