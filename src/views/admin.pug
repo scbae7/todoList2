@@ -20,14 +20,16 @@ html(lang="ko")
             button.iconNumber 3
           span 승급요청
         button.adminHeaderBtn LOG OUT
-      .adminName 관리자 홍길동님 환영합니다!
       if(users)
         .adminName= userName + '님 안녕하세요'
       else
         .adminName 관리자 이름 없음
       .adminManage
         .subTitle 사용자 관리
-        .subCount 회원수 : 10명
+        if(users)
+          .subCount=`회원수 : ${users.length}명`
+        else
+          .subCount 회원수 : 0명
       .adminSetting
         button#openModalBtn.adminFilter
         button.deleteBtn 선택 삭제
@@ -38,8 +40,8 @@ html(lang="ko")
             .check X 
             if(users)
               .table
-                span= user.userId + ' : ID'
-                span= user.userName + ' : Name'
+                span='ID: ' + user.userId
+                span='Name: ' + user.userName
             else
               .table 테이블 없음
             .btnCont
@@ -47,7 +49,10 @@ html(lang="ko")
               button.deleteBtn  
       .adminManage
         .subTitle 투두리스트 관리
-        .subCount 할일 : 50개
+        if(todos)
+          .subCount=`할일 : ${todos.length}명`
+        else
+          .subCount 할일 : 0개
       .adminSetting
         .adminFilter
         button.deleteBtn 선택 삭제
@@ -58,8 +63,8 @@ html(lang="ko")
             .check X 
             if(todos)
               .table
-                span= todo.todo_num + ' : num'
-                span= todo.todolist_cont + ' : cont'
+                span='Num: ' + todo.todo_num
+                span='content: ' + todo.todolist_cont
             else
               .table 테이블 없음
             .btnCont

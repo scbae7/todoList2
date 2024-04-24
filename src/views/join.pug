@@ -19,7 +19,7 @@ html(lang="ko")
         input(type="email",id="emailInput",class="formContent" , name="emailInput", placeholder="이메일 (abcd@naver.com)", maxlength="", required)
         input(type="text",id="nameInput" ,class="formContent" , name="nameInput", placeholder="이름 (홍길동)", maxlength="", required)
         input(type="text" ,class="formContent" , name="", placeholder="캡챠", maxlength="")
-        .formMessage 회원가입 실패
+        .formMessage
         .joinBtnSection
           button(type="submit",id="joinBtn" ,class="formContent formBtn") 회원가입
           a(href="/login")
@@ -35,6 +35,6 @@ html(lang="ko")
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")
-    script(src="./js/user/formMessage.mjs" type="module")
+    script(src="./js/user/formMessage.js" type="module")
     script(src="./js/user/join.js" type="module")
   

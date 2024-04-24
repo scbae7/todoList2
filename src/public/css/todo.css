@@ -92,7 +92,6 @@ body .processSection .processBar .barFull {
   align-items: center;
 }
 body .processSection .processBar .barNumber {
-  width: 240px;
   height: 20px;
   border-radius: 6px;
   background-color: #179BC7;
@@ -144,6 +143,11 @@ body .todoHeader .todoCont {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  cursor: pointer;
+}
+body .todoHeader .todoCont:hover {
+  scale: 1.2;
+  border-radius: 10px;
 }
 body .todoHeader .addCont {
   background-color: #E96573;
@@ -157,7 +161,8 @@ body .todoHeader .addCont {
   cursor: pointer;
 }
 body .todoHeader .addCont:hover {
-  opacity: 0.5;
+  scale: 1.2;
+  border-radius: 10px;
 }
 body .todoHeader .DoneCont {
   background-color: #07A467;
@@ -169,6 +174,11 @@ body .todoHeader .DoneCont {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  cursor: pointer;
+}
+body .todoHeader .DoneCont:hover {
+  scale: 1.2;
+  border-radius: 10px;
 }
 body .todoSection {
   border-bottom-left-radius: 20px;
@@ -239,6 +249,15 @@ body .todoSection .todoRow .rowControl .rowControlIcon {
   background-size: cover;
   width: 32px;
   height: 32px;
+}
+body .todoSection .todoRow.done {
+  background-color: #07A467;
+}
+body .todoSection .todoRow.done:hover {
+  background-color: #46856d;
+}
+body .todoSection .todoRow.done .rowControl {
+  background-color: #286137;
 }
 body .modal .myPageModalCont {
   position: absolute;

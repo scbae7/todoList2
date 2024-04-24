@@ -90,7 +90,6 @@ body {
         align-items: center;
       }
       .barNumber {
-        width: 240px;
         height: 20px;
         border-radius: 6px;
         background-color: #179BC7;
@@ -143,6 +142,11 @@ body {
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      cursor:pointer;
+      &:hover {
+        scale: 1.2;
+        border-radius: 10px;
+      }
     }
     .addCont {
       background-color: #E96573;
@@ -155,7 +159,8 @@ body {
       box-sizing: border-box;
       cursor:pointer;
       &:hover {
-        opacity:0.5;
+        scale: 1.2;
+        border-radius: 10px;
       }
     }
     .DoneCont {
@@ -168,6 +173,11 @@ body {
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      cursor:pointer;
+      &:hover {
+        scale: 1.2;
+        border-radius: 10px;
+      }
     }
   }
   .todoSection {
@@ -237,6 +247,15 @@ body {
           width: 32px;
           height: 32px;
         }
+      }
+    }
+    .todoRow.done {
+      background-color: #07A467;
+      &:hover {
+        background-color: #46856d;
+      }
+      .rowControl {
+        background-color: #286137;
       }
     }
   }

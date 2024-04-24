@@ -2,9 +2,9 @@
 // const mysql = require('mysql');
 // const data = mysql.createConnection(db);
 
-import db from '../db.mjs';
+import db from '../db.js';
 import mysql from 'mysql';
-const data = mysql.createConnection(db);
+const data = mysql.createConnection(db());
 class UserModel {
   constructor(id){
     this.id = id;

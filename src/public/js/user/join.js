@@ -1,4 +1,4 @@
-import FormMessage from './formMessage.mjs';
+import FormMessage from './formMessage.js';
 
 document.getElementById('joinBtn').addEventListener('click', (e) => {
     e.preventDefault();

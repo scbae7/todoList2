@@ -1,4 +1,4 @@
-import FormMessage from './formMessage.mjs';
+import FormMessage from './formMessage.js';
 document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
   e.preventDefault();
 

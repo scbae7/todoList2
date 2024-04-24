@@ -13,8 +13,8 @@
 import express from 'express';
 const router = express.Router();
 import bodyParser from 'body-parser';
-import UserModel from '../model/user/userModel.mjs';
-import TodoModel from '../model/todo/todoModel.mjs';
+import UserModel from '../model/user/userModel.js';
+import TodoModel from '../model/todo/todoModel.js';
 import session from 'express-session';
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -52,8 +52,8 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ success: false, message: '아이디나 비밀번호가 잘못되었습니다.' })
     }
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ success: false, message: '서버 오류' });
+    console.error('서버 오류:'+err);
+    return res.status(500).json({ success: false });
   }
 });
 
@@ -170,6 +170,8 @@ router.get('/admin', async (req,res)=>{
    
     console.log(userId);
     console.log(userName);
+    console.log(users.length)
+    console.log(todos.length)
     res.render('admin',{todos:todos,users:users,userName:userName});
   } catch (err) {
     console.error(err);
@@ -246,5 +248,18 @@ router.delete('/deleteTodo/:todoNum', async (req,res)=>{
     res.status(500).json({success:false, message:'서버 오류'});
   }
 })
+router.post('/updateTodo', async (req, res) => {
+  try {
+    const todoNum = req.body.todoNum; // 클라이언트에서 전달한 todoNum
+    const newStatus = String(req.body.newStatus); // 클라이언트에서 전달한 새로운 상태
+    console.log(typeof newStatus);
+    await myTodo.statusUpdate(todoNum,newStatus);
+    console.log(`할일 상태가 업데이트되었습니다:`, todoNum, newStatus);
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error('할일 상태 업데이트 중 오류 발생:', err);
+    res.status(500).json({ success: false, message: '서버 오류' });
+  }
+});
 // module.exports = router;
 export default router;

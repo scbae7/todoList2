@@ -10,8 +10,8 @@ html(lang="ko")
     link(rel="stylesheet", href="./css/todo.css")
     link(rel="stylesheet", href="./css/todoForm.css")
   body
-    include ./modal/addTodoModal.pug
-    include ./modal/deleteTodoModal.pug
+    include ./modal/todoModal/addTodoModal.pug
+    include ./modal/todoModal/deleteTodoModal.pug
     .container.todoContainer
       .navSection
         button.tagSearchBtn # 
@@ -19,13 +19,14 @@ html(lang="ko")
         button.myPaegBtn
           span.myPageIcon
           span MY
-        button.logout LOG OUT
+        a(href="/login") 
+          button.logout LOG OUT
       .processSection
         .processLabel 진행률
-        .processNumber 80%
+        .processNumber#progressNumber
         .processBar
           .barFull 
-            span.barNumber
+            span.barNumber#barNumber
       .headerSection
         .headerTitle
           span.headerIcon
@@ -39,10 +40,9 @@ html(lang="ko")
           .addCont#openModalBtn + NEW
           .DoneCont DONE  
       .todoSection
-        
         each todo in todos
           - if (todo)
-            .todoRow(data-todoNum=todo.todo_num)
+            .todoRow(data-todoNum=todo.todo_num, class=(todo.status === '대기 중' ? 'waiting' : 'done'))
               - if (todo.due_date)
                 - var dueDate = new Date(todo.due_date);
                 - var formattedDueDate = dueDate.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
@@ -53,44 +53,15 @@ html(lang="ko")
                 - if (todo.todo_tag)
                   each tag in todo.todo_tag.split(',')
                     span.rowTagData= tag.trim()
-              button.rowControl.deleteTodoBtn
+              button.rowControl
                   span.rowControlIcon
-    //- .modal
-      //- div(class="modalContent myPageModalCont")
-      //-   .myPageTitle
-      //-     span.myIcon
-      //-     span.myPageLabel MY PAGE
-      //-   .myPageSection
-      //-     .myPageImg
-      //-     .myContInfo
-      //-       .myLabel 이름
-      //-       .myDesc 홍길동
-      //-       .myEdit
-      //-        button.myEditBtn
-      //-     .myContInfo
-      //-       .myLabel E-MAIL
-      //-       .myDesc abc@gmail.com
-      //-       .myEdit
-      //-        button.myEditBtn
-      //-     button.myBtn 비밀번호 변경
-      //-     button.myBtn 회원 탈퇴
-      //- div(class="modalContent todoModalCont")
-        .requestModalTitle 사용자 관리
-        .adminFilterCont
-          .filterSection
-            .filterLabel 아이디
-            .filterCont abc
-              span.filterSearch
-          .filterSection
-            .filterLabel 이름
-            .filterCont 홍길동
-          .filterSection
-            .filterLabel E-MAIL
-            .filterCont aaa@naver.com
+              button.deleteTodoBtn 삭제
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")
     script(src="./js/todoData/addTodo.js")
-    script(src="./js/todoData/deleteTodo.js")
+    script(src="./js/todoData/deleteTodo.js" type="module")
+    script(src="./js/filterTodo.js")
+    script(src="./js/filterTodo2.js")
     
 

@@ -1,3 +1,4 @@
+import { updateProgress } from '../updatePro.js';
 document.querySelectorAll('.deleteTodoBtn').forEach(button=>{
     button.addEventListener('click',(event)=>{
         console.log('버튼')
@@ -15,7 +16,9 @@ document.querySelectorAll('.deleteTodoBtn').forEach(button=>{
           })
           .then(data=>{
             console.log(data);
-            window.location.reload();
+            const deletedElement = button.parentElement; // 삭제된 항목의 부모 요소 선택
+            deletedElement.remove(); // 선택된 요소를 DOM에서 완전히 제거합니다.
+            updateProgress();
           })
           .catch(error=>console.error('에러 발생:',error));
     })
