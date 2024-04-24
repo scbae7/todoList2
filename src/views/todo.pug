@@ -1,6 +1,7 @@
 doctype html
 html(lang="ko")
   head
+    link(rel="icon" href="./images/list.svg")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title TODO LIST
@@ -15,7 +16,7 @@ html(lang="ko")
       .navSection
         button.tagSearchBtn # 
           span 태그로 검색
-        button#openModalBtn.myPaegBtn
+        button.myPaegBtn
           span.myPageIcon
           span MY
         button.logout LOG OUT
@@ -35,7 +36,7 @@ html(lang="ko")
             .headerHello 회원 이름이 없어
       .todoHeader
           .todoCont TODO
-          .addCont + NEW
+          .addCont#openModalBtn + NEW
           .DoneCont DONE  
       .todoSection
         

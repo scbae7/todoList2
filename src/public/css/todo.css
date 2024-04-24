@@ -154,6 +154,10 @@ body .todoHeader .addCont {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  cursor: pointer;
+}
+body .todoHeader .addCont:hover {
+  opacity: 0.5;
 }
 body .todoHeader .DoneCont {
   background-color: #07A467;

@@ -1,4 +1,4 @@
-// import FormMessage from './formMessage';
+import FormMessage from './formMessage.mjs';
 document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -20,8 +20,8 @@ document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
         window.location.href = "/admin";
       } else {
         console.error('관리자 로그인 실패:', data.message);
-        // const myError = new FormMessage('myError');
-        // myError.errMessage('회원가입 실패');
+        const myError = new FormMessage('myError');
+        myError.errMessage('관리자 로그인 실패',data);
       }
     })
     .catch(error => console.error('에러 발생', error));

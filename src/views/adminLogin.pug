@@ -1,6 +1,7 @@
 doctype html
 html(lang="ko")
   head
+    link(rel="icon" href="./images/list.svg")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
@@ -11,9 +12,9 @@ html(lang="ko")
       h1.formTitle 
         a(href="/admin/login") ADMIN LOGIN
       form(action="/admin/login",method="post",class="formSection")
-        input(type="text",id="idInput",class="formContent",name="idInput",placeholder="아이디",maxlength="",required)
-        input(type="password",id="pwInput",class="formContent",name="pwInput",placeholder="비밀번호",maxlength="",required)
-        .formMessage 로그인 실패
+        input(type="text",id="idInput",class="formContent",name="idInput",placeholder="아이디 bbb234",maxlength="",required)
+        input(type="password",id="pwInput",class="formContent",name="pwInput",placeholder="비밀번호 1234!a",maxlength="",required)
+        .formMessage
         button(type="submit",id="adminLoginBtn",class="formContent formBtn") 로그인
         .supLink
           a(href="/admin/request")

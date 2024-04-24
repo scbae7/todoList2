@@ -1,18 +1,12 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+app.use(express.static('src/public'));
 
-const controller = require('./public/js/controller/router');
-
+const controller = require('./src/public/js/controller/router');
 
 app.set('view engine', 'pug');
-app.set('views','./views');
-
-app.use(express.static('public'));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.set('views','./src/views');
 
 app.use('/',controller);
 

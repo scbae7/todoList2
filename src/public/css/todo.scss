@@ -153,6 +153,10 @@ body {
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      cursor:pointer;
+      &:hover {
+        opacity:0.5;
+      }
     }
     .DoneCont {
       background-color: #07A467;
