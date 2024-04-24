@@ -1,5 +1,9 @@
-const db = require('../db')()
-const mysql = require('mysql');
+// const db = require('../db')()
+// const mysql = require('mysql');
+// const data = mysql.createConnection(db);
+
+import db from '../db.mjs';
+import mysql from 'mysql';
 const data = mysql.createConnection(db);
 class UserModel {
   constructor(id){
@@ -110,4 +114,5 @@ class UserModel {
     }
   }
 }
-module.exports = UserModel;
+// module.exports = UserModel;
+export default UserModel;

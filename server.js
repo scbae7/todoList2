@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static('src/public'));
 
-const controller = require('./src/public/js/controller/router');
+// const controller = require('./src/controller/router');
+import controller from './src/controller/router.mjs';
 
 app.set('view engine', 'pug');
 app.set('views','./src/views');

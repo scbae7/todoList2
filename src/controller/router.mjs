@@ -1,14 +1,26 @@
-const express = require('express');
+// const express = require('express');
+// const router = express.Router();
+// const bodyParser = require('body-parser');
+// router.use(bodyParser.json());
+// router.use(bodyParser.urlencoded({ extended: true }));
+// const UserModel = require('../model/user/userModel');
+// const myUser = new UserModel('myUser');
+// const TodoModel = require('../model/todo/todoModel');
+// const myTodo = new TodoModel('myTodo');
+// const session = require('express-session');
+// const nodemailer = require('nodemailer');
+
+import express from 'express';
 const router = express.Router();
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
+import UserModel from '../model/user/userModel.mjs';
+import TodoModel from '../model/todo/todoModel.mjs';
+import session from 'express-session';
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
-const UserModel = require('../model/user/userModel');
 const myUser = new UserModel('myUser');
-const TodoModel = require('../model/todo/todoModel');
 const myTodo = new TodoModel('myTodo');
-const session = require('express-session');
-const nodemailer = require('nodemailer');
+
 
 router.use(session({
   secret: 'your_secret_key', // 세션을 서명하는 데 사용되는 비밀키 (필수)
@@ -234,5 +246,5 @@ router.delete('/deleteTodo/:todoNum', async (req,res)=>{
     res.status(500).json({success:false, message:'서버 오류'});
   }
 })
-module.exports = router;
-
+// module.exports = router;
+export default router;

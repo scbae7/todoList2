@@ -1,5 +1,9 @@
-const db = require('../db')()
-const mysql = require('mysql');
+// const db = require('../db')()
+// const mysql = require('mysql');
+// const data = mysql.createConnection(db);
+
+import db from '../db.mjs';
+import mysql from 'mysql';
 const data = mysql.createConnection(db);
 class TodoModel {
   constructor(id) {
@@ -103,4 +107,5 @@ class TodoModel {
     }
   }
 }
-module.exports = TodoModel;
+// module.exports = TodoModel;
+export default TodoModel;
