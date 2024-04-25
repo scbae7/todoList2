@@ -12,10 +12,11 @@ html(lang="ko")
     .container
       h1.formTitle 
         a(href="/admin/request") 관리자 승급 요청
-      form(action="", method="" class="formSection")
+      form(action="/admin/request", method="" class="formSection")
         input(type="text",id="idInput",class="formContent",name="idInput",placeholder="아이디",maxlength="",required)
         input(type="password",id="pwInput",class="formContent",name="pwInput",placeholder="비밀번호",maxlength="",required)
-        button(type="submit",id="",class="formContent formBtn") 요청하기
+        .formMessage 요청 실패
+        button(type="submit",id="adminRequestBtn",class="formContent formBtn") 요청하기
         .supLink
           a(href="/admin/login")
             span 관리자 로그인
@@ -28,4 +29,5 @@ html(lang="ko")
     //-     a(href="/admin/login")
     //-       button.modalBtn 확인
     script(src="../js/modal.js")
-    script(src="../js/validate/loginValidate.js" type="module")
+    //- script(src="../js/validate/loginValidate.js" type="module")
+    script(src="../js/user/adminRequest.js" type="module")

@@ -36,4 +36,4 @@ class Modal {
   }
 }
 
-const myModal = new Modal('myModal');
+const modal = new Modal('modal');

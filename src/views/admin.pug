@@ -72,55 +72,26 @@ html(lang="ko")
               button.deleteBtn  
       
     .modal
-      //- div(class="modalContent requestContent")
-      //-   .requestModalTitle 관리자 승급 요청
-      //-   .requestRowCont 
-      //-     .requestRow
-      //-       .requestName 홍길동
-      //-       .requestBtnCont
-      //-         button 수락 
-      //-         button 거절
-      //-     .requestRow
-      //-       .requestName 홍길동
-      //-       .requestBtnCont
-      //-         button 수락 
-      //-         button 거절
-      //-     .requestRow
-      //-       .requestName 홍길동
-      //-       .requestBtnCont
-      //-         button.okBtn 수락 
-      //-         button.noBtn 거절
-      //-   a(href="/admin")
-      //-     button.modalBtn 확인
-      //- div(class="modalContent userFilterContent")
-      //-   .requestModalTitle 사용자 관리
-      //-   .adminFilterCont
-      //-     .filterSection
-      //-       .filterLabel 아이디
-      //-       .filterCont abc
-      //-         span.filterSearch
-      //-     .filterSection
-      //-       .filterLabel 이름
-      //-       .filterCont 홍길동
-      //-     .filterSection
-      //-       .filterLabel E-MAIL
-      //-       .filterCont aaa@naver.com
-      //- div(class="modalContent todoFilterContent")
-      //-   .requestModalTitle 할일 관리
-      //-   .adminFilterCont
-      //-     .filterSection
-      //-       .filterLabel 날짜
-      //-       .filterCont 과거순
-      //-         span.filterDown
-      //-     .filterSection
-      //-       .filterLabel 상태
-      //-       .filterCont todo
-      //-     .filterSection
-      //-       .filterLabel 아이디
-      //-       .filterCont abc
-      //-     .filterSection
-      //-       .filterLabel 태그
-      //-       .filterCont # 태그  
+      div(class="modalContent requestContent")
+        .requestModalTitle 관리자 승급 요청
+        .requestRowCont 
+          .requestRow
+            .requestId 홍길동
+            .requestBtnCont
+              button 수락 
+              button 거절
+          .requestRow
+            .requestId 홍길동
+            .requestBtnCont
+              button 수락 
+              button 거절
+          .requestRow
+            .requestId 홍길동
+            .requestBtnCont
+              button.okBtn 수락 
+              button.noBtn 거절
+        a(href="/admin")
+          button.modalBtn 확인
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="./js/validate.js" type="module")

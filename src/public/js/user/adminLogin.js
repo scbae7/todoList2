@@ -20,8 +20,8 @@ document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
         window.location.href = "/admin";
       } else {
         console.error('관리자 로그인 실패:', data.message);
-        const myError = new FormMessage('myError');
-        myError.errMessage('관리자 로그인 실패',data);
+        const formMessage = new FormMessage('formMessage');
+        formMessage.errMessage('관리자 로그인 실패',data);
       }
     })
     .catch(error => console.error('에러 발생', error));

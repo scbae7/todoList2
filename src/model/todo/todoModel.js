@@ -2,7 +2,7 @@
 // const mysql = require('mysql');
 // const data = mysql.createConnection(db);
 
-import db from '../db.js';
+import db from '../../conf/db.js';
 import mysql from 'mysql';
 
 const data = mysql.createConnection(db());

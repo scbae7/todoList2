@@ -1,0 +1,39 @@
+// TodoList main js
+// programmed by bae
+
+// 2024/04/25 v1
+// import express from 'express';
+import webServerConf from './conf/webServerConf.js';
+import webService from './daemon/webServer.js'
+// const app = express();
+// const port = process.env.PORT || 3000;
+// app.use(express.static('./src/public'));
+
+// const controller = require('./src/controller/router');
+import controller from './controller/router.js';
+
+// app.set('view engine', 'pug');
+// app.set('views','./src/views');
+
+// app.use('/',controller);
+
+// app.listen(port,()=>{
+//   console.log(`${port} port open!`);
+// })
+class TodoList {  
+  constructor(id, webServerConf){
+    this.id = id;
+    this.webServerConf = webServerConf;
+  }
+  run(){
+    webService.use('/',controller);
+    webService.listen(this.webServerConf.port,()=>{
+      console.log(`${this.webServerConf.port} port open!`);
+    })
+  }
+}
+const todoList = new TodoList(
+  'todoList',
+  webServerConf
+)
+todoList.run();

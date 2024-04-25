@@ -4,9 +4,9 @@
 // router.use(bodyParser.json());
 // router.use(bodyParser.urlencoded({ extended: true }));
 // const UserModel = require('../model/user/userModel');
-// const myUser = new UserModel('myUser');
+// const userModel = new UserModel('userModel');
 // const TodoModel = require('../model/todo/todoModel');
-// const myTodo = new TodoModel('myTodo');
+// const todoModel = new TodoModel('todoModel');
 // const session = require('express-session');
 // const nodemailer = require('nodemailer');
 
@@ -18,8 +18,8 @@ import TodoModel from '../model/todo/todoModel.js';
 import session from 'express-session';
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
-const myUser = new UserModel('myUser');
-const myTodo = new TodoModel('myTodo');
+const userModel = new UserModel('userModel');
+const todoModel = new TodoModel('todoModel');
 
 
 router.use(session({
@@ -37,9 +37,9 @@ router.get('/login',(req,res)=>{
 router.post('/login', async (req, res) => {
   try {
     const { userId, password } = req.body;
-    const results = await myUser.userLogin(userId, password);
+    const results = await userModel.userLogin(userId, password);
     if (results.length > 0) {
-      const userName = await myUser.getUserInfoByUserId(userId); // 사용자의 이름만 가져옵니다.
+      const userName = await userModel.getUserInfoByUserId(userId); // 사용자의 이름만 가져옵니다.
       req.session.user = {
         userId: userId,
         name: userName // 여기서는 사용자 이름만 저장합니다.
@@ -63,11 +63,11 @@ router.get('/join',(req,res)=>{
 router.post('/join', async (req,res)=>{
   try {
     const { userId, password, email, name } = req.body;
-    const count = await myUser.idCheck(userId);
+    const count = await userModel.idCheck(userId);
     if(count > 0){
       return res.status(400).json({ success: false, message: '이미 존재하는 아이디입니다.'});
     }
-    await myUser.userJoin(userId, password, email, name);
+    await userModel.userJoin(userId, password, email, name);
     console.log('회원가입 성공');
     res.status(200).json({success: true});
   } catch (err) {
@@ -133,7 +133,7 @@ router.get('/admin/login',(req,res)=>{
 router.post('/admin/login', async (req,res)=>{
   try {
     const { userId, password } = req.body;
-    const results = await myUser.adminUserLogin(userId, password);
+    const results = await userModel.adminUserLogin(userId, password);
     if(results.length>0){
       console.log('관리자 로그인 성공!')
       req.session.user = {
@@ -145,7 +145,7 @@ router.post('/admin/login', async (req,res)=>{
       console.log(req.session.user.name);
       return res.status(200).json({success:true});
     }else{
-      const userResults = await myUser.userLogin(userId, password);
+      const userResults = await userModel.userLogin(userId, password);
       if(userResults.length>0){
         return res.status(401).json({success:false, message: '관리자 권한이 없습니다.'});
       }else{
@@ -157,14 +157,23 @@ router.post('/admin/login', async (req,res)=>{
     res.status(500).json({success:false, message:'서버 오류'});
   }
 })
+
 router.get('/admin/request',(req,res)=>{
   res.render('adminRequest');
+})
+let adminRequests = [];
+router.post('/admin/request',(req,res)=>{
+  const {userId, password} = req.body;
+  adminRequests.push({userId,password,userRole:'user'});
+  res.json({success:true,message:'요청 성공!'})
+  console.log(adminRequests);
+  console.log('요청 성공!');
 })
 
 router.get('/admin', async (req,res)=>{
   try {
-    const users = await myUser.getUserAll();
-    const todos = await myTodo.getTodoAll();
+    const users = await userModel.getUserAll();
+    const todos = await todoModel.getTodoAll();
     const userId = req.session.user.userId;
     const userName = req.session.user.name;
    
@@ -190,7 +199,7 @@ router.get('/todo', async(req,res)=>{
     const userName = req.session.user.name;
     // console.log(userId);
     // console.log(userName);
-    const todos = await myTodo.getTodosForUser(userId);
+    const todos = await todoModel.getTodosForUser(userId);
     // console.log(todos);
     res.render('todo',{todos:todos,fUserName:userName,fUserId:userId});
   } catch(err){
@@ -215,7 +224,7 @@ router.post('/addTodo', async(req,res)=>{
     console.log(
       req.body
     );
-    await myTodo.addTodo(
+    await todoModel.addTodo(
       todoCont,
       todoDate,
       todoDesc,
@@ -240,7 +249,7 @@ router.delete('/deleteTodo/:todoNum', async (req,res)=>{
   try {
     const todoNum = req.params.todoNum;
     console.log(todoNum);
-    const deletedTodo = await myTodo.deleteTodo(todoNum);
+    const deletedTodo = await todoModel.deleteTodo(todoNum);
     console.log(`할일이 삭제되었습니다:`, deletedTodo);
     res.status(200).json({success: true});
   } catch (err) {
@@ -253,7 +262,7 @@ router.post('/updateTodo', async (req, res) => {
     const todoNum = req.body.todoNum; // 클라이언트에서 전달한 todoNum
     const newStatus = String(req.body.newStatus); // 클라이언트에서 전달한 새로운 상태
     console.log(typeof newStatus);
-    await myTodo.statusUpdate(todoNum,newStatus);
+    await todoModel.statusUpdate(todoNum,newStatus);
     console.log(`할일 상태가 업데이트되었습니다:`, todoNum, newStatus);
     res.status(200).json({ success: true });
   } catch (err) {

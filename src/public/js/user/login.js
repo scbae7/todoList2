@@ -22,8 +22,8 @@ document.getElementById('loginBtn').addEventListener('click', (e) => {
       } else {
         console.error('로그인 실패:', data.message);
         // formMessage.textContent = `로그인 실패: ${data.message}`;
-        const myError = new FormMessage('myError');
-        myError.errMessage('로그인 실패',data);
+        const formMessage = new FormMessage('formMessage');
+        formMessage.errMessage('로그인 실패',data);
       }
     })
     .catch(error => console.error('에러 발생', error));

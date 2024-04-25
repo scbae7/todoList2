@@ -1,0 +1,33 @@
+.modal
+  .modalContent.modalFormContent#detailModal
+    .modalFormTitle 
+      span 상세보기
+      button.closeBtn 
+        span#closeModalBtn.closeIcon
+    form(class="modalForm", action="/addTodo",method="post", entype="multupart/form-data")
+      input(type="hidden", id="todoId", name="todoId")
+      if (fUserId)
+          input(type="hidden", id="todoUserId", name="todoUserId",data-todoUserId=fUserId)
+      else
+          input(type="hidden", id="todoUserId", name="todoUserId")
+      .inputRow
+        label(class="inputLabel", for="todoContent") 할일
+        input(class="inputInfo", type="text", id="addTodoContent", name="todoContent", value="드라마 보기", maxlength="15",readonly)
+      .inputRow
+        label(class="inputLabel" for="todoDueDate") 날짜
+        input(class="inputInfo" type="date", id="addTodoDueDate", name="todoDueDate",value="2024-04-25" ,readonly)
+      .inputRow
+        label(class="inputLabel",for="todoDesc") 설명
+        textarea.editTodoDesc(id="addTodoDesc",class="inputInfo", name="todoDesc",value="눈물의 여왕 1화 보기",maxlength="50",readonly) 설명
+      .inputRow
+        label(class="inputLabel",for="todoTag") 태그
+        input(type="text", id="addTodoTag", class="inputInfo",name="todoTag", value="드라마,여가",maxlength="15",readonly)
+      .inputRow
+        label(class="inputLabel",for="todoFile") 파일
+        input(class="inputInfo" type="file", id="addTodoFile", name="todoFile", placeholder="설명" maxlength="15",readonly)
+      .inputRow
+        label(class="inputLabel",for="todoSound") 녹음
+        input(class="inputInfo" type="file", id="addTodoSound", name="todoSound", placeholder="설명",readonly)
+      .modalFormBtnCont
+        button(id="addTodoBtn",class="modalFormBtn",type="submit") 확인
+        button(id="closeModalBtn" class="modalFormBtn") 취소

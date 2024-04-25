@@ -25,8 +25,8 @@ document.getElementById('joinBtn').addEventListener('click', (e) => {
           window.location.href = "/login";
         } else {
           console.error('회원가입 실패:', data.message);
-          const myError = new FormMessage('myError');
-          myError.errMessage('회원가입 실패',data);
+          const formMessage = new FormMessage('formMessage');
+          formMessage.errMessage('회원가입 실패',data);
         }
       })
       .catch(error => console.error('에러 발생', error));
