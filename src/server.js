@@ -9,8 +9,11 @@ import webService from './daemon/webServer.js'
 // const port = process.env.PORT || 3000;
 // app.use(express.static('./src/public'));
 
-// const controller = require('./src/controller/router');
-import controller from './controller/router.js';
+// const controller = require('./src/controller/controller.js');
+// import controller from './controller/controller.js';
+import todoRouter from './router/todoRouter.js'
+import userRouter from './router/userRouter.js'
+import adminRouter from './router/adminRouter.js'
 
 // app.set('view engine', 'pug');
 // app.set('views','./src/views');
@@ -26,7 +29,9 @@ class TodoList {
     this.webServerConf = webServerConf;
   }
   run(){
-    webService.use('/',controller);
+    webService.use('/user',todoRouter);
+    webService.use('/',userRouter);
+    webService.use('/admin',adminRouter);
     webService.listen(this.webServerConf.port,()=>{
       console.log(`${this.webServerConf.port} port open!`);
     })
