@@ -5,14 +5,14 @@ html(lang="ko")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title SIGN UP
-    link(rel="stylesheet", href="./css/reset.css")
-    link(rel="stylesheet", href="./css/common.css")
-    link(rel="stylesheet", href="./css/join.css")
+    link(rel="stylesheet", href="../css/reset.css")
+    link(rel="stylesheet", href="../css/common.css")
+    link(rel="stylesheet", href="../css/join.css")
   body 
-    include ./modal/completeJoinModal.pug
+    include ../modal/completeJoinModal.pug
     .container.joinContainer
       h1.formTitle SIGN UP
-      form(action="/join", method="POST" ,class="formSection", enctype="multipart/form-data")
+      form(action="/user/join", method="POST" ,class="formSection", enctype="multipart/form-data")
         input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 (4~10자)", maxlength="10", required)
         input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호 (문자, 숫자, 특수문자 포함 6자)", maxlength="", required)
         input(type="password",id="pwConfirmInput",class="formContent" , name="pwConfirmInput", placeholder="비밀번호 확인", maxlength="", required)
@@ -22,7 +22,7 @@ html(lang="ko")
         .formMessage
         .joinBtnSection
           button(type="submit",id="joinBtn" ,class="formContent formBtn") 회원가입
-          a(href="/login")
+          a(href="/user/login")
             button(type="submit" ,class="formContent formBtn") 가입취소
     //- .modal
     //-   .modalContent
@@ -34,7 +34,7 @@ html(lang="ko")
     //-       button.modalBtn 확인
     script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
-    script(src="./js/validate.js" type="module")
-    script(src="./js/user/formMessage.js" type="module")
-    script(src="./js/user/join.js" type="module")
+    script(src="../js/validate.js" type="module")
+    script(src="../js/user/formMessage.js" type="module")
+    script(src="../js/user/join.js" type="module")
   

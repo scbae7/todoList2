@@ -5,11 +5,15 @@ class AdminRouter {
     this.id = id;
     this.router = express.Router();
 
-    this.router.get('/',this.renderPage('admin/adminMain'));
+    this.router.get('/',adminController.adminPage);
     this.router.get('/login',this.renderPage('admin/adminLogin'));
     // checkpage 나중에 삭제
     this.router.get('/2',this.renderPage('admin/adminMain2'));
     this.router.get('/request',this.renderPage('admin/adminRequest'));
+    this.router.post('/login',adminController.adminLogin);
+    this.router.post('/request',adminController.adminRequest);
+    this.router.post('/request/accept',adminController.adminAccept);
+    this.router.post('/request/reject',adminController.adminReject);
   }
   renderPage(page){
     return (req,res)=>{
@@ -22,4 +26,8 @@ class AdminRouter {
     }
   }
 }
-export default AdminRouter;
+export default new AdminRouter('AdminRouter').router;
+
+// 회원인지 아닌지 확인하고 맞으면 저장만
+// 수락 누르면 role admin
+// 둘다 뭘하든 삭제

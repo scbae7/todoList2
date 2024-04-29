@@ -4,22 +4,22 @@ html(lang="ko")
     link(rel="icon" href="./images/list.svg")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-    link(rel="stylesheet", href="./css/reset.css")
-    link(rel="stylesheet", href="./css/common.css")
+    title 비밀번호 찾기
+    link(rel="stylesheet", href="../css/reset.css")
+    link(rel="stylesheet", href="../css/common.css")
   body 
-    include ./modal/findPwModal.pug
+    include ../modal/findPwModal.pug
     .container
       h1.formTitle 
-        a(href="/findPw") 비밀번호 찾기
-      form(action="/findPw",method="post",class="formSection")
+        a(href="/user/findPw") 비밀번호 찾기
+      form(action="/user/findPw",method="post",class="formSection")
         input(type="text",id="idInput",class="formContent",name="idInput",placeholder="아이디",maxlength="")
         input(type="text",id="emailInput",class="formContent",name="emailInput",placeholder="이메일",maxlength="")
         button(type="submit",id="findPwBtn",class="formContent formBtn") 비밀번호 찾기
         .supLink
-          a(href="/findId")
+          a(href="/user/findId")
             span 아이디 찾기
-          a(href="/login")
+          a(href="/user/login")
             span 로그인
     //- .modal
     //-   .modalContent
@@ -29,6 +29,6 @@ html(lang="ko")
     //-       p 변경되었습니다.
     //-     a(href="/resetPw")
     //-       button.modalBtn 확인
-    script(src="./js/modal.js")
-    script(src="./js/validate.js" type="module")
-    script(src="./js/user/findPw.js")
+    script(src="../js/modal.js")
+    script(src="../js/validate.js" type="module")
+    script(src="../js/user/findPw.js")

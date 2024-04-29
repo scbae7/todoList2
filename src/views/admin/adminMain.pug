@@ -4,20 +4,23 @@ html(lang="ko")
     link(rel="icon" href="./images/list.svg")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-    link(rel="stylesheet", href="./css/reset.css")
-    link(rel="stylesheet", href="./css/common.css")
-    link(rel="stylesheet", href="./css/admin.css")
+    title ADMIN
+    link(rel="stylesheet", href="../css/reset.css")
+    link(rel="stylesheet", href="../css/common.css")
+    link(rel="stylesheet", href="../css/admin.css")
   body 
-    include ./modal/requestAdminModal.pug
-    include ./modal/todoFilterModal.pug
-    include ./modal/userFilterModal.pug
+    include ../modal/adminModal/requestAdminModal.pug
+    include ../modal/adminModal/todoFilterModal.pug
+    include ../modal/adminModal/userFilterModal.pug
     .container.adminContainer
       .adminHeader
         .adTitle ADMIN
         .adNoti 
           span.notiIcon
-            button.iconNumber 3
+            if(requests)
+              button.iconNumber=`${requests.length}` 
+            else
+              button.iconNumber 없음
           span 승급요청
         button.adminHeaderBtn LOG OUT
       if(users)

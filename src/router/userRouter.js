@@ -8,9 +8,14 @@ class UserRouter {
     this.router.get('/login',this.renderPage('user/userLogin'));
     this.router.get('/join',this.renderPage('user/userJoin'));
     this.router.get('/findId',this.renderPage('user/userFindId'));
-    this.router.get('/findPw',this.renderPage('user/useFindPw'));
+    this.router.get('/findPw',this.renderPage('user/userFindPw'));
     this.router.get('/resetPw',this.renderPage('user/userResetPw'));
     this.router.get('/userDelete',this.renderPage('user/userDelete'));
+    this.router.post('/login',userController.userLogin);
+    this.router.post('/join',userController.userJoin);
+    this.router.post('/findId',userController.userFindId);
+    this.router.post('/findPw',userController.userFindPw);
+    this.router.post('/resetPw',userController.userResetPw);
   }
   renderPage(page){
     return (req,res)=>{
@@ -23,4 +28,4 @@ class UserRouter {
     }
   }
 }
-export default UserRouter;
+export default new UserRouter('UserRouter').router;

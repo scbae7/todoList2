@@ -29,8 +29,8 @@ class TodoList {
     this.webServerConf = webServerConf;
   }
   run(){
-    webService.use('/user',todoRouter);
-    webService.use('/',userRouter);
+    webService.use('/user',userRouter);
+    webService.use('/',todoRouter);
     webService.use('/admin',adminRouter);
     webService.listen(this.webServerConf.port,()=>{
       console.log(`${this.webServerConf.port} port open!`);

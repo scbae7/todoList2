@@ -5,25 +5,25 @@ html(lang="ko")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title LOGIN
-    link(rel="stylesheet", href="css/reset.css")
-    link(rel="stylesheet", href="css/common.css")
+    link(rel="stylesheet", href="../css/reset.css")
+    link(rel="stylesheet", href="../css/common.css")
   body 
     .container
       h1.formTitle
-        a(href="/login") LOG IN
-      form(action="/login", method="post", class="formSection")
+        a(href="/user/login") LOG IN
+      form(action="/user/login", method="post", class="formSection")
         input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 aaa123" ,maxlength="", required)
         input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호 1234!a" ,maxlength="", required)
         .formMessage
         button(id="loginBtn", type="submit" ,class="formContent formBtn") 로그인
         .supLink
-          a(href="/findId")
+          a(href="/user/findId")
             span 아이디 찾기
-          a(href="/findPw")
+          a(href="/user/findPw")
             span 비밀번호 찾기
-          a(href="/join")
+          a(href="/user/join")
             span 회원가입
     //- script(src="./js/validate/loginValidate.js" type="module")
-    script(src="js/validate.js" type="module")
-    script(src="js/user/formMessage.js" type="module")
-    script(src="js/user/login.js" type="module")
+    script(src="../js/validate.js" type="module")
+    script(src="../js/user/formMessage.js" type="module")
+    script(src="../js/user/login.js" type="module")

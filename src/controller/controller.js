@@ -127,6 +127,7 @@ router.post('/findPw',(req,res)=>{
 router.get('/resetPw',(req,res)=>{
   res.render('resetPw');
 })
+//////////////////////////////////////////////////////////////
 router.get('/admin/login',(req,res)=>{
   res.render('adminLogin');
 })
@@ -169,7 +170,7 @@ router.post('/admin/request',(req,res)=>{
   console.log(adminRequests);
   console.log('요청 성공!');
 })
-
+/////////////////////////////////////////////////////////
 router.get('/admin', async (req,res)=>{
   try {
     const users = await userModel.getUserAll();
@@ -192,7 +193,7 @@ router.get('/admin', async (req,res)=>{
 router.get('/admin2',(req,res)=>{
   res.render('admin2');
 })
-
+/////////////////////////////////////////////
 router.get('/todo', async(req,res)=>{
   try {
     const userId = req.session.user.userId;

@@ -10,8 +10,8 @@ html(lang="ko")
     link(rel="stylesheet", href="./css/todo.css")
     link(rel="stylesheet", href="./css/todoForm.css")
   body
-    include ./modal/todoModal/addTodoModal.pug
-    include ./modal/todoModal/deleteTodoModal.pug
+    include ../modal/todoModal/addTodoModal.pug
+    include ../modal/todoModal/deleteTodoModal.pug
     .container.todoContainer
       .navSection
         button.tagSearchBtn # 
@@ -19,7 +19,7 @@ html(lang="ko")
         button.myPaegBtn
           span.myPageIcon
           span MY
-        a(href="/login") 
+        a(href="/user/login") 
           button.logout LOG OUT
       .processSection
         .processLabel 진행률
@@ -56,12 +56,12 @@ html(lang="ko")
               button.rowControl
                   span.rowControlIcon
               button.deleteTodoBtn 삭제
-    script(src="./js/modal.js")
+    script(src="../js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
-    script(src="./js/validate.js" type="module")
-    script(src="./js/todoData/addTodo.js")
-    script(src="./js/todoData/deleteTodo.js" type="module")
-    script(src="./js/filterTodo.js")
-    script(src="./js/filterTodo2.js")
+    script(src="../js/validate.js" type="module")
+    script(src="../js/todoData/addTodo.js")
+    script(src="../js/todoData/deleteTodo.js" type="module")
+    script(src="../js/filterTodo.js")
+    script(src="../js/filterTodo2.js")
     
 

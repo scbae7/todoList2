@@ -23,6 +23,20 @@ class UserModel {
       throw err;
     }
   }
+  async getAdminsAll(){
+    try {
+      const admins = await new Promise((resolve, reject) =>{
+        data.query('select * from requestTable',
+        (err,results)=>{
+          if(err) reject(err);
+          resolve(results);
+        });
+      });
+      return admins;
+    } catch (err) {
+      throw err;
+    }
+  }
   async userLogin(userId, password){
     try {
       const results = await new Promise ((resolve, reject)=>{
@@ -104,6 +118,90 @@ class UserModel {
       const query = 'SELECT userId,userName FROM usertable WHERE userId = ?';
       const [userInfo] = await new Promise((resolve, reject) => {
         data.query(query, [userId], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async userFindId(userName,userEmail) {
+    try {
+      const query = 'SELECT userId FROM usertable WHERE userName = ? and userEmail';
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [userName,userEmail], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async userFindPw(userId,userEmail) {
+    try {
+      const query = 'update usertable set userPassword = "1234!a" where userId = ? and userEmail =? ';
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [userId,userEmail], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async userResetPw(userId,userPw,newPw) {
+    try {
+      const query = 'update usertable set userPassword = ? where userId = ? and userPassword =? ';
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [newPw,userId,userPw], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async adminRequest(userId,passwod) {
+    try {
+      const query = 'insert into requestTable (userId,userPassword) values (?,?)';
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [newPw,userId,passwod], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async adminAccept(adminId) {
+    try {
+      const query = 'update usertable set userRole = "admin" where userId = ?';
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [adminId], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async requestDelete(adminId) {
+    try {
+      const query = "DELETE FROM request_table WHERE userId = ?";
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [adminId], (err, result) => {
           if (err) reject(err);
           resolve(result);
         });

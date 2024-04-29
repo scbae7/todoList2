@@ -5,9 +5,12 @@ class TodoRouter {
     this.id = id;
     this.router = express.Router();
 
-    this.router.get('/',this.renderPage('todo/todoMain'));
+    this.router.get('/',todoController.todoPage);
     // checkpage 나중에 삭제
     this.router.get('/2',this.renderPage('todo/todoMain2'));
+    this.router.post('/addTodo',todoController.addTodo);
+    this.router.post('/deleTodo/:todoNum',todoController.deleteTodo)
+    this.router.post('/updateTodo',todoController.updateTodo)
   }
   renderPage(page){
     return (req,res)=>{
@@ -20,4 +23,4 @@ class TodoRouter {
     }
   }
 }
-export default TodoRouter;
+export default new TodoRouter('TodoRouter').router;

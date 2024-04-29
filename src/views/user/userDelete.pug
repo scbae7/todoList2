@@ -4,17 +4,17 @@ html(lang="ko")
     link(rel="icon" href="./images/list.svg")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-    link(rel="stylesheet", href="./css/reset.css")
-    link(rel="stylesheet", href="./css/common.css")
+    title 회원 탈퇴
+    link(rel="stylesheet", href="../css/reset.css")
+    link(rel="stylesheet", href="../css/common.css")
   body 
-    include ./modal/deleteUserModal.pug
+    include ../modal/deleteUserModal.pug
     .container
       h1.formTitle 
-        a(href="/findId")
+        a(href="/user/userDelete")
           span 회원 
           span.fontRed 탈퇴
-      form(action="", method="" class="formSection")
+      form(action="/user/userDelete", method="delete" class="formSection")
         input(type="text" ,class="formContent" , name="", placeholder="이름" maxlength="")
         input(type="password",id="pwInput" ,class="formContent" , name="", placeholder="비밀번호" maxlength="" required)
         button(type="submit",id="openModalBtn" ,class="formContent formBtn") 
@@ -33,5 +33,5 @@ html(lang="ko")
     //-       button.modalBtn 취소
     //-     a(href="#")
     //-       button(class="deleteUser") 확인
-    script(src="./js/modal.js")
-    script(src="./js/validate.js" type="module")
+    script(src="../js/modal.js")
+    script(src="../js/validate.js" type="module")
