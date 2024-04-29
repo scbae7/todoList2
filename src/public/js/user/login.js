@@ -5,7 +5,7 @@ document.getElementById('loginBtn').addEventListener('click', (e) => {
   const idInput = document.getElementById('idInput').value;
   const pwInput = document.getElementById('pwInput').value;
   // const formMessage = document.querySelector('.formMessage');
-  fetch('/login', {
+  fetch('/user/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ document.getElementById('loginBtn').addEventListener('click', (e) => {
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        window.location.href = "/todo";
+        window.location.href = "/1";
       } else {
         console.error('로그인 실패:', data.message);
         // formMessage.textContent = `로그인 실패: ${data.message}`;

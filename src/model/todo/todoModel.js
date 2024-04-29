@@ -39,12 +39,12 @@ class TodoModel {
       throw err;
     }
   }
-  async getTodosForUser(userId) {
+  async getTodosForUser() {
     // 데이터베이스 쿼리를 사용하여 해당 사용자에게 할당된 모든 할 일과 사용자 이름 조회
     try {
       const todos = await new Promise((resolve, reject) => {
-        data.query(`SELECT *, usertable.userName FROM todotable INNER JOIN usertable ON todotable.userId = usertable.userId WHERE todotable.userId = ?;`,
-          [userId],
+        data.query(`SELECT *, usertable.userName FROM todotable INNER JOIN usertable ON todotable.userId = usertable.userId WHERE todotable.userId = 'aaa123';`,
+          // [userId],
           (err, results) => {
             if (err) reject(err);
             resolve(results);
@@ -125,4 +125,5 @@ class TodoModel {
   }
 }
 // module.exports = TodoModel;
-export default TodoModel;
+const todoModel = new TodoModel('todoModel');
+export default todoModel;

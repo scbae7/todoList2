@@ -10,8 +10,8 @@ html(lang="ko")
     link(rel="stylesheet", href="./css/todo.css")
     link(rel="stylesheet", href="./css/todoForm.css")
   body
-    include ../modal/todoModal/addTodoModal.pug
-    include ../modal/todoModal/deleteTodoModal.pug
+    //- include ../modal/todoModal/addTodoModal.pug
+    //- include ../modal/todoModal/deleteTodoModal.pug
     .container.todoContainer
       .navSection
         button.tagSearchBtn # 
@@ -41,7 +41,7 @@ html(lang="ko")
           .DoneCont DONE  
       .todoSection
         each todo in todos
-          - if (todo)
+          if (todo)
             .todoRow(data-todoNum=todo.todo_num, class=(todo.status === '대기 중' ? 'waiting' : 'done'))
               - if (todo.due_date)
                 - var dueDate = new Date(todo.due_date);
@@ -56,6 +56,8 @@ html(lang="ko")
               button.rowControl
                   span.rowControlIcon
               button.deleteTodoBtn 삭제
+          else
+            .todoRow 없어
     script(src="../js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="../js/validate.js" type="module")

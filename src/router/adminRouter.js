@@ -1,11 +1,20 @@
 import express from 'express';
+import session from 'express-session';
 import adminController from '../controller/adminController.js';
 class AdminRouter {
   constructor(id){
     this.id = id;
     this.router = express.Router();
+    this.router.use(express.json());
+    this.router.use(express.urlencoded({ extended: true }));
+    this.router.use(session({
+      secret: 'your_secret_key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { secure: false }
+    }));
 
-    this.router.get('/',adminController.adminPage);
+    this.router.get('/1',adminController.adminPage);
     this.router.get('/login',this.renderPage('admin/adminLogin'));
     // checkpage 나중에 삭제
     this.router.get('/2',this.renderPage('admin/adminMain2'));
@@ -27,7 +36,3 @@ class AdminRouter {
   }
 }
 export default new AdminRouter('AdminRouter').router;
-
-// 회원인지 아닌지 확인하고 맞으면 저장만
-// 수락 누르면 role admin
-// 둘다 뭘하든 삭제

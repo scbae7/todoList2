@@ -38,6 +38,7 @@ class UserModel {
     }
   }
   async userLogin(userId, password){
+    console.log("진입")
     try {
       const results = await new Promise ((resolve, reject)=>{
         data.query(
@@ -213,4 +214,5 @@ class UserModel {
   }
 }
 // module.exports = UserModel;
-export default UserModel;
+const userModel = new UserModel('userModel');
+export default userModel;

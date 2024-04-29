@@ -17,7 +17,7 @@ document.getElementById('adminLoginBtn').addEventListener('click', (e) => {
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        window.location.href = "/admin";
+        window.location.href = "/admin/1";
       } else {
         console.error('관리자 로그인 실패:', data.message);
         const formMessage = new FormMessage('formMessage');
