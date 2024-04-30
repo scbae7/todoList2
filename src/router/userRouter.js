@@ -25,6 +25,7 @@ class UserRouter {
     this.router.post('/findId',userController.userFindId);
     this.router.post('/findPw',userController.userFindPw);
     this.router.post('/resetPw',userController.userResetPw);
+    this.router.post('/logout',userController.userLogout);
   }
   renderPage(page){
     return (req,res)=>{

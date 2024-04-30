@@ -74,6 +74,11 @@ class UserController {
       res.status(500).json({success:false,message:'서버 오류'});
     }
   }
+  userLogout (req,res) {
+    req.session.destroy();
+    console.log('logout!');
+    res.redirect('user/login');
+  }
 }
 const userController = new UserController('userController');
 export default userController;
