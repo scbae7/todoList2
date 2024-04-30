@@ -212,6 +212,20 @@ class UserModel {
       throw err;
     }
   }
+  async userDelete(userId,userPw) {
+    try {
+      const query = "";
+      const [userInfo] = await new Promise((resolve, reject) => {
+        data.query(query, [userId,userPw], (err, result) => {
+          if (err) reject(err);
+          resolve(result);
+        });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 // module.exports = UserModel;
 const userModel = new UserModel('userModel');

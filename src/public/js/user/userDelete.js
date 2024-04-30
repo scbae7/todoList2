@@ -1,20 +1,16 @@
 document.getElementById('deleteUserBtn').addEventListener('click', (e) => {
   e.preventDefault();
-  // const idInput = document.getElementById('idInput').value;
-  // const pwInput = document.getElementById('pwInput').value;
-  // const emailInput = document.getElementById('emailInput').value;
-  // const nameInput = document.getElementById('nameInput').value;
+  const idInput = document.getElementById('idInput').value;
+  const pwInput = document.getElementById('pwInput').value;
 
-  fetch('/deleteUser', {
-    method: 'delete',
+  fetch('/user/userDelete', {
+    method: 'post',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       userId: idInput,
       password: pwInput,
-      email: emailInput,
-      name: nameInput,
     }),
   })
     .then(response => response.json())

@@ -79,6 +79,16 @@ class UserController {
     console.log('logout!');
     res.redirect('user/login');
   }
+  userDelete (req,res) {
+    try {
+      const {userId,userPw} = req.body;
+      userModel.userDelete(userId,userPw);
+      res.status(200).json({success:true,message:'회원 탈퇴 성공!'});
+    } catch (err) {
+      console.error('에러 발생: ',err);
+      res.status(500).json({success:false,message:'서버 오류'})
+    }
+  }
 }
 const userController = new UserController('userController');
 export default userController;
