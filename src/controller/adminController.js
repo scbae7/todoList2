@@ -52,7 +52,7 @@ class AdminController {
     try {
       const {adminId} = req.body; 
       const statusResult = await userModel.adminAccept(adminId); 
-      await userModel. requestDelete(adminId);
+      await userModel.requestDelete(adminId);
       console.log(adminId);
       return res.status(200).json({success:true});
     } catch (err) {
@@ -64,7 +64,7 @@ class AdminController {
     try {
       const {adminId} = req.body;
       console.log(adminId);
-      await userModel. requestDelete(adminId);
+      await userModel.requestDelete(adminId);
       return res.status(200).json({success:true});
     } catch (err) {
       console.error(err);

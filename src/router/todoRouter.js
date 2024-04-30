@@ -1,5 +1,5 @@
 import express from 'express';
-import session from 'express-session';
+// import session from 'express-session';
 import todoController from '../controller/todoController.js';
 class TodoRouter {
   constructor(id){
@@ -7,12 +7,12 @@ class TodoRouter {
     this.router = express.Router();
     this.router.use(express.json());
     this.router.use(express.urlencoded({ extended: true }));
-    this.router.use(session({
-      secret: 'your_secret_key',
-      resave: false,
-      saveUninitialized: false,
-      cookie: { secure: false }
-    }));
+    // this.router.use(session({
+    //   secret: 'your_secret_key',
+    //   resave: false,
+    //   saveUninitialized: false,
+    //   cookie: { secure: false }
+    // }));
 
     this.router.get('/1',todoController.todoPage);
     // checkpage 나중에 삭제

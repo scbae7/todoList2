@@ -1,5 +1,5 @@
 import express from 'express';
-import session from 'express-session';
+// import session from 'express-session';
 import adminController from '../controller/adminController.js';
 class AdminRouter {
   constructor(id){
@@ -7,12 +7,12 @@ class AdminRouter {
     this.router = express.Router();
     this.router.use(express.json());
     this.router.use(express.urlencoded({ extended: true }));
-    this.router.use(session({
-      secret: 'your_secret_key',
-      resave: false,
-      saveUninitialized: false,
-      cookie: { secure: false }
-    }));
+    // this.router.use(session({
+    //   secret: 'your_secret_key',
+    //   resave: false,
+    //   saveUninitialized: false,
+    //   cookie: { secure: false }
+    // }));
 
     this.router.get('/1',adminController.adminPage);
     this.router.get('/login',this.renderPage('admin/adminLogin'));

@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 class WebServer {
   constructor(id){
     this.id = id;
@@ -8,6 +9,12 @@ class WebServer {
     app.set('view engine', 'pug');
     app.set('views','./src/views');
     app.use(express.static('./src/public'));
+    app.use(session({
+      secret: 'your_secret_key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { secure: false }
+    }));
     return app;
   }
 }
