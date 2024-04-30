@@ -8,7 +8,7 @@ document.getElementById('addTodoBtn').addEventListener('click', (e) => {
     const addTodoSound = document.getElementById('addTodoSound').value;
     const todoUserId = document.getElementById('todoUserId').dataset.todouserid;
 
-    fetch('/addTodo', {
+    fetch('/todo/addTodo', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ document.getElementById('addTodoBtn').addEventListener('click', (e) => {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          window.location.href = "/todo";
+          window.location.href = "/todo/todoMain";
           // window.location.reload();
         } else {
           console.error('투두 추가 실패:', data.message);

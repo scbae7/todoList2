@@ -4,10 +4,10 @@
       span 추가하기
       button.closeBtn 
         span#closeModalBtn.closeIcon
-    form(class="modalForm", action="/addTodo",method="post", entype="multupart/form-data")
+    form(class="modalForm", action="",method="", entype="multupart/form-data")
       input(type="hidden", id="todoId", name="todoId")
-      if (fUserId)
-          input(type="hidden", id="todoUserId", name="todoUserId",data-todoUserId=fUserId)
+      if (userId)
+          input(type="hidden", id="todoUserId", name="todoUserId",data-todoUserId=userId)
       else
           input(type="hidden", id="todoUserId", name="todoUserId")
       .inputRow

@@ -46,7 +46,8 @@ class UserController {
       const { userName, userEmail } = req.body;
       console.log('아이디 찾기 성공');
       const userInfo = await userModel.userFindId(userName, userEmail);
-      res.status(200).json({success:true, userInfo: userInfo});
+      console.log(userInfo);
+      res.status(200).json({success:true, message: userInfo});
     } catch (err) {
       console.error('에러발생:',err);
       res.status(500).json({success:false, message:'서버 오류'});

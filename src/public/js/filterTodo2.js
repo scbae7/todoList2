@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(todoNum)
             if (todoRow.classList.contains('waiting')) { // 대기 중 상태인 경우에만 처리
                 // 서버로 요청 보내기
-                fetch('/updateTodo', {
+                fetch('/todo/updateTodo', {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json'

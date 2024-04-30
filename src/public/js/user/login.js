@@ -18,7 +18,7 @@ document.getElementById('loginBtn').addEventListener('click', (e) => {
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        window.location.href = "/1";
+        window.location.href = "/todo/todoMain";
       } else {
         console.error('로그인 실패:', data.message);
         // formMessage.textContent = `로그인 실패: ${data.message}`;

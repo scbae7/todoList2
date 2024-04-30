@@ -10,6 +10,4 @@ const db = () => {
     collate:'utf8mb4_unicode_ci'
   };
 };
-
-// module.exports = db;
 export default db;

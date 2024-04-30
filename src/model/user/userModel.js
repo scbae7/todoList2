@@ -1,7 +1,3 @@
-// const db = require('../db')()
-// const mysql = require('mysql');
-// const data = mysql.createConnection(db);
-
 import db from '../../conf/db.js';
 import mysql from 'mysql';
 const data = mysql.createConnection(db());
@@ -227,6 +223,5 @@ class UserModel {
     }
   }
 }
-// module.exports = UserModel;
 const userModel = new UserModel('userModel');
 export default userModel;

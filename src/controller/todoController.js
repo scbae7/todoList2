@@ -6,25 +6,12 @@ class TodoController {
   }
   async todoPage (req,res) {
     try {
-
-      // const userId = req.session.user.userId;
-      // const userName = req.session.user.name;
-      // console.log('진입2');
-      // console.log("3"+req.session.user.userId);
-      // console.log("4"+req.session.user.name);
-      // req.session.user = {
-      //   userId: userId,
-      //   name: results[0].userName // 예를 들어, results 객체에서 사용자의 이름을 가져옵니다.
-      // };
-
-      
-      // console.log(userId);
-      // // console.log(userName);
-      // const todos = await todoModel.getTodosForUser(userId);
-      const todos = await todoModel.getTodosForUser();
-      // console.log(todos);
-      // res.render('todo',{todos:todos,fUserName:userName,fUserId:userId});
-      res.render('todo/todoMain',{todos:todos});
+      const userId = req.session.user.userId;
+      const userName = req.session.user.name;
+      console.log("userId"+userId);
+      console.log("userName"+userName);
+      const todos = await todoModel.getTodosForUser(userId);
+      res.render('todo/todoMain',{todos:todos,userName:userName,userId:userId});
     } catch(err){
       console.error(err);
       res.status(500).send('서버 오류');

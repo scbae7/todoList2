@@ -1,5 +1,4 @@
 import express from 'express';
-// import session from 'express-session';
 import userController from '../controller/userController.js';
 class UserRouter {
   constructor(id){
@@ -7,12 +6,6 @@ class UserRouter {
     this.router = express.Router();
     this.router.use(express.json());
     this.router.use(express.urlencoded({ extended: true }));
-    // this.router.use(session({
-    //   secret: 'your_secret_key',
-    //   resave: false,
-    //   saveUninitialized: false,
-    //   cookie: { secure: false }
-    // }));
 
     this.router.get('/login',this.renderPage('user/userLogin'));
     this.router.get('/join',this.renderPage('user/userJoin'));

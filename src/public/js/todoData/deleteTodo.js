@@ -5,8 +5,8 @@ document.querySelectorAll('.deleteTodoBtn').forEach(button=>{
         const todoNum = button.parentElement.getAttribute('data-todonum');
         console.log(todoNum);
 
-        fetch(`/deleteTodo/${todoNum}`,{
-            method:'delete',
+        fetch(`/todo/deleteTodo/${todoNum}`,{
+            method:'post',
           })
           .then(response=>{
             if(!response.ok){

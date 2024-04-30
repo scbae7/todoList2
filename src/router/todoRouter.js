@@ -1,5 +1,4 @@
 import express from 'express';
-// import session from 'express-session';
 import todoController from '../controller/todoController.js';
 class TodoRouter {
   constructor(id){
@@ -7,18 +6,12 @@ class TodoRouter {
     this.router = express.Router();
     this.router.use(express.json());
     this.router.use(express.urlencoded({ extended: true }));
-    // this.router.use(session({
-    //   secret: 'your_secret_key',
-    //   resave: false,
-    //   saveUninitialized: false,
-    //   cookie: { secure: false }
-    // }));
 
-    this.router.get('/1',todoController.todoPage);
+    this.router.get('/todoMain',todoController.todoPage);
     // checkpage 나중에 삭제
     this.router.get('/2',this.renderPage('todo/todoMain2'));
     this.router.post('/addTodo',todoController.addTodo);
-    this.router.post('/deleTodo/:todoNum',todoController.deleteTodo)
+    this.router.post('/deleteTodo/:todoNum',todoController.deleteTodo)
     this.router.post('/updateTodo',todoController.updateTodo)
   }
   // renderPage(page){

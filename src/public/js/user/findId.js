@@ -15,11 +15,11 @@ document.getElementById('findIdBtn').addEventListener('click', (e) => {
       email: emailInput,
     }),
   })
-    .then(response => response.json())
+    // .then(response => response.json())
     .then(data => {
       if (data.success) {
         // window.location.href = "/todo";
-        console.log('아이디 찾기 성공')
+        console.log('아이디 찾기 성공',data.message);
       } else {
         console.error('아이디 찾기 실패:', data.message);
         // 로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리

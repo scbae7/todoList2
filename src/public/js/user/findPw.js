@@ -3,7 +3,7 @@ document.getElementById('findPwBtn').addEventListener('click', (e) => {
   const idInput = document.getElementById('idInput').value;
   const emailInput = document.getElementById('emailInput').value;
   console.log(idInput,emailInput);
-  fetch('/findPw', {
+  fetch('/user/findPw', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

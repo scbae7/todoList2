@@ -83,8 +83,9 @@ class AdminController {
       console.log(userName);
       console.log(users.length);
       console.log(todos.length);
+      console.log(requests);
       console.log(requests.length);
-      res.render('admin/1',{todos:todos,users:users,userName:userName,requests:requests});
+      res.render('admin/adminMain',{todos:todos,users:users,userName:userName,requests:requests});
     } catch (err) {
       console.error(err);
       res.status(500).send('서버 오류');
