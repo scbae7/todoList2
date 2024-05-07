@@ -222,7 +222,7 @@ body {
           font-size: 16px;
           padding: 6px;
           padding-right: 14px;
-          background-color: #FF6347;
+          background-color: #E96573;
           border-radius:6px;
           margin-right: 10px;
           color: #fff;
@@ -246,6 +246,47 @@ body {
           background-size: cover;
           width: 32px;
           height: 32px;
+        }
+      }
+      .rowBtns {
+        position: absolute;
+        top: 30%;
+        left: 56%;
+        height: 50px;
+        display: flex;
+        display: none;
+        align-items: center;
+        justify-content: center;
+       
+        button {
+          width: 50px;
+          height: 50px;
+          background-color: #005E87;
+          border-radius: 50%;
+          color: #fff;
+          text-align: center;
+          border: 1px solid #000;
+          position: relative;
+          span {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 32px;
+            height: 32px;
+            background-size: cover;
+          }
+          .doneBtn {
+            background-image: url(../images/done.svg);
+          }
+          .editBtn {
+            background-image: url(../images/edit.svg);
+          }
+          .deleteBtn {
+            background-image: url(../images/delete.svg);
+          }
+          .closeBtn {
+            background-image: url(../images/close.svg);
+          }
         }
       }
     }

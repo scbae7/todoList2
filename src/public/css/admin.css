@@ -23,6 +23,11 @@ body .adminContainer .adminHeader .adNoti {
   font-weight: bold;
   display: flex;
   align-items: center;
+  border: 1px solid #005E87;
+  background-color: #fff;
+  padding: 6px;
+  padding-right: 14px;
+  border-radius: 6px;
 }
 body .adminContainer .adminHeader .adNoti .notiIcon {
   background-image: url(../images/noti.svg);
@@ -43,6 +48,7 @@ body .adminContainer .adminHeader .adNoti .notiIcon .iconNumber {
   height: 24px;
   color: red;
   font-size: 16px;
+  border: 1px solid #005E87;
 }
 body .adminContainer .adminHeader .adminHeaderBtn {
   width: 140px;
@@ -204,6 +210,7 @@ body .modal .requestContent .requestRowCont {
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 body .modal .requestContent .requestRowCont .requestRow {
   display: flex;

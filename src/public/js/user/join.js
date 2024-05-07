@@ -7,7 +7,7 @@ document.getElementById('joinBtn').addEventListener('click', (e) => {
     const emailInput = document.getElementById('emailInput').value;
     const nameInput = document.getElementById('nameInput').value;
 
-    fetch('/join', {
+    fetch('/user/join', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ document.getElementById('joinBtn').addEventListener('click', (e) => {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          window.location.href = "/login";
+          window.location.href = "/user/login";
         } else {
           console.error('회원가입 실패:', data.message);
           const formMessage = new FormMessage('formMessage');

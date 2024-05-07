@@ -225,7 +225,7 @@ body .todoSection .todoRow .rowTag .rowTagData {
   font-size: 16px;
   padding: 6px;
   padding-right: 14px;
-  background-color: #FF6347;
+  background-color: #E96573;
   border-radius: 6px;
   margin-right: 10px;
   color: #fff;
@@ -249,6 +249,46 @@ body .todoSection .todoRow .rowControl .rowControlIcon {
   background-size: cover;
   width: 32px;
   height: 32px;
+}
+body .todoSection .todoRow .rowBtns {
+  position: absolute;
+  top: 30%;
+  left: 56%;
+  height: 50px;
+  display: flex;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+body .todoSection .todoRow .rowBtns button {
+  width: 50px;
+  height: 50px;
+  background-color: #005E87;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  border: 1px solid #000;
+  position: relative;
+}
+body .todoSection .todoRow .rowBtns button span {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+}
+body .todoSection .todoRow .rowBtns button .doneBtn {
+  background-image: url(../images/done.svg);
+}
+body .todoSection .todoRow .rowBtns button .editBtn {
+  background-image: url(../images/edit.svg);
+}
+body .todoSection .todoRow .rowBtns button .deleteBtn {
+  background-image: url(../images/delete.svg);
+}
+body .todoSection .todoRow .rowBtns button .closeBtn {
+  background-image: url(../images/close.svg);
 }
 body .todoSection .todoRow.done {
   background-color: #07A467;

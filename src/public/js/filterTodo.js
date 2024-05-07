@@ -42,14 +42,20 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateProgress() {
         const totalTodos = todos.length; // 전체 할 일 수
         let completedTodos = 0; // 완료된 할 일 수
+        let progress = 0;
 
         todos.forEach(function (todo) {
             if (todo.classList.contains('done')) {
                 completedTodos++;
             }
         });
-
-        const progress = (completedTodos / totalTodos) * 100; // 진행률 계산
+        console.log("1"+completedTodos);
+        console.log("2"+totalTodos);
+        if(completedTodos<0 || totalTodos<0){
+            progress = 0;
+        }else{  
+            progress = (completedTodos / totalTodos) * 100; // 진행률 계산
+        }
         console.log(progress);
         barNumber.style.width = progress + '%'; // 진행률 바 업데이트
         progressNumber.textContent = Math.floor(progress) + '%'; // 진행률 숫자 업데이트

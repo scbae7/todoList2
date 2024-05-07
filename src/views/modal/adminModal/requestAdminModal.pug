@@ -1,14 +1,14 @@
-.modal
+.modal#requestModal
   div(class="modalContent requestContent")
     .requestModalTitle 관리자 승급 요청
     .requestRowCont 
       each request in requests
         if(requests)
-          .requestRow
+          .requestRow(data-userId=`${request.userId}`)
             .requestName=`id = ${request.userId}`
             .requestBtnCont
-              button.adminAcceptBtn 수락 
-              button.adminRejectBtn 거절
+              button.adminAcceptBtn.okBtn 수락 
+              button.adminRejectBtn.noBtn 거절
         else
           .requestRow
             .requestName 없음
@@ -25,5 +25,3 @@
         //-   .requestBtnCont
         //-     button.okBtn 수락 
         //-     button.noBtn 거절
-    a(href="/admin")
-      button.modalBtn 확인

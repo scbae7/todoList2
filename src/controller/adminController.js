@@ -35,10 +35,18 @@ class AdminController {
   async adminRequest (req,res) {
     try {
       const {userId, password} = req.body;
+      const result = await userModel.reqCheck(userId);
+      // console.log("개수"+Object.keys(count))
+      // console.log("개수"+Object.entries(count))
+      if(result.count>0){
+        return res.status(400).json({ success: false, message: '이미 요청했습니다.'});
+      }
       const userResults = await userModel.userLogin(userId,password);
       // res.status(200).json({success:true});
       if(userResults.length>0){
         const adminResults = await userModel.adminRequest(userId,password);
+        console.log(adminResults);
+        return res.status(200).json({success:true,message:'요청성공'});
       }else{
         return res.status(401).json({success:false,message:'아이디나 비밀번호가 잘못되었습니다.'})
       }

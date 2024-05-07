@@ -1,4 +1,5 @@
 import todoModel from '../model/todo/todoModel.js';
+import path from 'path';
 
 class TodoController {
   constructor(id){
@@ -24,13 +25,14 @@ class TodoController {
         todoDate,
         todoDesc,
         todoTag,
-        todoFile,
         todoSound,
         todoUserId
       } = req.body;
       console.log(
         req.body
       );
+      console.log(req.file);
+      const todoFile = req.file.path;
       await todoModel.addTodo(
         todoCont,
         todoDate,

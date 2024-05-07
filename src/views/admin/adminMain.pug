@@ -15,12 +15,12 @@ html(lang="ko")
     .container.adminContainer
       .adminHeader
         .adTitle ADMIN
-        .adNoti 
+        button.adNoti 
           span.notiIcon
             if(requests)
-              button.iconNumber=`${requests.length}` 
+              span.iconNumber=`${requests.length}` 
             else
-              button.iconNumber 없음
+              span.iconNumber 없음
           span 승급요청
         button.adminHeaderBtn LOG OUT
       if(users)
@@ -74,27 +74,30 @@ html(lang="ko")
               button.editBtn
               button.deleteBtn  
       
-    .modal
-      div(class="modalContent requestContent")
-        .requestModalTitle 관리자 승급 요청
-        .requestRowCont 
-          .requestRow
-            .requestId 홍길동
-            .requestBtnCont
-              button 수락 
-              button 거절
-          .requestRow
-            .requestId 홍길동
-            .requestBtnCont
-              button 수락 
-              button 거절
-          .requestRow
-            .requestId 홍길동
-            .requestBtnCont
-              button.okBtn 수락 
-              button.noBtn 거절
-        a(href="/admin")
-          button.modalBtn 확인
-    script(src="./js/modal.js")
+    //- .modal
+    //-   div(class="modalContent requestContent")
+    //-     .requestModalTitle 관리자 승급 요청
+    //-     .requestRowCont 
+    //-       .requestRow
+    //-         .requestId 홍길동
+    //-         .requestBtnCont
+    //-           button 수락 
+    //-           button 거절
+    //-       .requestRow
+    //-         .requestId 홍길동
+    //-         .requestBtnCont
+    //-           button 수락 
+    //-           button 거절
+    //-       .requestRow
+    //-         .requestId 홍길동
+    //-         .requestBtnCont
+    //-           button.okBtn 수락 
+    //-           button.noBtn 거절
+    //-     a(href="/admin")
+    //-       button.modalBtn 확인
+    //- script(src="./js/modal.js")
     //- script(src="./js/validate/joinValidate.js" type="module")
-    script(src="./js/validate.js" type="module")
+    //- script(src="./js/validate.js" type="module")
+    script(src="../js/user/admin/adminRequest.js")
+    script(src="../js/user/admin/adminAccept.js")
+    script(src="../js/user/admin/adminReject.js")

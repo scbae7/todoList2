@@ -1,7 +1,7 @@
 const AcceptBtns = document.querySelectorAll('.adminAcceptBtn');
 AcceptBtns.forEach(btn=>{
   btn.addEventListener('click',(e)=>{
-    const reqId = e.target.parentElement.parentElement.value;
+    const reqId = e.target.parentElement.parentElement.dataset.userid;
     fetch('/admin/request/accept',{
       method:'POST',
       headers:{

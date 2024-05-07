@@ -1,10 +1,10 @@
-.modal
+.modal.detailModal
   .modalContent.modalFormContent#detailModal
     .modalFormTitle 
       span 상세보기
       button.closeBtn 
         span#closeModalBtn.closeIcon
-    form(class="modalForm", action="/addTodo",method="post", entype="multupart/form-data")
+    form(class="modalForm", action="/",method="", entype="multupart/form-data")
       input(type="hidden", id="todoId", name="todoId")
       if (fUserId)
           input(type="hidden", id="todoUserId", name="todoUserId",data-todoUserId=fUserId)
@@ -29,5 +29,5 @@
         label(class="inputLabel",for="todoSound") 녹음
         input(class="inputInfo" type="file", id="addTodoSound", name="todoSound", placeholder="설명",readonly)
       .modalFormBtnCont
-        button(id="addTodoBtn",class="modalFormBtn",type="submit") 확인
+        button(id="addTodoBtn",class="modalFormBtn",type="") 확인
         button(id="closeModalBtn" class="modalFormBtn") 취소

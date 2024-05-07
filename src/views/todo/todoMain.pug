@@ -12,6 +12,7 @@ html(lang="ko")
   body
     include ../modal/todoModal/addTodoModal.pug
     include ../modal/todoModal/deleteTodoModal.pug
+    include ../modal/todoModal/detailModal.pug
     .container.todoContainer
       .navSection
         button.tagSearchBtn # 
@@ -55,7 +56,15 @@ html(lang="ko")
                     span.rowTagData= tag.trim()
               button.rowControl
                   span.rowControlIcon
-              button.deleteTodoBtn 삭제
+              .rowBtns
+                button
+                  span.doneBtn
+                button
+                  span.editBtn
+                button
+                  span.deleteBtn
+                button
+                  span.closeBtn
           else
             .todoRow 없어
     script(src="../js/modal.js")
@@ -64,6 +73,8 @@ html(lang="ko")
     script(src="../js/todoData/addTodo.js")
     script(src="../js/todoData/deleteTodo.js" type="module")
     script(src="../js/filterTodo.js")
-    script(src="../js/filterTodo2.js")
+    script(src="../js/todoStatus.js")
+    //- script(src="../js/todoData/todoDetail.js")
+    script(src="../js/todoData/01.js")
     
 

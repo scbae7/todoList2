@@ -44,10 +44,11 @@ class UserController {
   async userFindId (req, res){
     try {
       const { userName, userEmail } = req.body;
-      console.log('아이디 찾기 성공');
+      
       const userInfo = await userModel.userFindId(userName, userEmail);
       console.log(userInfo);
       res.status(200).json({success:true, message: userInfo});
+      console.log('아이디 찾기 성공');
     } catch (err) {
       console.error('에러발생:',err);
       res.status(500).json({success:false, message:'서버 오류'});
@@ -56,8 +57,10 @@ class UserController {
   async userFindPw (req, res){
     try {
       const { userId,userEmail } = req.body;
-      const userInfo =  await userModel.userFindPw(userId,userEmail);
-      res.status(200).json({success:true,message:'비밀번호가 1234!a로 변경됐습니다.'});
+      console.log(userId);
+      console.log(userEmail);
+      await userModel.userFindPw(userId,userEmail);
+      res.status(200).json({success:true,message:`비밀번호가 1234!a로 변경됐습니다.`});
       console.log('비밀번호 변경 성공!');
     } catch (err) {
       console.error('에러발생:',err);

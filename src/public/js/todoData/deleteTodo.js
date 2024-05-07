@@ -1,8 +1,8 @@
 import { updateProgress } from '../updatePro.js';
-document.querySelectorAll('.deleteTodoBtn').forEach(button=>{
+document.querySelectorAll('.deleteBtn').forEach(button=>{
     button.addEventListener('click',(event)=>{
         console.log('버튼')
-        const todoNum = button.parentElement.getAttribute('data-todonum');
+        const todoNum = button.parentElement.parentElement.parentElement.getAttribute('data-todonum');
         console.log(todoNum);
 
         fetch(`/todo/deleteTodo/${todoNum}`,{
@@ -16,7 +16,7 @@ document.querySelectorAll('.deleteTodoBtn').forEach(button=>{
           })
           .then(data=>{
             console.log(data);
-            const deletedElement = button.parentElement; // 삭제된 항목의 부모 요소 선택
+            const deletedElement = button.parentElement.parentElement.parentElement; // 삭제된 항목의 부모 요소 선택
             deletedElement.remove(); // 선택된 요소를 DOM에서 완전히 제거합니다.
             updateProgress();
           })

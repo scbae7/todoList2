@@ -1,5 +1,6 @@
 document.getElementById('findPwBtn').addEventListener('click', (e) => {
   e.preventDefault();
+  console.log('dd')
   const idInput = document.getElementById('idInput').value;
   const emailInput = document.getElementById('emailInput').value;
   console.log(idInput,emailInput);
@@ -10,14 +11,14 @@ document.getElementById('findPwBtn').addEventListener('click', (e) => {
     },
     body: JSON.stringify({
       userId: idInput,
-      email: emailInput,
+      userEmail: emailInput,
     }),
   })
     .then(response => response.json())
     .then(data => {
       if (data.success) {
         // window.location.href = "/todo";
-        console.log('비밀번호 찾기 성공')
+        console.log('비밀번호 찾기 성공',data.message);
       } else {
         console.error('비밀번호 찾기 실패:', data.message);
         // 로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리

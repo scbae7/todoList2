@@ -24,6 +24,11 @@ body {
         font-weight: bold;
         display: flex;
         align-items: center;
+        border: 1px solid #005E87;
+        background-color: #fff;
+        padding: 6px;
+        padding-right: 14px;
+        border-radius: 6px;
 
         .notiIcon {
           background-image: url(../images/noti.svg);
@@ -44,6 +49,7 @@ body {
             height: 24px;
             color: red;
             font-size: 16px;
+            border: 1px solid #005E87;
           }
         }
       }
@@ -227,6 +233,7 @@ body {
         display: flex;
         // justify-content: center;
         flex-direction: column;
+        overflow: auto;
 
         .requestRow {
           display: flex;

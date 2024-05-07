@@ -13,9 +13,11 @@ function updateProgress() {
             completedTodos++;
         }
     });
+    console.log("1"+totalTodos);
+    console.log("2"+completedTodos);
 
     const progress = (completedTodos / totalTodos) * 100; // 진행률 계산
-    console.log(progress);
+    console.log("pro"+progress);
     barNumber.style.width = progress + '%'; // 진행률 바 업데이트
     progressNumber.textContent = Math.floor(progress) + '%'; // 진행률 숫자 업데이트
 }

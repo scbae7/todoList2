@@ -1,4 +1,6 @@
 import express from 'express';
+import multer from 'multer';
+import path from 'path';
 import todoController from '../controller/todoController.js';
 class TodoRouter {
   constructor(id){
@@ -7,12 +9,25 @@ class TodoRouter {
     this.router.use(express.json());
     this.router.use(express.urlencoded({ extended: true }));
 
+    this.storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+          cb(null, 'src/public/file'); // 파일이 저장될 폴더 지정
+      },
+      filename: function (req, file, cb) {
+          cb(null, Date.now() + path.extname(file.originalname)); // 파일명 설정
+      }
+    });
+
+    this.upload = multer({ storage: this.storage });
+
     this.router.get('/todoMain',todoController.todoPage);
     // checkpage 나중에 삭제
     this.router.get('/2',this.renderPage('todo/todoMain2'));
-    this.router.post('/addTodo',todoController.addTodo);
+    this.router.post('/addTodo',this.upload.single('todoFile'),todoController.addTodo);
     this.router.post('/deleteTodo/:todoNum',todoController.deleteTodo)
     this.router.post('/updateTodo',todoController.updateTodo)
+
+   
   }
   // renderPage(page){
   //   return (req,res)=>{
