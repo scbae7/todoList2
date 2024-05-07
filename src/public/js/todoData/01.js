@@ -1,6 +1,7 @@
 const rowControls = document.querySelectorAll('.rowControl');
 rowControls.forEach(rowControl => {
-  rowControl.addEventListener('click', () => {
+  rowControl.addEventListener('click', (e) => {
+    e.preventDefault();
     console.log("rowControl 클릭");
     const rowBtns = rowControl.parentElement.querySelector(".rowBtns");
     if (rowBtns) {
@@ -12,7 +13,8 @@ rowControls.forEach(rowControl => {
 
 const closeBtns = document.querySelectorAll('.closeBtn');
 closeBtns.forEach(closeBtn => {
-  closeBtn.addEventListener('click', () => {
+  closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     console.log("closeBtn 클릭");
     const rowBtns = closeBtn.closest(".rowBtns");
     const rowControl = rowBtns.parentElement.querySelector(".rowControl");
