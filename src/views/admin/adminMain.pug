@@ -22,7 +22,7 @@ html(lang="ko")
             else
               span.iconNumber 없음
           span 승급요청
-        button.adminHeaderBtn LOG OUT
+        button.adminHeaderBtn.logout LOG OUT
       if(users)
         .adminName= userName + '님 안녕하세요'
       else
@@ -101,3 +101,4 @@ html(lang="ko")
     script(src="../js/user/admin/adminRequest.js")
     script(src="../js/user/admin/adminAccept.js")
     script(src="../js/user/admin/adminReject.js")
+    script(src="../js/user/logout.js") 

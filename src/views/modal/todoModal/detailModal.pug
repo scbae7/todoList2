@@ -5,22 +5,21 @@
       button.closeBtn 
         span#closeModalBtn.closeIcon
     form(class="modalForm", action="/",method="", entype="multupart/form-data")
-      input(type="hidden", id="todoId", name="todoId")
+      input(type="hidden", id="detailTodoId", name="detailTodoId")
+      input(type="hidden", id="detailTodoNum", name="detailTodoNum")
       .inputRow
         label(class="inputLabel", for="todoContent") 할일
-        input(class="inputInfo", type="text", id="detailTodoContent", name="todoContent", value="드라마 보기", maxlength="15",readonly)
+        input(class="inputInfo", type="text", id="detailTodoContent", name="todoContent", value="", maxlength="15",readonly)
       .inputRow
         label(class="inputLabel" for="todoDueDate") 날짜
-        input(class="inputInfo" type="date", id="detailTodoDueDate", name="todoDueDate",value="2024-04-25" ,readonly)
+        input(class="inputInfo" type="date", id="detailTodoDueDate", name="todoDueDate",value="" ,readonly)
       .inputRow
         label(class="inputLabel",for="todoDesc") 설명
-        textarea.editTodoDesc(id="detailTodoDesc",class="inputInfo", name="todoDesc",value="눈물의 여왕 1화 보기",maxlength="50",readonly) 설명
+        textarea.editTodoDesc(id="detailTodoDesc",class="inputInfo", name="detailTodoDesc",value="",maxlength="50",readonly) 설명
       .inputRow
         label(class="inputLabel",for="todoTag") 태그
-        input(type="text", id="detailTodoTag", class="inputInfo",name="todoTag", value="드라마,여가",maxlength="15",readonly)
-      .inputRow
-        label(class="inputLabel",for="todoFile") 파일
-        input(class="inputInfo" type="file", id="detailTodoFile", name="todoFile", placeholder="설명" maxlength="15",readonly)
+        input(type="text", id="detailTodoTag", class="inputInfo",name="detailTodoTag", value="",maxlength="15",readonly)
+      #detailTodoFile
       .modalFormBtnCont
         button(id="detailTodoBtn",class="modalFormBtn",type="") 확인
         button(id="closeModalBtn" class="modalFormBtn") 취소

@@ -299,6 +299,15 @@ body .todoSection .todoRow.done:hover {
 body .todoSection .todoRow.done .rowControl {
   background-color: #286137;
 }
+body .todoSection .todoRow.done .rowBtns {
+  left: 65%;
+}
+body .todoSection .todoRow.done .rowBtns button {
+  background-color: #286137;
+}
+body .todoSection .todoRow.done .rowBtns button:nth-child(1) {
+  display: none;
+}
 body .modal .myPageModalCont {
   position: absolute;
   top: 50%;
@@ -401,4 +410,12 @@ body .modal .todoModalCont {
   opacity: 0.5;
   border-radius: 20px;
   padding: 10px;
+}
+body #detailTodoFile {
+  margin-left: 100px;
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=todo.css.map */

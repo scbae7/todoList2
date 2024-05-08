@@ -7,7 +7,6 @@ document.getElementById('addTodoBtn').addEventListener('click', (e) => {
   formData.append('todoDesc', document.getElementById('addTodoDesc').value);
   formData.append('todoTag', document.getElementById('addTodoTag').value);
   formData.append('todoFile', document.getElementById('addTodoFile').files[0]); 
-  formData.append('todoSound', document.getElementById('addTodoSound').value);
   formData.append('todoUserId', document.getElementById('todoUserId').dataset.todouserid);
 
   fetch('/todo/addTodo', {

@@ -20,7 +20,7 @@ html(lang="ko")
         button.myPaegBtn
           span.myPageIcon
           span MY
-        a(href="/user/login") 
+        a(href="") 
           button.logout LOG OUT
       .processSection
         .processLabel 진행률
@@ -43,7 +43,7 @@ html(lang="ko")
       .todoSection
         each todo in todos
           if (todo)
-            .todoRow(data-todoNum=todo.todo_num, class=(todo.status === '대기 중' ? 'waiting' : 'done'))
+            .todoRow(data-todoId=todo.userId,data-todoNum=todo.todo_num, class=(todo.status === '대기 중' ? 'waiting' : 'done'),data-todoDesc=todo.todo_desc,data-todoFile=todo.todo_file )
               - if (todo.due_date)
                 - var dueDate = new Date(todo.due_date);
                 - var formattedDueDate = dueDate.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
@@ -74,5 +74,7 @@ html(lang="ko")
     script(src="../js/todoData/deleteTodo.js" type="module")
     script(src="../js/filterTodo.js")
     script(src="../js/todoStatus.js")
-    //- script(src="../js/todoData/todoDetail.js")
+    script(src="../js/todoData/todoDetail.js")
     script(src="../js/todoData/01.js")
+    script(src="../js/user/logout.js") 
+    script(src="../js/todoData/todoEdit.js")
