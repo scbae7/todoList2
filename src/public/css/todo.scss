@@ -201,6 +201,7 @@ body {
       padding:10px;
       padding-left: 25px;
       position: relative;
+      z-index: 1;
       &:hover {
         background-color: #2E7289;
         border-left:10px solid #364954;
@@ -238,6 +239,7 @@ body {
         height: 50px;
         border-radius: 50%;
         border:1px solid #000;
+        z-index: 2;
         .rowControlIcon {
           position: absolute;
           top: 15%;
@@ -257,6 +259,7 @@ body {
         display: none;
         align-items: center;
         justify-content: center;
+        z-index: 2;
        
         button {
           width: 50px;

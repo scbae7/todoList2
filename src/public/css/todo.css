@@ -202,6 +202,7 @@ body .todoSection .todoRow {
   padding: 10px;
   padding-left: 25px;
   position: relative;
+  z-index: 1;
 }
 body .todoSection .todoRow:hover {
   background-color: #2E7289;
@@ -240,6 +241,7 @@ body .todoSection .todoRow .rowControl {
   height: 50px;
   border-radius: 50%;
   border: 1px solid #000;
+  z-index: 2;
 }
 body .todoSection .todoRow .rowControl .rowControlIcon {
   position: absolute;
@@ -259,6 +261,7 @@ body .todoSection .todoRow .rowBtns {
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 body .todoSection .todoRow .rowBtns button {
   width: 50px;
