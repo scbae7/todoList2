@@ -3,10 +3,19 @@ document.querySelectorAll('.deleteBtn').forEach(button=>{
     button.addEventListener('click',(event)=>{
         console.log('버튼')
         const todoNum = button.parentElement.parentElement.parentElement.getAttribute('data-todonum');
-        console.log(todoNum);
+        // console.log(todoNum);
+        const todoFile = button.parentElement.parentElement.parentElement.getAttribute("data-todoFile");
+        console.log(todoFile);
 
         fetch(`/todo/deleteTodo/${todoNum}`,{
             method:'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              todoNum: todoNum,
+              todoFile: todoFile,
+            }),
           })
           .then(response=>{
             if(!response.ok){

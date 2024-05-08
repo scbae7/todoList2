@@ -1,5 +1,6 @@
 import todoModel from '../model/todo/todoModel.js';
 import path from 'path';
+import fs from 'fs';
 
 class TodoController {
   constructor(id){
@@ -51,8 +52,16 @@ class TodoController {
   }
   async deleteTodo (req,res) {
     try {
-      const todoNum = req.params.todoNum;
+      const {todoNum,todoFile} = req.body;
       console.log(todoNum);
+      console.log(todoFile);
+      fs.unlink(todoFile,(err)=>{
+        if(err){
+          console.err('파일삭제실패',err);
+          return;
+        }
+        console.log('파일삭제성공')
+      })
       const deletedTodo = await todoModel.deleteTodo(todoNum);
       console.log(`할일이 삭제되었습니다:`, deletedTodo);
       res.status(200).json({success: true});

@@ -1,4 +1,4 @@
 const webServerConf = {
-  port:33071
+  port:33072
 }
 export default webServerConf;
