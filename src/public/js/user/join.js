@@ -1,4 +1,5 @@
 import FormMessage from './formMessage.js';
+import ConfirmModal from "../confirmModal.js";
 
 document.getElementById('joinBtn').addEventListener('click', (e) => {
     e.preventDefault();
@@ -22,7 +23,9 @@ document.getElementById('joinBtn').addEventListener('click', (e) => {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          window.location.href = "/user/login";
+          const confirmModal = new ConfirmModal("confirmModal");
+          confirmModal.showModal();
+          // window.location.href = "/user/login";
         } else {
           console.error('회원가입 실패:', data.message);
           const formMessage = new FormMessage('formMessage');

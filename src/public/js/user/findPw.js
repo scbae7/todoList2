@@ -1,3 +1,5 @@
+import ConfirmModal from "../confirmModal";
+
 document.getElementById('findPwBtn').addEventListener('click', (e) => {
   e.preventDefault();
   console.log('dd')
@@ -18,6 +20,8 @@ document.getElementById('findPwBtn').addEventListener('click', (e) => {
     .then(data => {
       if (data.success) {
         // window.location.href = "/todo";
+        const confirmModal = new ConfirmModal("confirmModal");
+        confirmModal.showModal(data.message);
         console.log('비밀번호 찾기 성공',data.message);
       } else {
         console.error('비밀번호 찾기 실패:', data.message);

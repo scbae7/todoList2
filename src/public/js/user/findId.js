@@ -1,3 +1,4 @@
+import ConfirmModal from "../confirmModal";
 document.querySelector('.findIdBtn').addEventListener('click', (e) => {
   e.preventDefault();
   console.log('hi');
@@ -19,6 +20,8 @@ document.querySelector('.findIdBtn').addEventListener('click', (e) => {
     .then(data => {
       if (data.success) {
         // window.location.href = "user/login";
+        const confirmModal = new ConfirmModal("confirmModal");
+        confirmModal.showModal(data.message);
         console.log('아이디 찾기 성공',data.message);
         console.log(data);
       } else {

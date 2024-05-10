@@ -30,13 +30,13 @@ body .todoContainer .navSection .tagSearchBtn span {
   margin-left: 4px;
   font-size: 16px;
 }
-body .todoContainer .navSection .myPaegBtn {
+body .todoContainer .navSection .myPageBtn {
   width: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-body .todoContainer .navSection .myPaegBtn .myPageIcon {
+body .todoContainer .navSection .myPageBtn .myPageIcon {
   background-image: url(../images/face.svg);
   width: 30px;
   height: 30px;
@@ -317,7 +317,7 @@ body .modal .myPageModalCont {
   left: 50%;
   padding: 20px;
   width: 360px;
-  height: 620px;
+  height: 500px;
   transform: translate(-50%, -50%);
   border: 1px solid var(--main-color);
   color: #005E87;
@@ -353,8 +353,9 @@ body .modal .myPageModalCont .myPageSection {
   margin-top: 20px;
   border-radius: 20px;
   width: 100%;
-  height: 500px;
+  height: 410px;
   background-color: #179BC7;
+  justify-content: flex-start;
 }
 body .modal .myPageModalCont .myPageSection .myPageImg {
   background-image: url(../images/picture.svg);
@@ -368,12 +369,13 @@ body .modal .myPageModalCont .myPageSection .myContInfo {
   display: flex;
   align-items: center;
   padding: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   -moz-text-align-last: left;
        text-align-last: left;
   color: #fff;
   height: 60px;
-  margin-left: 30px;
+  margin-left: 90px;
 }
 body .modal .myPageModalCont .myPageSection .myContInfo .myLabel {
   width: 20%;

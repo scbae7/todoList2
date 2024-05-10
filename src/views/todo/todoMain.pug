@@ -13,11 +13,13 @@ html(lang="ko")
     include ../modal/todoModal/addTodoModal.pug
     include ../modal/todoModal/deleteTodoModal.pug
     include ../modal/todoModal/detailModal.pug
+    include ../modal/todoModal/myPageModal.pug
+
     .container.todoContainer
       .navSection
         button.tagSearchBtn # 
           span 태그로 검색
-        button.myPaegBtn
+        button.myPageBtn
           span.myPageIcon
           span MY
         button.logout LOG OUT
@@ -34,12 +36,13 @@ html(lang="ko")
         if (userName)
             .headerHello= userName + '님 안녕하세요'
         else
-            .headerHello 회원 이름이 없어
+            .headerHello GUEST님 안녕하세요
       .todoHeader
           .todoCont TODO
           .addCont#openModalBtn + NEW
           .DoneCont DONE  
       .todoSection
+      if(todos)
         each todo in todos
           if (todo)
             .todoRow(data-todoId=todo.userId,data-todoNum=todo.todo_num, class=(todo.status === '대기 중' ? 'waiting' : 'done'),data-todoDesc=todo.todo_desc,data-todoFile=todo.todo_file )
@@ -78,3 +81,4 @@ html(lang="ko")
     script(src="../js/user/logout.js") 
     script(src="../js/todoData/todoEdit.js")
     script(src="../js/modal.js")
+    script(src="../js/todo/myPageModal.js")

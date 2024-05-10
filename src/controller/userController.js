@@ -46,8 +46,8 @@ class UserController {
       const { userName, userEmail } = req.body;
       
       const userInfo = await userModel.userFindId(userName, userEmail);
-      console.log(userInfo);
-      res.status(200).json({success:true, message: userInfo});
+      console.log(userInfo.userId);
+      res.status(200).json({success:true, message: `아이디는 ${userInfo.userId} 입니다.`});
       console.log('아이디 찾기 성공');
     } catch (err) {
       console.error('에러발생:',err);

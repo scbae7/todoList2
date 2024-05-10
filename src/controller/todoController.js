@@ -8,12 +8,18 @@ class TodoController {
   }
   async todoPage (req,res) {
     try {
-      const userId = req.session.user.userId;
-      const userName = req.session.user.name;
+      let userId = '';
+      let userName = '';
+      let todos = '';
+      // if(req.session.user.userId && req.session.user.name){
+      //   userId = req.session.user.userId;
+      //   userName = req.session.user.name;
+      // }
       console.log("userId"+userId);
       console.log("userName"+userName);
-      const todos = await todoModel.getTodosForUser(userId);
-      res.render('todo/todoMain',{todos:todos,userName:userName,userId:userId});
+      // todos = await todoModel.getTodosForUser(userId);
+      // res.render('todo/todoMain',{todos:todos,userName:userName,userId:userId});
+      res.render('todo/todoMain');
     } catch(err){
       console.error(err);
       res.status(500).send('서버 오류');
