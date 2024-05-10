@@ -78,17 +78,19 @@ class UserController {
       res.status(500).json({success:false,message:'서버 오류'});
     }
   }
-  userLogout (req, res) {
+  userLogout(req, res) {
+    console.log(req.session); 
     req.session.destroy(err => {
+      console.log("2"+req.session); 
       if (err) {
         console.error('세션 삭제 중 에러 발생:', err);
         res.status(500).send('서버 에러');
       } else {
         console.log('로그아웃 성공');
-        res.redirect('/login');
+        res.redirect('/user/login'); 
       }
-    })
-  };
+    });
+  }
   userDelete (req,res) {
     try {
       const {userId,userPw} = req.body;

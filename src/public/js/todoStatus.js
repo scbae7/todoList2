@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 각 rowControl 요소에 대해 클릭 이벤트 리스너 추가
     rowControls.forEach(function(control) {
-        control.addEventListener('click', function() {
+        control.addEventListener('click', function(e) {
+            e.stopPropagation();
             const todoRow = control.closest('.todoRow'); // 클릭된 요소의 가장 가까운 부모 todoRow 요소 선택
             const todoNum = todoRow.getAttribute('data-todonum');
             console.log(todoNum)

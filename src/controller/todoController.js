@@ -26,14 +26,16 @@ class TodoController {
         todoDate,
         todoDesc,
         todoTag,
-        todoSound,
         todoUserId
       } = req.body;
       console.log(
         req.body
       );
+      let todoFile = null;
+      if(req.file){
+        todoFile = req.file.path;
+      }
       console.log(req.file);
-      const todoFile = req.file.path;
       await todoModel.addTodo(
         todoCont,
         todoDate,
@@ -41,7 +43,6 @@ class TodoController {
         todoUserId,
         todoTag,
         todoFile,
-        todoSound
       );
       console.log('투두추가 성공');
       res.status(200).json({success: true});
@@ -52,16 +53,29 @@ class TodoController {
   }
   async deleteTodo (req,res) {
     try {
-      const {todoNum,todoFile} = req.body;
-      console.log(todoNum);
-      console.log(todoFile);
-      fs.unlink(todoFile,(err)=>{
-        if(err){
-          console.err('파일삭제실패',err);
-          return;
-        }
-        console.log('파일삭제성공')
-      })
+      let todoFile;
+      console.log(req.body);
+      console.log(req.body.requestBody.todoNum);
+      let todoNum = req.body.requestBody.todoNum;
+      
+      // console.log(req.body.requestBody.todoFile);
+      // const {todoNum,todoFile} = req.body;
+      // console.log(todoNum);
+      // console.log(todoFile);
+      if(!todoFile){
+        todoFile = null;
+      }else {
+        todoFile = null;
+        todoFile = req.body.requestBody.todoFile;
+        console.log("3"+todoFile);
+        fs.unlink(todoFile,(err)=>{
+          if(err){
+            console.err('파일삭제실패',err);
+            return;
+          }
+          console.log('파일삭제성공')
+        })
+      }
       const deletedTodo = await todoModel.deleteTodo(todoNum);
       console.log(`할일이 삭제되었습니다:`, deletedTodo);
       res.status(200).json({success: true});

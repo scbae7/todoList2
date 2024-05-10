@@ -1,11 +1,24 @@
 import { updateProgress } from '../updatePro.js';
 document.querySelectorAll('.deleteBtn').forEach(button=>{
     button.addEventListener('click',(event)=>{
+        event.stopPropagation();
         console.log('버튼')
         const todoNum = button.parentElement.parentElement.parentElement.getAttribute('data-todonum');
         // console.log(todoNum);
-        const todoFile = button.parentElement.parentElement.parentElement.getAttribute("data-todoFile");
-        console.log(todoFile);
+        let todoFile = null;
+        const todoFileAttribute = button.parentElement.parentElement.parentElement.getAttribute("data-todoFile");
+        console.log(todoFileAttribute);
+        if(todoFileAttribute){
+          todoFile = todoFileAttribute;;
+        }
+
+        let requestBody = {
+          todoNum: todoNum
+        };
+
+        if (todoFile) {
+            requestBody.todoFile = todoFile;
+        }
 
         fetch(`/todo/deleteTodo/${todoNum}`,{
             method:'post',
@@ -13,8 +26,7 @@ document.querySelectorAll('.deleteBtn').forEach(button=>{
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              todoNum: todoNum,
-              todoFile: todoFile,
+              requestBody
             }),
           })
           .then(response=>{

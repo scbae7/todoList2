@@ -20,8 +20,7 @@ html(lang="ko")
         button.myPaegBtn
           span.myPageIcon
           span MY
-        a(href="") 
-          button.logout LOG OUT
+        button.logout LOG OUT
       .processSection
         .processLabel 진행률
         .processNumber#progressNumber
@@ -67,7 +66,7 @@ html(lang="ko")
                   span.closeBtn
           else
             .todoRow 없어
-    script(src="../js/modal.js")
+    
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="../js/validate.js" type="module")
     script(src="../js/todoData/addTodo.js")
@@ -75,6 +74,7 @@ html(lang="ko")
     script(src="../js/filterTodo.js")
     script(src="../js/todoStatus.js")
     script(src="../js/todoData/todoDetail.js")
-    script(src="../js/todoData/01.js")
+    script(src="../js/todoData/btnControl.js")
     script(src="../js/user/logout.js") 
     script(src="../js/todoData/todoEdit.js")
+    script(src="../js/modal.js")

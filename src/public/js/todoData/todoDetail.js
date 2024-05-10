@@ -3,6 +3,8 @@ console.log("todoDetail");
 todoRows.forEach(todoRow=>{
   todoRow.addEventListener('click',(e)=>{
     e.preventDefault();
+    console.log(todoRow);
+    console.log("todoRow클릭")
     const todoId = todoRow.getAttribute("data-todoId");
     const todoNum = todoRow.getAttribute("data-todoNum");
     const todoDesc = todoRow.getAttribute("data-todoDesc");
@@ -16,11 +18,15 @@ todoRows.forEach(todoRow=>{
     const finalFormattedDate = formattedDate.replace(/\./g, '-');
     console.log(finalFormattedDate);
 
-    console.log("1:"+todoFile);
-    const fixedTodoFile = todoFile.replace(/\\/g, "/");
-    console.log("2:"+fixedTodoFile);
-    const newFile = fixedTodoFile.replace(`src\/public/`, '../');
-    console.log("3:"+newFile);
+    let newFile = '';
+    if(todoFile){
+      console.log("1:"+todoFile);
+      const fixedTodoFile = todoFile.replace(/\\/g, "/");
+      console.log("2:"+fixedTodoFile);
+      newFile = fixedTodoFile.replace(`src\/public/`, '../');
+      console.log("3:"+newFile);
+    }
+    
     
     // const encodedTodoFile = encodeURI(todoFile);
     // console.log(encodedTodoFile);
@@ -33,10 +39,17 @@ todoRows.forEach(todoRow=>{
     document.getElementById("detailTodoDueDate").value = finalFormattedDate;
     document.getElementById("detailTodoDesc").value = todoDesc;
     document.getElementById("detailTodoTag").value = todoTag;
-    document.getElementById("detailTodoFile").style.backgroundImage = `url(${newFile})`;
+    let detailTodoFile = document.getElementById("detailTodoFile")
+   
+    detailTodoFile.style.marginLeft = `100px`;
+    detailTodoFile.style.width = `300px`;
+    detailTodoFile.style.height = `300px`;
+    detailTodoFile.style.backgroundSize = `cover`;
+    detailTodoFile.style.backgroundRepeat = `cover`;
+    detailTodoFile.style.backgroundImage = `url(${newFile})`;
+    
 
-    document.querySelector('.modal.detailModal').style.display="block";
-    document.getElementById('detailModal').style.display="block";
+    document.querySelector('.detailModal').style.display="block";
 
 
   })
