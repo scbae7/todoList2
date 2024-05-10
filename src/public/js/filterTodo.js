@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         console.log("1"+completedTodos);
         console.log("2"+totalTodos);
-        if(completedTodos<0 || totalTodos<0){
+        if(completedTodos<=0 || totalTodos<=0){
             progress = 0;
         }else{  
             progress = (completedTodos / totalTodos) * 100; // 진행률 계산
