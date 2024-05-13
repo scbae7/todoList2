@@ -1,0 +1,28 @@
+.modal.editModal
+  .modalContent.modalFormContent#editModal
+    .modalFormTitle 
+      span 수정하기
+      //- button.closeBtn#closeModalBtn
+      //-   span.closeIcon
+    form(class="modalForm", action="",method="", entype="multupart/form-data")
+      input(type="hidden", id="editTodoId", name="editTodoId")
+      input(type="hidden", id="editTodoNum", name="editTodoNum")
+      .inputRow
+        label(class="inputLabel", for="todoContent") 할일
+        input(class="inputInfo", type="text", id="editTodoContent", name="todoContent", value="", maxlength="15")
+      .inputRow
+        label(class="inputLabel" for="todoDueDate") 날짜
+        input(class="inputInfo" type="date", id="editTodoDueDate", name="todoDueDate",value="" )
+      .inputRow
+        label(class="inputLabel",for="todoDesc") 설명
+        textarea.editTodoDesc(id="editTodoDesc",class="inputInfo", name="editTodoDesc",value="",maxlength="50") 설명
+      .inputRow
+        label(class="inputLabel",for="todoTag") 태그
+        input(type="text", id="editTodoTag", class="inputInfo",name="editTodoTag", value="",maxlength="15")
+      .inputRow
+        label(class="inputLabel",for="editTodoFile") 파일
+        input(class="inputInfo" type="file", id="editTodoFile", name="editTodoFile", placeholder="설명" maxlength="15")
+      #editTodoFileView
+      .modalFormBtnCont
+        button(id="editTodoBtn",class="modalFormBtn",type="") 수정하기
+        button(id="closeModalBtn" class="modalFormBtn") 취소

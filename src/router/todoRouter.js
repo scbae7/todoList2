@@ -24,8 +24,9 @@ class TodoRouter {
     // checkpage 나중에 삭제
     this.router.get('/2',this.renderPage('todo/todoMain2'));
     this.router.post('/addTodo',this.upload.single('todoFile'),todoController.addTodo);
-    this.router.post('/deleteTodo/:todoNum',todoController.deleteTodo)
-    this.router.post('/updateTodo',todoController.updateTodo)
+    this.router.post('/deleteTodo/:todoNum',todoController.deleteTodo);
+    this.router.post('/updateTodo',todoController.updateTodo);
+    this.router.post('/editTodo',this.upload.single('todoFile'),todoController.editTodo);
 
    
   }

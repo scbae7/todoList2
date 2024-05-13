@@ -13,6 +13,7 @@ html(lang="ko")
     include ../modal/todoModal/addTodoModal.pug
     include ../modal/todoModal/deleteTodoModal.pug
     include ../modal/todoModal/detailModal.pug
+    include ../modal/todoModal/editModal.pug
     include ../modal/todoModal/myPageModal.pug
 
     .container.todoContainer
@@ -42,33 +43,33 @@ html(lang="ko")
           .addCont#openModalBtn + NEW
           .DoneCont DONE  
       .todoSection
-      if(todos)
-        each todo in todos
-          if (todo)
-            .todoRow(data-todoId=todo.userId,data-todoNum=todo.todo_num, class=(todo.status === '대기 중' ? 'waiting' : 'done'),data-todoDesc=todo.todo_desc,data-todoFile=todo.todo_file )
-              - if (todo.due_date)
-                - var dueDate = new Date(todo.due_date);
-                - var formattedDueDate = dueDate.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                .rowDate= formattedDueDate
-              - if (todo.todolist_cont)
-                .rowDesc= todo.todolist_cont
-              .rowTag
-                - if (todo.todo_tag)
-                  each tag in todo.todo_tag.split(',')
-                    span.rowTagData= tag.trim()
-              button.rowControl
-                  span.rowControlIcon
-              .rowBtns
-                button
-                  span.doneBtn
-                button
-                  span.editBtn
-                button
-                  span.deleteBtn
-                button
-                  span.closeBtn
-          else
-            .todoRow 없어
+        if(todos)
+          each todo in todos
+            if (todo)
+              .todoRow(data-todoId=todo.userId,data-todoNum=todo.todo_num, class=(todo.status === '대기 중' ? 'waiting' : 'done'),data-todoDesc=todo.todo_desc,data-todoFile=todo.todo_file )
+                - if (todo.due_date)
+                  - var dueDate = new Date(todo.due_date);
+                  - var formattedDueDate = dueDate.toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' });
+                  .rowDate= formattedDueDate
+                - if (todo.todolist_cont)
+                  .rowDesc= todo.todolist_cont
+                .rowTag
+                  - if (todo.todo_tag)
+                    each tag in todo.todo_tag.split(',')
+                      span.rowTagData= tag.trim()
+                button.rowControl
+                    span.rowControlIcon
+                .rowBtns
+                  button
+                    span.doneBtn
+                  button
+                    span.editBtn
+                  button
+                    span.deleteBtn
+                  button
+                    span.closeBtn
+            else
+              .todoRow 없어
     
     //- script(src="./js/validate/joinValidate.js" type="module")
     script(src="../js/validate.js" type="module")

@@ -11,15 +11,18 @@ class TodoController {
       let userId = '';
       let userName = '';
       let todos = '';
-      // if(req.session.user.userId && req.session.user.name){
-      //   userId = req.session.user.userId;
-      //   userName = req.session.user.name;
-      // }
+      console.log("req",req.session);
+      if(req.session.user.userId && req.session.user.name){
+        userId = req.session.user.userId;
+        userName = req.session.user.name;
+      }
       console.log("userId"+userId);
       console.log("userName"+userName);
-      // todos = await todoModel.getTodosForUser(userId);
-      // res.render('todo/todoMain',{todos:todos,userName:userName,userId:userId});
-      res.render('todo/todoMain');
+      todos = await todoModel.getTodosForUser(userId);
+      console.log("Email",todos[0].userEmail);
+      let todoMail = todos[0].userEmail;
+      res.render('todo/todoMain',{todos:todos,userName:userName,userId:userId,todoMail:todoMail});
+      // res.render('todo/todoMain');
     } catch(err){
       console.error(err);
       res.status(500).send('서버 오류');
@@ -101,6 +104,54 @@ class TodoController {
     } catch (err) {
       console.error('할일 상태 업데이트 중 오류 발생:', err);
       res.status(500).json({ success: false, message: '서버 오류' });
+    }
+  }
+  async editTodo (req,res) {
+    try{
+      const {
+        todoCont,
+        todoDate,
+        todoDesc,
+        todoTag,
+        todoUserId,
+        todoNum
+      } = req.body;
+      console.log(
+        "reqBody",req.body
+      );
+      let todoFile = null;
+      let oldTodoFile = null;
+      if(req.file){
+        todoFile = req.file.path;
+      }
+      if(req.body.oldTodoFile){
+        oldTodoFile = req.body.oldTodoFile;
+      }
+      console.log("oldTodo",oldTodoFile);
+      console.log("reqFile",req.file);
+      await todoModel.editTodo(
+        todoCont,
+        todoDate,
+        todoDesc,
+        todoUserId,
+        todoTag,
+        todoFile,
+        todoNum,
+      );
+      if(oldTodoFile && req.file){
+        fs.unlink(oldTodoFile,(err)=>{
+          if(err){
+            console.error("파일 삭제 실패:",err);
+          }else{
+            console.log("기존 파일 삭제 성공")
+          }
+        })
+      }
+      console.log('투두수정 성공');
+      res.status(200).json({success: true});
+    }catch(err){
+      console.error('에러발생:',err);
+      res.status(500).json({success:false, message:'서버 오류'});
     }
   }
 }
