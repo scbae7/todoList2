@@ -5,12 +5,14 @@ class ConfirmModal {
     this.modalContent = document.getElementById("modalContent");
   }
   showModal(message){
+    
     if(message){
       this.modalContent.textContent = message;
       this.confirmModal.style.display = "block";
     }else{
       this.confirmModal.style.display = "block";
     }
-    
+    console.log(message);
   }
 }
+export {ConfirmModal};

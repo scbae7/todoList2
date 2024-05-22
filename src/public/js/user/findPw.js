@@ -1,4 +1,4 @@
-import ConfirmModal from "../confirmModal";
+import {ConfirmModal} from "../confirmModal.js";
 
 document.getElementById('findPwBtn').addEventListener('click', (e) => {
   e.preventDefault();

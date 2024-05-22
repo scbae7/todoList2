@@ -20,18 +20,8 @@ body .todoContainer .navSection button {
   font-size: 24px;
   height: 40px;
 }
-body .todoContainer .navSection .tagSearchBtn {
-  width: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body .todoContainer .navSection .tagSearchBtn span {
-  margin-left: 4px;
-  font-size: 16px;
-}
 body .todoContainer .navSection .myPageBtn {
-  width: 120px;
+  width: 47%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +36,7 @@ body .todoContainer .navSection .myPageBtn .myPageIcon {
   margin-right: 4px;
 }
 body .todoContainer .navSection .logout {
-  width: 180px;
+  width: 47%;
 }
 body .processSection {
   margin-top: 20px;

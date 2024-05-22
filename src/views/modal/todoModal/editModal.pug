@@ -1,4 +1,4 @@
-.modal.editModal
+.modal.editModal#editModalShow
   .modalContent.modalFormContent#editModal
     .modalFormTitle 
       span 수정하기
@@ -18,11 +18,11 @@
         textarea.editTodoDesc(id="editTodoDesc",class="inputInfo", name="editTodoDesc",value="",maxlength="50") 설명
       .inputRow
         label(class="inputLabel",for="todoTag") 태그
-        input(type="text", id="editTodoTag", class="inputInfo",name="editTodoTag", value="",maxlength="15")
+        input(type="text", id="editTodoTag", class="inputInfo",name="editTodoTag")
       .inputRow
         label(class="inputLabel",for="editTodoFile") 파일
-        input(class="inputInfo" type="file", id="editTodoFile", name="editTodoFile", placeholder="설명" maxlength="15")
+        input(class="inputInfo" type="file", id="editTodoFile", name="editTodoFile", placeholder="설명", maxlength="15")
       #editTodoFileView
       .modalFormBtnCont
-        button(id="editTodoBtn",class="modalFormBtn",type="") 수정하기
-        button(id="closeModalBtn" class="modalFormBtn") 취소
+        button(data-open-modal="editModalShow",id="editTodoBtn",class="modalFormBtn",type="button") 수정하기
+        button(class="modalFormBtn closeModalBtn" type="button") 취소

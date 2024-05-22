@@ -15,7 +15,7 @@ html(lang="ko")
         input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 aaa123" ,maxlength="", required)
         input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호 1234!a" ,maxlength="", required)
         .formMessage
-        button(id="loginBtn", type="submit" ,class="formContent formBtn") 로그인
+        button(id="loginBtn", type="button" ,class="formContent formBtn") 로그인
         .supLink
           a(href="/user/findId")
             span 아이디 찾기
@@ -23,7 +23,8 @@ html(lang="ko")
             span 비밀번호 찾기
           a(href="/user/join")
             span 회원가입
-    //- script(src="./js/validate/loginValidate.js" type="module")
-    script(src="../js/validate.js" type="module")
+    //- script(src="../js/validate/loginValidate.js" type="module")
+    //- script(src="../js/regEx2.js" type="module")
     script(src="../js/user/formMessage.js" type="module")
     script(src="../js/user/login.js" type="module")
+    script(src="../js/regEx3.js")

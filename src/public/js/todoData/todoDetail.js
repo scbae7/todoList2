@@ -13,10 +13,7 @@ todoRows.forEach(todoRow=>{
     const todoTag = todoRow.querySelector(".rowTag").textContent;
     const todoDate = todoRow.querySelector(".rowDate").textContent;
 
-    const trimmedDate = todoDate.replace(/\s/g, '');
-    const formattedDate = trimmedDate.slice(0, -1);
-    const finalFormattedDate = formattedDate.replace(/\./g, '-');
-    console.log(finalFormattedDate);
+
 
     let newFile = '';
     if(todoFile){
@@ -25,9 +22,36 @@ todoRows.forEach(todoRow=>{
       console.log("2:"+fixedTodoFile);
       newFile = fixedTodoFile.replace(`src\/public/`, '../');
       console.log("3:"+newFile);
+
+      let detailTodoFile = document.getElementById("detailTodoFile")
+   
+      
+      document.querySelector('#detailModal').style.height=`730px`;
+      detailTodoFile.style.marginLeft = `100px`;
+      detailTodoFile.style.width = `300px`;
+      detailTodoFile.style.height = `300px`;
+      detailTodoFile.style.backgroundSize = `cover`;
+      detailTodoFile.style.backgroundRepeat = `cover`;
+      detailTodoFile.style.backgroundImage = `url(${newFile})`;
+      document.querySelector('.detailModal').style.display="block";
+      
+    }else{
+      document.querySelector('#detailModal').style.height = `440px`;
+      detailTodoFile.style.marginLeft = '';
+      detailTodoFile.style.width = '';
+      detailTodoFile.style.height = '';
+      detailTodoFile.style.backgroundSize = '';
+      detailTodoFile.style.backgroundRepeat = '';
+      detailTodoFile.style.backgroundImage = '';
     }
-    
-    
+    document.querySelector('.detailModal').style.display="block";
+
+
+    const trimmedDate = todoDate.replace(/\s/g, '');
+    const formattedDate = trimmedDate.slice(0, -1);
+    const finalFormattedDate = formattedDate.replace(/\./g, '-');
+    console.log(finalFormattedDate);
+
     // const encodedTodoFile = encodeURI(todoFile);
     // console.log(encodedTodoFile);
     // const newFile = encodedTodoFile.replace(/\\/g, "/");
@@ -39,18 +63,5 @@ todoRows.forEach(todoRow=>{
     document.getElementById("detailTodoDueDate").value = finalFormattedDate;
     document.getElementById("detailTodoDesc").value = todoDesc;
     document.getElementById("detailTodoTag").value = todoTag;
-    let detailTodoFile = document.getElementById("detailTodoFile")
-   
-    detailTodoFile.style.marginLeft = `100px`;
-    detailTodoFile.style.width = `300px`;
-    detailTodoFile.style.height = `300px`;
-    detailTodoFile.style.backgroundSize = `cover`;
-    detailTodoFile.style.backgroundRepeat = `cover`;
-    detailTodoFile.style.backgroundImage = `url(${newFile})`;
-    
-
-    document.querySelector('.detailModal').style.display="block";
-
-
   })
 })

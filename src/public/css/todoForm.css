@@ -5,7 +5,7 @@
   left: 50%;
   padding: 20px;
   width: 600px;
-  height: 730px;
+  height: 500px;
   transform: translate(-50%, -50%);
   border: 1px solid #000;
   color: #005E87;
@@ -121,4 +121,11 @@
   border-radius: 10px;
   background-color: #005E87;
   color: #fff;
+}
+
+.modal.editModal .modalFormContent {
+  height: 790px;
+}
+.modal.editModal .modalFormContent .modalForm .inputRow .inputLabel {
+  width: 15%;
 }/*# sourceMappingURL=todoForm.css.map */

@@ -1,4 +1,4 @@
-import ConfirmModal from "../confirmModal";
+import {ConfirmModal} from "../confirmModal.js";
 document.querySelector('.findIdBtn').addEventListener('click', (e) => {
   e.preventDefault();
   console.log('hi');

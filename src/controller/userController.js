@@ -29,7 +29,9 @@ class UserController {
   async userJoin (req,res) {
     try {
       const { userId, password, email, name } = req.body;
+      console.log(req.body);
       const count = await userModel.idCheck(userId);
+      console.log("count",count);
       if(count > 0){
         return res.status(400).json({ success: false, message: '이미 존재하는 아이디입니다.'});
       }
@@ -57,6 +59,7 @@ class UserController {
   async userFindPw (req, res){
     try {
       const { userId,userEmail } = req.body;
+      console.log(req.body);
       console.log(userId);
       console.log(userEmail);
       await userModel.userFindPw(userId,userEmail);

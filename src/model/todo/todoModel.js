@@ -35,11 +35,28 @@ class TodoModel {
       throw err;
     }
   }
+  async getUserInfo(userId) {
+    try {
+      const userInfo = await new Promise((resolve, reject) => {
+        data.query('select * from usertable where userId =?',
+          [userId],
+          (err, results) => {
+            if (err) reject(err);
+            resolve(results);
+          });
+      });
+      return userInfo;
+    } catch (err) {
+      throw err;
+    }
+  }
   async getTodosForUser(userId) {
     // 데이터베이스 쿼리를 사용하여 해당 사용자에게 할당된 모든 할 일과 사용자 이름 조회
     try {
+      const str = `SELECT *, u.userName,u.userEmail FROM todotable as t INNER JOIN usertable as u ON t.userId = u.userId WHERE t.userId = ${userId} order by t.due_date asc;`;
+      console.log(str);
       const todos = await new Promise((resolve, reject) => {
-        data.query(`SELECT *, usertable.userName,usertable.userEmail FROM todotable INNER JOIN usertable ON todotable.userId = usertable.userId WHERE todotable.userId = ? order by due_date asc;`,
+        data.query(`SELECT *, u.userName,u.userEmail FROM todotable as t INNER JOIN usertable as u ON t.userId = u.userId WHERE t.userId = ? order by t.due_date asc;`,
           [userId],
           (err, results) => {
             if (err) reject(err);

@@ -1,9 +1,9 @@
-.modal
+.modal#addTodoModalShow
   .modalContent.modalFormContent
     .modalFormTitle 
       span 추가하기
       button.closeBtn 
-        span#closeModalBtn.closeIcon
+        span.closeIcon.closeModalBtn
     form(class="modalForm", action="",method="", entype="multupart/form-data")
       input(type="hidden", id="todoId", name="todoId")
       if (userId)
@@ -27,4 +27,4 @@
         input(class="inputInfo" type="file", id="addTodoFile", name="todoFile", placeholder="설명" maxlength="15")
       .modalFormBtnCont
         button(id="addTodoBtn",class="modalFormBtn",type="submit") 추가하기
-        button(id="closeModalBtn" class="modalFormBtn") 취소
+        button(class="modalFormBtn closeModalBtn") 취소

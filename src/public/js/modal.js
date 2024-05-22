@@ -27,7 +27,6 @@ class Modal {
     this.modal.style.display = "none";
   }
   handleKeyDown(e){
-    e.preventDefault();
     if(e.key === 'Escape'){
       console.log('esc눌림');
       this.modals.forEach(modal=>{

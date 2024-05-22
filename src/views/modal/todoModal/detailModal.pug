@@ -1,4 +1,4 @@
-.modal.detailModal
+.modal.detailModal#detailModalShow
   .modalContent.modalFormContent#detailModal
     .modalFormTitle 
       span 상세보기
@@ -21,5 +21,5 @@
         input(type="text", id="detailTodoTag", class="inputInfo",name="detailTodoTag", value="",maxlength="15",readonly)
       #detailTodoFile
       .modalFormBtnCont
-        button(id="closeModalBtn",class="modalFormBtn",type="") 확인
-        button(id="closeModalBtn" class="modalFormBtn") 취소
+        button(data-open-modal="detailModalShow",class="modalFormBtn closeModalBtn",type="button") 확인
+        button(class="modalFormBtn closeModalBtn",type="button") 취소

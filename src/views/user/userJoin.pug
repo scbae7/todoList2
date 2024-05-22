@@ -12,28 +12,20 @@ html(lang="ko")
     include ../modal/completeJoinModal.pug
     .container.joinContainer
       h1.formTitle SIGN UP
-      form(action="/user/join", method="POST" ,class="formSection", enctype="multipart/form-data",required)
-        input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 (4~10자)", maxlength="10", required)
+      form(action="", method="" ,class="formSection",required)
+        input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 (4~10자)", maxlength="", required)
         input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호 (문자, 숫자, 특수문자 포함 6자)", maxlength="", required)
         input(type="password",id="pwConfirmInput",class="formContent" , name="pwConfirmInput", placeholder="비밀번호 확인", maxlength="", required)
         input(type="email",id="emailInput",class="formContent" , name="emailInput", placeholder="이메일 (abcd@naver.com)", maxlength="", required)
         input(type="text",id="nameInput" ,class="formContent" , name="nameInput", placeholder="이름 (홍길동)", maxlength="", required)
         .formMessage
         .joinBtnSection
-          button(type="submit",id="joinBtn" ,class="formContent formBtn") 회원가입
+          button(type="button",id="joinBtn" ,class="formContent formBtn") 회원가입
           a(href="/user/login")
-            button(class="formContent formBtn") 가입취소
-    //- .modal
-    //-   .modalContent
-    //-     .modalTitle SIGN UP
-    //-     .modalDesc
-    //-       p 회원가입이 성공적으로
-    //-       p 완료되었습니다.
-    //-     a(href="/login")
-    //-       button.modalBtn 확인
+            button(class="formContent formBtn",type="button") 가입취소
     script(src="../js/modal.js")
-    script(src="../js/validate/joinValidate.js" type="module")
-    script(src="../js/validate.js" type="module")
+    //- script(src="../js/validate/joinValidate.js" type="module")
+    script(src="../js/regEx3.js")
     script(src="../js/user/formMessage.js" type="module")
     script(src="../js/user/join.js" type="module")
   

@@ -13,8 +13,8 @@ html(lang="ko")
       h1.formTitle 
         a(href="/user/findPw") 비밀번호 찾기
       form(action="/user/findPw",method="post",class="formSection")
-        input(type="text",id="idInput",class="formContent",name="idInput",placeholder="아이디",maxlength="")
-        input(type="text",id="emailInput",class="formContent",name="emailInput",placeholder="이메일",maxlength="")
+        input(type="text",id="idInput",class="formContent",name="userId",placeholder="아이디",maxlength="")
+        input(type="text",id="emailInput",class="formContent",name="userEmail",placeholder="이메일",maxlength="")
         button(type="submit",id="findPwBtn",class="formContent formBtn") 비밀번호 찾기
         .supLink
           a(href="/user/findId")
@@ -30,5 +30,5 @@ html(lang="ko")
     //-     a(href="/resetPw")
     //-       button.modalBtn 확인
     script(src="../js/modal.js")
-    script(src="../js/validate.js" type="module")
-    script(src="../js/user/findPw.js")
+    //- script(src="../js/validate.js" type="module")
+    script(type="module" src="../js/user/findPw.js")

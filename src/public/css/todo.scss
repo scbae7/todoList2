@@ -18,18 +18,18 @@ body {
         font-size: 24px;
         height: 40px;
       }
-      .tagSearchBtn {
-        width: 180px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        span {
-          margin-left: 4px;
-          font-size: 16px;
-        }
-      }
+      // .tagSearchBtn {
+      //   width: 180px;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   span {
+      //     margin-left: 4px;
+      //     font-size: 16px;
+      //   }
+      // }
       .myPageBtn {
-        width: 120px;
+        width: 47%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -44,7 +44,7 @@ body {
         }
       }
       .logout {
-        width: 180px;
+        width: 47%;
       }
     }
   }

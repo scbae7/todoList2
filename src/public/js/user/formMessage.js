@@ -7,5 +7,5 @@ class FormMessage {
     this.formMessage.textContent = `${text} : ${data.message}`;
   }
 }
-console.log('formdata');
+// console.log('formdata');
 export default FormMessage;

@@ -1,5 +1,5 @@
 import FormMessage from './formMessage.js';
-import ConfirmModal from "../confirmModal.js";
+import {ConfirmModal} from "../confirmModal.js";
 
 document.getElementById('joinBtn').addEventListener('click', (e) => {
     e.preventDefault();

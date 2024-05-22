@@ -18,8 +18,8 @@ html(lang="ko")
 
     .container.todoContainer
       .navSection
-        button.tagSearchBtn # 
-          span 태그로 검색
+        //- button(class="tagSearchBtn") OPEN
+        //-   span 태그로 검색
         button.myPageBtn
           span.myPageIcon
           span MY
@@ -40,7 +40,7 @@ html(lang="ko")
             .headerHello GUEST님 안녕하세요
       .todoHeader
           .todoCont TODO
-          .addCont#openModalBtn + NEW
+          .addCont#openModalBtn(data-open-modal="addTodoModalShow") + NEW
           .DoneCont DONE  
       .todoSection
         if(todos)
@@ -81,5 +81,7 @@ html(lang="ko")
     script(src="../js/todoData/btnControl.js")
     script(src="../js/user/logout.js") 
     script(src="../js/todoData/todoEdit.js")
-    script(src="../js/modal.js")
+    
     script(src="../js/todo/myPageModal.js")
+    //- script(src="../js/modal.js")
+    script(src="../js/controlModal.js" type="module")
