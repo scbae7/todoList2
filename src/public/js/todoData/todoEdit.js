@@ -23,6 +23,24 @@ document.querySelectorAll(".rowBtns .editBtn").forEach(button=>{
       console.log("2:"+fixedTodoFile);
       newFile = fixedTodoFile.replace(`src\/public/`, '../');
       console.log("3:"+newFile);
+      
+      let editTodoFileView = document.getElementById("editTodoFileView")
+
+      document.querySelector("#editModal").style.height=`850px`;
+      editTodoFileView.style.marginLeft = `100px`;
+      editTodoFileView.style.width = `300px`;
+      editTodoFileView.style.height = `300px`;
+      editTodoFileView.style.backgroundSize = `cover`;
+      editTodoFileView.style.backgroundRepeat = `cover`;
+      editTodoFileView.style.backgroundImage = `url(${newFile})`;
+    }else{
+      document.querySelector("#editModal").style.height=`550px`;
+      editTodoFileView.style.marginLeft = ``;
+      editTodoFileView.style.width = ``;
+      editTodoFileView.style.height = ``;
+      editTodoFileView.style.backgroundSize = ``;
+      editTodoFileView.style.backgroundRepeat = ``;
+      editTodoFileView.style.backgroundImage = ``;
     }
     console.log(newFile)
 
@@ -33,14 +51,7 @@ document.querySelectorAll(".rowBtns .editBtn").forEach(button=>{
     document.getElementById("editTodoDesc").value = todoDesc;
     document.getElementById("editTodoTag").value = todoTag;
 
-    let editTodoFileView = document.getElementById("editTodoFileView")
-
-    editTodoFileView.style.marginLeft = `100px`;
-    editTodoFileView.style.width = `300px`;
-    editTodoFileView.style.height = `300px`;
-    editTodoFileView.style.backgroundSize = `cover`;
-    editTodoFileView.style.backgroundRepeat = `cover`;
-    editTodoFileView.style.backgroundImage = `url(${newFile})`;
+    
 
     document.querySelector('.editModal').style.display = "block";
   })

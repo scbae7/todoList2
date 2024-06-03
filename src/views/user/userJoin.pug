@@ -12,8 +12,11 @@ html(lang="ko")
     include ../modal/completeJoinModal.pug
     .container.joinContainer
       h1.formTitle SIGN UP
-      form(action="", method="" ,class="formSection",required)
-        input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 (4~10자)", maxlength="", required)
+      form(id="joinForm",action="", method="" ,class="formSection",required)
+        div(class="id-cont")
+          input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 (4~10자)", maxlength="", required)
+          button(class="formBtn id-btn") 중복 확인
+        .formMessage
         input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호 (문자, 숫자, 특수문자 포함 6자)", maxlength="", required)
         input(type="password",id="pwConfirmInput",class="formContent" , name="pwConfirmInput", placeholder="비밀번호 확인", maxlength="", required)
         input(type="email",id="emailInput",class="formContent" , name="emailInput", placeholder="이메일 (abcd@naver.com)", maxlength="", required)
@@ -24,8 +27,10 @@ html(lang="ko")
           a(href="/user/login")
             button(class="formContent formBtn",type="button") 가입취소
     script(src="../js/modal.js")
+    script(src="../js/user/idCheck.js" type="module")
     //- script(src="../js/validate/joinValidate.js" type="module")
-    script(src="../js/regEx3.js")
-    script(src="../js/user/formMessage.js" type="module")
     script(src="../js/user/join.js" type="module")
-  
+    script(src="../js/user/formMessage.js" type="module")
+    script(src="../js/regEx3.js" type="module")
+    script(src="../js/confirmPw.js")
+    

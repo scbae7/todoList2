@@ -61,3 +61,4 @@ document.addEventListener('DOMContentLoaded', function () {
         progressNumber.textContent = Math.floor(progress) + '%'; // 진행률 숫자 업데이트
     }
 })
+

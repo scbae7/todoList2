@@ -5,20 +5,37 @@ class UserModel {
   constructor(id){
     this.id = id;
   }
-  async getUserAll(){
+  async queryDatabase(sql, params = []) {
     try {
-      const users = await new Promise((resolve, reject) =>{
-        data.query('select * from usertable',
-        (err,results)=>{
-          if(err) reject(err);
+      const result = await new Promise((resolve, reject) => {
+        data.query(sql, params, (err, results) => {
+          if (err) reject(err);
           resolve(results);
         });
       });
-      return users;
+      return result;
     } catch (err) {
       throw err;
     }
   }
+  async getUserAll() {
+    const users = await this.queryDatabase("SELECT * FROM usertable");
+    return users;
+  }
+  // async getUserAll(){
+  //   try {
+  //     const users = await new Promise((resolve, reject) =>{
+  //       data.query('select * from usertable',
+  //       (err,results)=>{
+  //         if(err) reject(err);
+  //         resolve(results);
+  //       });
+  //     });
+  //     return users;
+  //   } catch (err) {
+  //     throw err;
+  //   }
+  // }
   async getAdminsAll(){
     try {
       const admins = await new Promise((resolve, reject) =>{
@@ -165,16 +182,17 @@ class UserModel {
           resolve(result);
         });
       });
+      console.log(userInfo);
       return userInfo;
     } catch (err) {
       throw err;
     }
   }
-  async userResetPw(userId,userPw,newPw) {
+  async userResetPw(userId,currentPassword,newPassword) {
     try {
       const query = 'update usertable set userPassword = ? where userId = ? and userPassword =? ';
-      const [userInfo] = await new Promise((resolve, reject) => {
-        data.query(query, [newPw,userId,userPw], (err, result) => {
+      const userInfo = await new Promise((resolve, reject) => {
+        data.query(query, [newPassword,userId,currentPassword], (err, result) => {
           if (err) reject(err);
           resolve(result);
         });
@@ -226,16 +244,34 @@ class UserModel {
       throw err;
     }
   }
-  async userDelete(userId,userPw) {
+  getUserAll(){
+    const users = this.queryDatabase("select * from usertable");
+    return users;
+  }
+  async userDelete(userId, userPw) {
     try {
-      const query = "";
-      const userInfo = await new Promise((resolve, reject) => {
-        data.query(query, [userId,userPw], (err, result) => {
-          if (err) reject(err);
+      // 사용자 인증을 위한 쿼리 (예: 사용자 존재 여부 확인)
+      const verifyUserQuery = "SELECT * FROM usertable WHERE userId = ? AND userPassword = ?";
+      const deleteUserQuery = "DELETE FROM usertable WHERE userId = ? AND userPassword = ?";
+  
+      // 사용자 존재 여부 확인
+      const userExists = await new Promise((resolve, reject) => {
+        data.query(verifyUserQuery, [userId, userPw], (err, result) => {
+          if (err) return reject(err);
+          if (result.length === 0) return reject(new Error('User not found or incorrect password'));
           resolve(result);
         });
       });
-      return userInfo;
+  
+      // 사용자 삭제
+      const deleteResult = await new Promise((resolve, reject) => {
+        data.query(deleteUserQuery, [userId, userPw], (err, result) => {
+          if (err) return reject(err);
+          resolve(result);
+        });
+      });
+  
+      return deleteResult;
     } catch (err) {
       throw err;
     }

@@ -12,7 +12,7 @@ html(lang="ko")
     .container
       h1.formTitle 
         a(href="/user/findId") 아이디 찾기
-      form(action="",method="post",class="formSection")
+      form(id="findIdForm",action="",method="post",class="formSection")
         input(type="text",id="nameInput",class="formContent",name="nameInput",placeholder="이름",maxlength="")
         input(type="text",id="emailInput",class="formContent",name="emailInput",placeholder="이메일",maxlength="")
         button(id="findIdBtn",type="submit",class="formContent formBtn findIdBtn") 아이디 찾기

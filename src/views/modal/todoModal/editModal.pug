@@ -13,14 +13,14 @@
       .inputRow
         label(class="inputLabel" for="todoDueDate") 날짜
         input(class="inputInfo" type="date", id="editTodoDueDate", name="todoDueDate",value="" )
-      .inputRow
+      .inputRow.input-desc
         label(class="inputLabel",for="todoDesc") 설명
         textarea.editTodoDesc(id="editTodoDesc",class="inputInfo", name="editTodoDesc",value="",maxlength="50") 설명
       .inputRow
         label(class="inputLabel",for="todoTag") 태그
         input(type="text", id="editTodoTag", class="inputInfo",name="editTodoTag")
       .inputRow
-        label(class="inputLabel",for="editTodoFile") 파일
+        label(class="inputLabel",for="editTodoFile") 파일(jpg,png)
         input(class="inputInfo" type="file", id="editTodoFile", name="editTodoFile", placeholder="설명", maxlength="15")
       #editTodoFileView
       .modalFormBtnCont

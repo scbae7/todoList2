@@ -7,37 +7,43 @@ class TodoController {
     this.id = id;
   }
   async todoPage (req,res) {
-    try {
-      let userId = '';
-      let userName = '';
-      let todos = '';
-      let userInfo = '';
-      console.log("req",req.session);
-      if(req.session.user.userId && req.session.user.name){
-        userId = req.session.user.userId;
-        userName = req.session.user.name;
-      }
-      console.log("userId"+typeof userId);
-
-      console.log("userName"+userName);
-      todos = await todoModel.getTodosForUser(userId);
-      userInfo = await todoModel.getUserInfo(userId);
-      console.log("todos"+todos);
-      console.log("userInfo"+typeof userInfo);
-
-      for(let key in userInfo){
-        if(userInfo.hasOwnProperty(key)){
-          console.log(key + ":" + JSON.stringify(userInfo[key]));
+    if(req.session && req.session.user ){
+      console.log("req.session",req.session.user)
+      try {
+        let userId = '';
+        let userName = '';
+        let todos = '';
+        let userInfo = '';
+        console.log("req",req.session);
+        if(req.session.user.userId && req.session.user.name){
+          userId = req.session.user.userId;
+          userName = req.session.user.name;
         }
+        console.log("userId"+typeof userId);
+  
+        console.log("userName"+userName);
+        todos = await todoModel.getTodosForUser(userId);
+        [userInfo] = await todoModel.getUserInfo(userId);
+        console.log("todos"+todos);
+        console.log("userInfo",userInfo);
+  
+        // for(let key in userInfo){
+        //   if(userInfo.hasOwnProperty(key)){
+        //     console.log(key + ":" + JSON.stringify(userInfo[key]));
+        //   }
+        // }
+        console.log("userEmail:" + userInfo.userEmail)
+        
+        res.render('todo/todoMain',{todos:todos,userName:userName,userId:userId, userEmail:userInfo.userEmail});
+        // res.render('todo/todoMain');
+      } catch(err){
+        console.error(err);
+        res.status(500).send('서버 오류');
       }
-      console.log("userEmail:" + userInfo.userEmail)
-      
-      res.render('todo/todoMain',{todos:todos,userName:userName,userId:userId});
-      // res.render('todo/todoMain');
-    } catch(err){
-      console.error(err);
-      res.status(500).send('서버 오류');
+    }else{
+      res.redirect("/user/login");
     }
+   
   }
   async addTodo (req,res) {
     try{

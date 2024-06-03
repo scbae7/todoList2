@@ -20,6 +20,7 @@ class UserRouter {
     this.router.post('/resetPw',userController.userResetPw);
     this.router.post('/logout',userController.userLogout);
     this.router.post('/userDelete',userController.userDelete);
+    this.router.post('/idCheck',userController.userIdCheck);
   }
   renderPage(page){
     return (req,res)=>{

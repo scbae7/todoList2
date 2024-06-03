@@ -26,7 +26,7 @@ todoRows.forEach(todoRow=>{
       let detailTodoFile = document.getElementById("detailTodoFile")
    
       
-      document.querySelector('#detailModal').style.height=`730px`;
+      document.querySelector('#detailModal').style.height=`780px`;
       detailTodoFile.style.marginLeft = `100px`;
       detailTodoFile.style.width = `300px`;
       detailTodoFile.style.height = `300px`;
@@ -36,7 +36,7 @@ todoRows.forEach(todoRow=>{
       document.querySelector('.detailModal').style.display="block";
       
     }else{
-      document.querySelector('#detailModal').style.height = `440px`;
+      document.querySelector('#detailModal').style.height = `490px`;
       detailTodoFile.style.marginLeft = '';
       detailTodoFile.style.width = '';
       detailTodoFile.style.height = '';

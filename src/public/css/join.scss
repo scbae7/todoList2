@@ -2,7 +2,18 @@ body {
   .joinContainer {
     width: 500px;
     height: 720px;
-    
+    .id-cont {
+      position: relative;
+      .id-btn {
+        position: absolute;
+        top: 6%;
+        right: 10px;
+        transform: translateY(-50%);
+        border-radius: 6px;
+        padding: 6px;
+      }
+
+    }
     .formSection {
       .formContent {
         width: 340px;

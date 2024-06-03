@@ -6,6 +6,7 @@ logoutBtn.addEventListener('click',()=>{
     .then(response => {
       if(response.ok){
         console.log('로그아웃 성공');
+        window.location.reload();
         window.location.href = "/user/login";
       }else{
         console.error('로그아웃 실패');

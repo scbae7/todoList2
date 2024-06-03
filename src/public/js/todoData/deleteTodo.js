@@ -6,7 +6,10 @@ document.querySelectorAll('.deleteBtn').forEach(button=>{
         const todoNum = button.parentElement.parentElement.parentElement.getAttribute('data-todonum');
         // console.log(todoNum);
         let todoFile = null;
-        const todoFileAttribute = button.parentElement.parentElement.parentElement.getAttribute("data-todoFile");
+        let todoFileAttribute = null;
+        if(todoFileAttribute){
+          todoFileAttribute = button.parentElement.parentElement.parentElement.getAttribute("data-todoFile");
+        }
         console.log(todoFileAttribute);
         if(todoFileAttribute){
           todoFile = todoFileAttribute;;

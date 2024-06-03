@@ -179,7 +179,8 @@ body .todoSection {
   overflow: auto;
 }
 body .todoSection::-webkit-scrollbar {
-  display: none; /* Webkit 기반 브라우저에서 스크롤바를 숨깁니다. */
+  display: none;
+  /* Webkit 기반 브라우저에서 스크롤바를 숨깁니다. */
 }
 body .todoSection .todoRow {
   width: 100%;
@@ -335,6 +336,27 @@ body .modal .myPageModalCont .myPageTitle .myPageLabel {
   color: #fff;
   margin-left: 6px;
 }
+body .modal .myPageModalCont .myPageTitle .closeBtn {
+  position: absolute;
+  top: 3%;
+  left: 79%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #005E87;
+  border: none;
+}
+body .modal .myPageModalCont .myPageTitle .closeBtn .closeIcon {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background-image: url(../images/close.svg);
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  border-radius: 4px;
+  display: inline-block;
+}
 body .modal .myPageModalCont .myPageSection {
   display: flex;
   flex-direction: column;
@@ -365,13 +387,17 @@ body .modal .myPageModalCont .myPageSection .myContInfo {
        text-align-last: left;
   color: #fff;
   height: 60px;
-  margin-left: 90px;
+  margin-left: 10px;
 }
 body .modal .myPageModalCont .myPageSection .myContInfo .myLabel {
-  width: 20%;
+  width: 30%;
+  font-size: 24px;
+  color: #005E87;
+  font-weight: bold;
 }
 body .modal .myPageModalCont .myPageSection .myContInfo .myDesc {
-  width: 60%;
+  width: 70%;
+  font-size: 24px;
 }
 body .modal .myPageModalCont .myPageSection .myContInfo .myEdit {
   width: 20%;

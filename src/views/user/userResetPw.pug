@@ -8,10 +8,13 @@ html(lang="ko")
     link(rel="stylesheet", href="../css/reset.css")
     link(rel="stylesheet", href="../css/common.css")
   body 
+    include ../modal/resetPwModal.pug
     .container
       h1.formTitle 비밀번호 재설정
-      form(action="", method="" class="formSection")
-        input(type="text" ,class="formContent" , name="", placeholder="비밀번호" maxlength="")
-        input(type="text" ,class="formContent" , name="", placeholder="비밀번호 확인" maxlength="")
-        button(type="submit" ,class="formContent formBtn") 비밀번호 재설정
-    script(src="../js/validate.js" type="module")
+      form(id="resetPwForm", action="", method="" class="formSection")
+        input(type="password", id="currentPwInput", class="formContent", name="currentPassword", placeholder="현재 비밀번호", maxlength="")
+        input(type="password", id="newPwInput", class="formContent", name="newPassword", placeholder="새 비밀번호", maxlength="")
+        input(type="password", id="pwConfirmInput", class="formContent", name="confirmPassword", placeholder="새 비밀번호 확인", maxlength="")
+        button(id="resetPwBtn", type="submit", class="formContent formBtn") 비밀번호 재설정
+    script(src="../js/user/resetPw.js" type="module")
+    script(src="../js/user/formMessage.js" type="module")

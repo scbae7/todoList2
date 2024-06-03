@@ -1,8 +1,10 @@
 .modal#myPageModal
-    div(class="modalContent myPageModalCont")
+    .modalContent.modalFormContent.myPageModalCont
         .myPageTitle
             span.myIcon
             span.myPageLabel MY PAGE
+            button.closeBtn 
+                span.closeIcon.closeModalBtn
         .myPageSection
             .myContInfo
                 .myLabel 이름:
@@ -14,8 +16,8 @@
                 button.myEditBtn
             .myContInfo
                 .myLabel E-MAIL:
-                if(todoMail)
-                    .myDesc= todoMail
+                if(userEmail)
+                    .myDesc= userEmail
                 else
                     .myDesc guest@gmail.com    
             .myEdit

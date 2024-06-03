@@ -139,4 +139,8 @@ body .deleteUser {
   border-radius: 10px;
   margin-left: 10px;
   background-color: #E96573;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=common.css.map */

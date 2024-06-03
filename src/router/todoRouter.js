@@ -18,7 +18,18 @@ class TodoRouter {
       }
     });
 
-    this.upload = multer({ storage: this.storage });
+    this.fileFilter = (req,file,cb)=>{
+      if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        cb(null, true); // 허용
+      } else {
+        cb(new Error('Only .jpg and .png files are allowed!'), false); // 허용 안 함
+      }
+    }
+
+    this.upload = multer({ 
+      storage: this.storage,
+      fileFilter: this.fileFilter
+     });
 
     this.router.get('/todoMain',todoController.todoPage);
     // checkpage 나중에 삭제

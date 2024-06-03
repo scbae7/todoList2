@@ -12,7 +12,7 @@ html(lang="ko")
     .container
       h1.formTitle 
         a(href="/user/findPw") 비밀번호 찾기
-      form(action="/user/findPw",method="post",class="formSection")
+      form(id="findPwForm",action="/user/findPw",method="post",class="formSection")
         input(type="text",id="idInput",class="formContent",name="userId",placeholder="아이디",maxlength="")
         input(type="text",id="emailInput",class="formContent",name="userEmail",placeholder="이메일",maxlength="")
         button(type="submit",id="findPwBtn",class="formContent formBtn") 비밀번호 찾기
@@ -21,14 +21,7 @@ html(lang="ko")
             span 아이디 찾기
           a(href="/user/login")
             span 로그인
-    //- .modal
-    //-   .modalContent
-    //-     .modalTitle 비밀번호 변경
-    //-     .modalDesc
-    //-       p 비밀번호가 1234a!로
-    //-       p 변경되었습니다.
-    //-     a(href="/resetPw")
-    //-       button.modalBtn 확인
+
     script(src="../js/modal.js")
     //- script(src="../js/validate.js" type="module")
     script(type="module" src="../js/user/findPw.js")

@@ -8,30 +8,31 @@ html(lang="ko")
     link(rel="stylesheet", href="../css/reset.css")
     link(rel="stylesheet", href="../css/common.css")
   body 
-    include ../modal/deleteUserModal.pug
+    include ../modal/userDeleteModal.pug
     .container
       h1.formTitle 
-        a(href="/user/userDelete")
+        span 회원 
+        span.fontRed 탈퇴
+      form(id="userDeleteForm" class="formSection")
+        input(type="text",id="idInput", class="formContent", name="idInput", placeholder="아이디", maxlength="")
+        input(type="password", id="pwInput", class="formContent", name="pwInput", placeholder="비밀번호", maxlength="" required)
+        button(type="button", id="openModalBtn", class="formContent formBtn") 
           span 회원 
           span.fontRed 탈퇴
-      form(action="/user/userDelete", method="delete" class="formSection")
-        input(type="text" ,class="formContent" , name="", placeholder="이름" maxlength="")
-        input(type="password",id="pwInput" ,class="formContent" , name="", placeholder="비밀번호" maxlength="" required)
-        button(type="submit",id="openModalBtn" ,class="formContent formBtn") 
-          span 회원 
+
+    .modal.deleteModal.hidden
+      .modalContent
+        .modalTitle 
+          span 회원
           span.fontRed 탈퇴
-    //- .modal
-    //-   .modalContent
-    //-     .modalTitle 
-    //-       span 회원
-    //-       span.fontRed 탈퇴
-    //-     .modalDesc
-    //-       span 정말로 
-    //-       span.fontRed 탈퇴
-    //-       span 하시겠습니까?
-    //-     a(href="#")
-    //-       button.modalBtn 취소
-    //-     a(href="#")
-    //-       button(class="deleteUser") 확인
-    script(src="../js/modal.js")
+        .modalDesc
+          span 정말로 
+          span.fontRed 탈퇴
+          span 하시겠습니까?
+        .modalActions
+          button(type="button", class="modalBtn cancelBtn") 취소
+          button(type="button", id="confirmDeleteBtn", class="modalBtn confirmBtn") 확인
+
+    //- script(src="../js/modal.js")
     script(src="../js/validate.js" type="module")
+    script(src="../js/user/userDelete.js" type="module")
