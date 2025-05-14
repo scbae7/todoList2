@@ -6,25 +6,25 @@ const formValidator = new FormValidator("joinForm");
 
 document.getElementById('joinForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  var response = grecaptcha.getResponse();
-  if (!response || response.length === 0) {
-      const confirmModal = new ConfirmModal("confirmModal");
-      confirmModal.showModalLink("캡챠를 완료해주세요!", false);
-      e.preventDefault(); // 기본 제출 동작 방지
-      return;
-  }
+  // var response = grecaptcha.getResponse();
+  // if (!response || response.length === 0) {
+  //     const confirmModal = new ConfirmModal("confirmModal");
+  //     confirmModal.showModalLink("캡챠를 완료해주세요!", false);
+  //     e.preventDefault(); // 기본 제출 동작 방지
+  //     return;
+  // }
   handleSubmit();
 });
 
 document.getElementById('joinBtn').addEventListener('click', (e) => {
   e.preventDefault();
-  var response = grecaptcha.getResponse();
-  if (!response || response.length === 0) {
-      const confirmModal = new ConfirmModal("confirmModal");
-      confirmModal.showModalLink("캡챠를 완료해주세요!", false);
-      e.preventDefault(); // 기본 제출 동작 방지
-      return;
-  }
+  // var response = grecaptcha.getResponse();
+  // if (!response || response.length === 0) {
+  //     const confirmModal = new ConfirmModal("confirmModal");
+  //     confirmModal.showModalLink("캡챠를 완료해주세요!", false);
+  //     e.preventDefault(); // 기본 제출 동작 방지
+  //     return;
+  // }
   handleSubmit();
 });
 
