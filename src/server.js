@@ -1,6 +1,9 @@
 // TodoList main js
 // programmed by bae
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 // 2024/04/25 v1
 import webServerConf from './conf/webServerConf.js';
 import webService from './daemon/webServer.js'
@@ -9,6 +12,9 @@ import todoRouter from './router/todoRouter.js'
 import userRouter from './router/userRouter.js'
 import adminRouter from './router/adminRouter.js'
 
+webService.get('/', (req, res) => {
+  res.render('index', { title: '홈페이지', message: 'Render 배포 테스트' });
+});
 class TodoList {  
   constructor(id, webServerConf){
     this.id = id;
@@ -23,8 +29,10 @@ class TodoList {
     })
   }
 }
+
 const todoList = new TodoList(
   'todoList',
   webServerConf
 )
 todoList.run();
+
