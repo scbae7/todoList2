@@ -1,4 +1,5 @@
+import dotenv from 'dotenv';
 const webServerConf = {
-  port:33073
+  port:process.env.PORT
 }
 export default webServerConf;

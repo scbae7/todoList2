@@ -1,13 +1,12 @@
+import dotenv from 'dotenv';
 const db = () => {
   return {
-    host: 'localhost',
-    user:'root',
-    // user:'c19st08',
-    // password:'IwIiJGM98B8C7L1M',
-    password: '1234',
-    database:'c19st08',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     charset: 'utf8mb4',
-    collate:'utf8mb4_unicode_ci'
+    collate: 'utf8mb4_unicode_ci',
   };
 };
 export default db;
