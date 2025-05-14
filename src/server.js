@@ -13,7 +13,7 @@ import userRouter from './router/userRouter.js'
 import adminRouter from './router/adminRouter.js'
 
 webService.get('/', (req, res) => {
-  res.render('index', { title: '홈페이지', message: 'Render 배포 테스트' });
+  res.redirect('/todo/todoMain');
 });
 class TodoList {  
   constructor(id, webServerConf){
