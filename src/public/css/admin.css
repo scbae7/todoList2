@@ -2,192 +2,169 @@
 body .adminContainer {
   width: 600px;
   height: 800px;
-  background-color: #92E4FF;
-}
-body .adminContainer .adminHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
-}
-body .adminContainer .adminHeader .adTitle {
-  font-size: 44px;
-  color: #fff;
-  font-weight: bold;
-}
-body .adminContainer .adminHeader .adNoti {
-  font-size: 20px;
-  color: #005E87;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  border: 1px solid #005E87;
-  background-color: #fff;
-  padding: 6px;
-  padding-right: 14px;
-  border-radius: 6px;
-}
-body .adminContainer .adminHeader .adNoti .notiIcon {
-  background-image: url(../images/noti.svg);
-  background-size: cover;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  position: relative;
-  margin-right: 14px;
-}
-body .adminContainer .adminHeader .adNoti .notiIcon .iconNumber {
-  position: absolute;
-  top: -6px;
-  left: 24px;
-  border-radius: 50%;
-  background-color: #fff;
-  width: 24px;
-  height: 24px;
-  color: red;
-  font-size: 16px;
-  border: 1px solid #005E87;
-}
-body .adminContainer .adminHeader .adminHeaderBtn {
-  width: 140px;
-  height: 50px;
-  background-color: #005E87;
-  color: #fff;
-  border-radius: 6px;
-  font-size: 20px;
-}
-body .adminContainer .adminName {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #005E87;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-body .adminContainer .adminManage {
-  display: flex;
-  height: 50px;
-  align-items: center;
-  justify-content: space-between;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 20px;
-  color: #005E87;
-}
-body .adminContainer .adminManage .subTitle {
-  font-size: 24px;
-  font-weight: bold;
-}
-body .adminContainer .adminManage .subCount {
-  font-size: 18px;
-  font-weight: bold;
-}
-body .adminContainer .adminSetting {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-bottom: 20px;
-}
-body .adminContainer .adminSetting .adminFilter {
-  background-image: url(../images/filter.svg);
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-}
-body .adminContainer .adminSetting .deleteBtn {
-  width: 100px;
-  height: 30px;
-  border-radius: 6px;
-  background: #005E87;
-  font-size: 14px;
-  color: #fff;
-  margin-left: 20px;
-}
-body .adminContainer .adminContent {
-  width: 560px;
-  height: 180px;
-  border: 1px solid #005E87;
-  border-radius: 6px;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-}
-body .adminContainer .adminContent::-webkit-scrollbar {
-  display: none; /* Webkit 기반 브라우저에서 스크롤바를 숨깁니다. */
-}
-body .adminContainer .adminContent .adminRow {
-  margin-left: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 40px;
-  width: 98%;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  background-color: #92E4FF;
-  border: 1px solid #000;
-  border-radius: 6px;
-  padding: 6px;
-}
-body .adminContainer .adminContent .adminRow .table {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-body .adminContainer .adminContent .adminRow .table span {
-  margin-left: 4px;
-  border: 1px solid #000;
-  padding: 4px;
-  border-radius: 4px;
-  background-color: #fff;
-  color: #005E87;
-  font-weight: bold;
-}
-body .adminContainer .adminContent .check {
-  width: 28px;
-  height: 28px;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #000;
-}
-body .adminContainer .adminContent .btnCont {
-  display: flex;
-}
-body .adminContainer .adminContent .btnCont .button {
-  width: 28px;
-  height: 28px;
-  background-color: #005E87;
-  color: #fff;
-}
-body .adminContainer .adminContent .btnCont .editBtn {
-  background-image: url(../images/edit.svg);
-  background-size: cover;
-  width: 28px;
-  height: 28px;
-  background-color: #005E87;
-  border-radius: 4px;
-}
-body .adminContainer .adminContent .btnCont .deleteBtn {
-  margin-left: 6px;
-  background-image: url(../images/delete.svg);
-  background-size: cover;
-  width: 28px;
-  height: 28px;
-  background-color: #005E87;
-  border-radius: 4px;
-}
+  background-color: #92E4FF; }
+  body .adminContainer .adminHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px; }
+    body .adminContainer .adminHeader .adTitle {
+      font-size: 44px;
+      color: #fff;
+      font-weight: bold; }
+    body .adminContainer .adminHeader .adNoti {
+      font-size: 20px;
+      color: #005E87;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      border: 1px solid #005E87;
+      background-color: #fff;
+      padding: 6px;
+      padding-right: 14px;
+      border-radius: 6px; }
+      body .adminContainer .adminHeader .adNoti .notiIcon {
+        background-image: url(../images/noti.svg);
+        background-size: cover;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        position: relative;
+        margin-right: 14px; }
+        body .adminContainer .adminHeader .adNoti .notiIcon .iconNumber {
+          position: absolute;
+          top: -6px;
+          left: 24px;
+          border-radius: 50%;
+          background-color: #fff;
+          width: 24px;
+          height: 24px;
+          color: red;
+          font-size: 16px;
+          border: 1px solid #005E87; }
+    body .adminContainer .adminHeader .adminHeaderBtn {
+      width: 140px;
+      height: 50px;
+      background-color: #005E87;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 20px; }
+  body .adminContainer .adminName {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #005E87;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px; }
+  body .adminContainer .adminManage {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    color: #005E87; }
+    body .adminContainer .adminManage .subTitle {
+      font-size: 24px;
+      font-weight: bold; }
+    body .adminContainer .adminManage .subCount {
+      font-size: 18px;
+      font-weight: bold; }
+  body .adminContainer .adminSetting {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px; }
+    body .adminContainer .adminSetting .adminFilter {
+      background-image: url(../images/filter.svg);
+      background-size: cover;
+      width: 30px;
+      height: 30px; }
+    body .adminContainer .adminSetting .deleteBtn {
+      width: 100px;
+      height: 30px;
+      border-radius: 6px;
+      background: #005E87;
+      font-size: 14px;
+      color: #fff;
+      margin-left: 20px; }
+  body .adminContainer .adminContent {
+    width: 560px;
+    height: 180px;
+    border: 1px solid #005E87;
+    border-radius: 6px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: auto; }
+    body .adminContainer .adminContent::-webkit-scrollbar {
+      display: none;
+      /* Webkit 기반 브라우저에서 스크롤바를 숨깁니다. */ }
+    body .adminContainer .adminContent .adminRow {
+      margin-left: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+      width: 98%;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      background-color: #92E4FF;
+      border: 1px solid #000;
+      border-radius: 6px;
+      padding: 6px; }
+      body .adminContainer .adminContent .adminRow .table {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; }
+        body .adminContainer .adminContent .adminRow .table span {
+          margin-left: 4px;
+          border: 1px solid #000;
+          padding: 4px;
+          border-radius: 4px;
+          background-color: #fff;
+          color: #005E87;
+          font-weight: bold; }
+    body .adminContainer .adminContent .check {
+      width: 28px;
+      height: 28px;
+      background-color: #fff;
+      border-radius: 4px;
+      border: 1px solid #000; }
+    body .adminContainer .adminContent .btnCont {
+      display: flex; }
+      body .adminContainer .adminContent .btnCont .button {
+        width: 28px;
+        height: 28px;
+        background-color: #005E87;
+        color: #fff; }
+      body .adminContainer .adminContent .btnCont .editBtn {
+        background-image: url(../images/edit.svg);
+        background-size: cover;
+        width: 28px;
+        height: 28px;
+        background-color: #005E87;
+        border-radius: 4px; }
+      body .adminContainer .adminContent .btnCont .deleteBtn {
+        margin-left: 6px;
+        background-image: url(../images/delete.svg);
+        background-size: cover;
+        width: 28px;
+        height: 28px;
+        background-color: #005E87;
+        border-radius: 4px; }
 body .modal .requestContent {
   position: absolute;
   top: 20%;
@@ -199,57 +176,50 @@ body .modal .requestContent {
   color: #005E87;
   background-color: #92E4FF;
   border-radius: 20px;
-  padding: 10px;
-}
-body .modal .requestContent .requestRowCont {
-  width: 100%;
-  height: 130px;
-  border: 1px solid #000;
-  border-radius: 6px;
-  overflow: hidden;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-}
-body .modal .requestContent .requestRowCont .requestRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 40px;
-  width: 98%;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border-radius: 6px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-size: 12px;
-  background-color: #92E4FF;
-}
-body .modal .requestContent .requestRowCont .requestRow .requestName {
-  width: 100px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  background-color: #005E87;
-  color: #fff;
-  font-size: 16px;
-}
-body .modal .requestContent .requestRowCont .requestRow .requestBtnCont button {
-  width: 60px;
-  height: 30px;
-  border-radius: 6px;
-  color: #fff;
-}
-body .modal .requestContent .requestRowCont .requestRow .requestBtnCont .okBtn {
-  background-color: #07A467;
-}
-body .modal .requestContent .requestRowCont .requestRow .requestBtnCont .noBtn {
-  background-color: #E96573;
-  margin-left: 10px;
-}
+  padding: 10px; }
+  body .modal .requestContent .requestRowCont {
+    width: 100%;
+    height: 130px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: auto; }
+    body .modal .requestContent .requestRowCont .requestRow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+      width: 98%;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      border-radius: 6px;
+      padding-left: 4px;
+      padding-right: 4px;
+      font-size: 12px;
+      background-color: #92E4FF; }
+      body .modal .requestContent .requestRowCont .requestRow .requestName {
+        width: 100px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        background-color: #005E87;
+        color: #fff;
+        font-size: 16px; }
+      body .modal .requestContent .requestRowCont .requestRow .requestBtnCont button {
+        width: 60px;
+        height: 30px;
+        border-radius: 6px;
+        color: #fff; }
+      body .modal .requestContent .requestRowCont .requestRow .requestBtnCont .okBtn {
+        background-color: #07A467; }
+      body .modal .requestContent .requestRowCont .requestRow .requestBtnCont .noBtn {
+        background-color: #E96573;
+        margin-left: 10px; }
 body .modal .userFilterContent {
   position: absolute;
   top: 30%;
@@ -262,14 +232,11 @@ body .modal .userFilterContent {
   background-color: #92E4FF;
   border-radius: 20px;
   padding: 10px;
-  -moz-text-align-last: left;
-       text-align-last: left;
-}
-body .modal .userFilterContent .requestModalTitle {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+  text-align: left; }
+  body .modal .userFilterContent .requestModalTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px; }
 body .modal .todoFilterContent {
   position: absolute;
   top: 60%;
@@ -281,29 +248,22 @@ body .modal .todoFilterContent {
   color: #005E87;
   background-color: #92E4FF;
   border-radius: 20px;
-  padding: 10px;
-}
-body .modal .todoFilterContent .requestModalTitle {
-  font-size: 20px;
-  font-weight: bold;
-  -moz-text-align-last: left;
-       text-align-last: left;
-  margin-bottom: 10px;
-}
+  padding: 10px; }
+  body .modal .todoFilterContent .requestModalTitle {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px; }
 body .modal .modalContent .requestModalTitle {
   font-size: 20px;
   font-weight: bold;
-  -moz-text-align-last: left;
-       text-align-last: left;
-  margin-bottom: 10px;
-}
+  text-align: left;
+  margin-bottom: 10px; }
 body .modal .modalContent .adminFilterCont .filterSection .filterLabel {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
-  -moz-text-align-last: left;
-       text-align-last: left;
-}
+  text-align: left; }
 body .modal .modalContent .adminFilterCont .filterSection .filterCont {
   font-size: 16px;
   width: 180px;
@@ -315,25 +275,24 @@ body .modal .modalContent .adminFilterCont .filterSection .filterCont {
   align-items: center;
   padding-left: 10px;
   margin-bottom: 10px;
-  position: relative;
-}
-body .modal .modalContent .adminFilterCont .filterSection .filterCont .filterSearch {
-  position: absolute;
-  top: 2px;
-  left: 140px;
-  width: 32px;
-  height: 32px;
-  background-image: url(../images/search.svg);
-  background-size: cover;
-  cursor: pointer;
-}
-body .modal .modalContent .adminFilterCont .filterSection .filterCont .filterDown {
-  position: absolute;
-  top: 2px;
-  left: 140px;
-  width: 32px;
-  height: 32px;
-  background-image: url(../images/down.svg);
-  background-size: cover;
-  cursor: pointer;
-}/*# sourceMappingURL=admin.css.map */
+  position: relative; }
+  body .modal .modalContent .adminFilterCont .filterSection .filterCont .filterSearch {
+    position: absolute;
+    top: 2px;
+    left: 140px;
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/search.svg);
+    background-size: cover;
+    cursor: pointer; }
+  body .modal .modalContent .adminFilterCont .filterSection .filterCont .filterDown {
+    position: absolute;
+    top: 2px;
+    left: 140px;
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/down.svg);
+    background-size: cover;
+    cursor: pointer; }
+
+/*# sourceMappingURL=admin.css.map */

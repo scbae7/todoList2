@@ -9,12 +9,13 @@ html(lang="ko")
     link(rel="stylesheet", href="../css/common.css")
     link(rel="stylesheet", href="../css/todo.css")
     link(rel="stylesheet", href="../css/todoForm.css")
-  body
+  body#body
     include ../modal/todoModal/addTodoModal.pug
     include ../modal/todoModal/deleteTodoModal.pug
     include ../modal/todoModal/detailModal.pug
     include ../modal/todoModal/editModal.pug
     include ../modal/todoModal/myPageModal.pug
+    include ../modal/todoModal/confirmTodoModal.pug
 
     .container.todoContainer
       .navSection
@@ -31,7 +32,7 @@ html(lang="ko")
           .barFull 
             span.barNumber#barNumber
       .headerSection
-        .headerTitle
+        a(href="/todo/todoMain").headerTitle
           span.headerIcon
           span TODO LIST
         if (userName)
@@ -39,7 +40,7 @@ html(lang="ko")
         else
             .headerHello GUEST님 안녕하세요
       .todoHeader
-          .todoCont TODO
+          .todoCont.clicked TODO
           .addCont#openModalBtn(data-open-modal="addTodoModalShow") + NEW
           .DoneCont DONE  
       .todoSection
@@ -60,28 +61,26 @@ html(lang="ko")
                 button.rowControl
                     span.rowControlIcon
                 .rowBtns
-                  button
+                  button#doneRow
                     span.doneBtn
-                  button
+                  button#editRow
                     span.editBtn
-                  button
+                  button#deleteRow
                     span.deleteBtn
-                  button
+                  button#closeRow
                     span.closeBtn
             else
               .todoRow 없어
     
-    //- script(src="../js/todoSession.js" defer)
-    //- script(src="./js/validate/joinValidate.js" type="module")
-    script(src="../js/validate.js" type="module")
-    script(src="../js/todoData/addTodo.js")
+    script(src="../js/todoData/addTodo.js" type="module")
     script(src="../js/todoData/deleteTodo.js" type="module")
     script(src="../js/filterTodo.js")
     script(src="../js/todoStatus.js")
     script(src="../js/todoData/todoDetail.js")
     script(src="../js/todoData/btnControl.js")
     script(src="../js/user/logout.js") 
-    script(src="../js/todoData/todoEdit.js")
+    script(src="../js/todoData/todoEdit.js" type="module")
     script(src="../js/todo/myPageModal.js")
     //- script(src="../js/modal.js")
     script(src="../js/controlModal.js" type="module")
+    script(src="../js/nowDate.js")

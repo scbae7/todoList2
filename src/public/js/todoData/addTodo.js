@@ -1,3 +1,5 @@
+import { ConfirmModal } from "../confirmModal.js";
+
 document.getElementById('addTodoBtn').addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -19,7 +21,18 @@ document.getElementById('addTodoBtn').addEventListener('click', (e) => {
       window.location.href = "/todo/todoMain";
     } else {
       console.error('투두 추가 실패:', data.message);
+      const confirmModal = new ConfirmModal("confirmTodoModal");
+      confirmModal.showModal('다시 한번 확인해주세요!');
     }
   })
-  .catch(error => console.error('에러 발생', error));
+  .catch(error => {
+    console.error('에러 발생', error);
+    const confirmModal = new ConfirmModal("confirmTodoModal");
+    confirmModal.showModal('다시 한번 확인해주세요!');
+  });
+});
+
+// 모달 닫기 버튼 이벤트 리스너 추가
+document.getElementById('modalCloseBtn').addEventListener('click', () => {
+  document.getElementById('confirmTodoModal').style.display = 'none';
 });

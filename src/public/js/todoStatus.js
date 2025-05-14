@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const rowControls = document.querySelectorAll('.doneBtn'); // 모든 rowControl 요소 선택
+    const rowControls = document.querySelectorAll('#doneRow'); // 모든 rowControl 요소 선택
 
     // 각 rowControl 요소에 대해 클릭 이벤트 리스너 추가
     rowControls.forEach(function(control) {

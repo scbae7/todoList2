@@ -108,7 +108,7 @@ class UserModel {
       console.log('check');;
       const [results] = await new Promise( (resolve, reject)=>{
         data.query(
-          'select count(*) as count from requesttable where userId =?', [userId],
+          'select count(*) as count from requestTable where userId =?', [userId],
           (err,result)=> {
             if (err) reject(err);
             resolve(result);
@@ -204,7 +204,7 @@ class UserModel {
   }
   async adminRequest(userId,passwod) {
     try {
-      const query = 'insert into requesttable (userId,userPassword) values (?,?)';
+      const query = 'insert into requestTable (userId,userPassword) values (?,?)';
       const userInfo = await new Promise((resolve, reject) => {
         data.query(query, [userId,passwod], (err, result) => {
           if (err) reject(err);
@@ -232,7 +232,7 @@ class UserModel {
   }
   async requestDelete(adminId) {
     try {
-      const query = "DELETE FROM requesttable WHERE userId = ?";
+      const query = "DELETE FROM requestTable WHERE userId = ?";
       const userInfo = await new Promise((resolve, reject) => {
         data.query(query, [adminId], (err, result) => {
           if (err) reject(err);

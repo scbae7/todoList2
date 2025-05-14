@@ -6,11 +6,25 @@ const formValidator = new FormValidator("joinForm");
 
 document.getElementById('joinForm').addEventListener('submit', (e) => {
   e.preventDefault();
+  var response = grecaptcha.getResponse();
+  if (!response || response.length === 0) {
+      const confirmModal = new ConfirmModal("confirmModal");
+      confirmModal.showModalLink("캡챠를 완료해주세요!", false);
+      e.preventDefault(); // 기본 제출 동작 방지
+      return;
+  }
   handleSubmit();
 });
 
 document.getElementById('joinBtn').addEventListener('click', (e) => {
   e.preventDefault();
+  var response = grecaptcha.getResponse();
+  if (!response || response.length === 0) {
+      const confirmModal = new ConfirmModal("confirmModal");
+      confirmModal.showModalLink("캡챠를 완료해주세요!", false);
+      e.preventDefault(); // 기본 제출 동작 방지
+      return;
+  }
   handleSubmit();
 });
 
@@ -38,7 +52,7 @@ function handleSubmit() {
       .then(data => {
         if (data.success) {
           const confirmModal = new ConfirmModal("confirmModal");
-          confirmModal.showModal();
+          confirmModal.showModalLink(`회원가입이 성공적으로 완료되었습니다.`, true);
           // window.location.href = "/user/login";
         } else {
           console.error('회원가입 실패:', data.message);
@@ -48,7 +62,9 @@ function handleSubmit() {
       })
       .catch(error => console.error('에러 발생', error));
   }else{
-    console.log("폼 제출 실패");
+    // console.log("폼 제출 실패");
+    const confirmModal = new ConfirmModal("confirmModal");
+    confirmModal.showModalLink("다시 한번 확인해주세요!", false);
   }
 }
 

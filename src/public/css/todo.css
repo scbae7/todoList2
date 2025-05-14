@@ -1,119 +1,102 @@
 @charset "UTF-8";
 body .todoContainer {
   width: 560px;
-  height: 800px;
+  height: 810px;
   padding: 20px;
-  background-color: #92E4FF;
-}
-body .todoContainer .navSection {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-body .todoContainer .navSection button {
-  border-radius: 6px;
-  color: #fff;
-  background-color: #179BC7;
-  font-weight: bold;
-  font-size: 24px;
-  height: 40px;
-}
-body .todoContainer .navSection .myPageBtn {
-  width: 47%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body .todoContainer .navSection .myPageBtn .myPageIcon {
-  background-image: url(../images/face.svg);
-  width: 30px;
-  height: 30px;
-  background-size: cover;
-  border-radius: 4px;
-  display: inline-block;
-  margin-right: 4px;
-}
-body .todoContainer .navSection .logout {
-  width: 47%;
-}
+  background-color: var(--second-color); }
+  body .todoContainer .navSection {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    body .todoContainer .navSection button {
+      border-radius: 6px;
+      color: #fff;
+      background-color: #179BC7;
+      font-weight: bold;
+      font-size: 24px;
+      height: 40px; }
+    body .todoContainer .navSection .myPageBtn {
+      width: 47%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      body .todoContainer .navSection .myPageBtn .myPageIcon {
+        background-image: url(../images/face.svg);
+        width: 30px;
+        height: 30px;
+        background-size: cover;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 4px; }
+    body .todoContainer .navSection .logout {
+      width: 47%; }
 body .processSection {
   margin-top: 20px;
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-body .processSection .processLabel {
-  font-size: 24px;
-  font-weight: bold;
-  color: #179BC7;
-  margin-left: 10px;
-}
-body .processSection .processNumber {
-  width: 80px;
-  height: 40px;
-  color: #179BC7;
-  border: 1px solid #179BC7;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  font-size: 24px;
-}
-body .processSection .processBar {
-  width: 320px;
-  height: 40px;
-  border-radius: 6px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body .processSection .processBar .barFull {
-  width: 300px;
-  height: 20px;
-  border-radius: 6px;
-  background-color: #d9d9d9;
-  display: flex;
-  align-items: center;
-}
-body .processSection .processBar .barNumber {
-  height: 20px;
-  border-radius: 6px;
-  background-color: #179BC7;
-}
+  justify-content: space-between; }
+  body .processSection .processLabel {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 10px; }
+  body .processSection .processNumber {
+    width: 80px;
+    height: 40px;
+    color: var(--second-color);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-size: 24px; }
+  body .processSection .processBar {
+    width: 320px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    body .processSection .processBar .barFull {
+      width: 300px;
+      height: 20px;
+      border-radius: 6px;
+      background-color: var(--second-color);
+      display: flex;
+      align-items: center; }
+    body .processSection .processBar .barNumber {
+      height: 20px;
+      border-radius: 6px;
+      background-color: var(--third-color); }
 body .headerSection {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-}
-body .headerSection .headerTitle {
-  font-size: 36px;
-  font-weight: bold;
-  color: #179BC7;
-  display: flex;
-  align-items: center;
-}
-body .headerSection .headerIcon {
-  background-image: url(../images/list.svg);
-  background-size: cover;
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-right: 10px;
-}
-body .headerSection .headerHello {
-  font-size: 16px;
-  color: #179BC7;
-}
+  margin-bottom: 20px; }
+  body .headerSection .headerTitle {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    align-items: center; }
+  body .headerSection .headerIcon {
+    background-image: url(../images/list2.svg);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px; }
+  body .headerSection .headerHello {
+    font-size: 20px;
+    color: #fff; }
 body .todoHeader {
   display: flex;
   align-items: center;
@@ -122,186 +105,155 @@ body .todoHeader {
   font-weight: bold;
   font-size: 26px;
   height: 50px;
-}
-body .todoHeader .todoCont {
-  background-color: #179BC7;
-  flex: 1;
-  width: 33.3333333333%;
-  height: inherit;
-  border-top-left-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-body .todoHeader .todoCont:hover {
-  scale: 1.2;
-  border-radius: 10px;
-}
-body .todoHeader .addCont {
-  background-color: #E96573;
-  flex: 1;
-  width: 33.3333333333%;
-  height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-body .todoHeader .addCont:hover {
-  scale: 1.2;
-  border-radius: 10px;
-}
-body .todoHeader .DoneCont {
-  background-color: #07A467;
-  flex: 1;
-  width: 33.3333333333%;
-  height: inherit;
-  border-top-right-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-body .todoHeader .DoneCont:hover {
-  scale: 1.2;
-  border-radius: 10px;
-}
+  border-bottom: 1px solid #364954; }
+  body .todoHeader .todoCont {
+    background-color: var(--third-color);
+    flex: 1;
+    width: calc(100% / 3);
+    height: inherit;
+    border-top-left-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid #333;
+    border-bottom: 0; }
+    body .todoHeader .todoCont:hover {
+      background-color: var(--second-color); }
+  body .todoHeader .todoCont.clicked {
+    background-color: var(--second-color);
+    z-index: 2; }
+  body .todoHeader .addCont {
+    background-color: var(--third-color);
+    flex: 1;
+    width: calc(100% / 3);
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-top: 1px solid #333; }
+    body .todoHeader .addCont:hover {
+      background-color: var(--second-color); }
+  body .todoHeader .DoneCont {
+    background-color: var(--third-color);
+    flex: 1;
+    width: calc(100% / 3);
+    height: inherit;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid #333;
+    border-bottom: 0; }
+    body .todoHeader .DoneCont:hover {
+      background-color: var(--second-color); }
+  body .todoHeader .DoneCont.clicked {
+    background-color: var(--second-color);
+    z-index: 2; }
 body .todoSection {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   width: 100%;
   height: 500px;
   background-color: #fff;
-  overflow: auto;
-}
-body .todoSection::-webkit-scrollbar {
-  display: none;
-  /* Webkit 기반 브라우저에서 스크롤바를 숨깁니다. */
-}
-body .todoSection .todoRow {
-  width: 100%;
-  height: 120px;
-  background-color: #179BC7;
-  border-top: 1px solid #364954;
-  border-bottom: 1px solid #364954;
-  -moz-text-align-last: left;
-       text-align-last: left;
-  padding: 10px;
-  padding-left: 25px;
-  position: relative;
-  z-index: 1;
-}
-body .todoSection .todoRow:hover {
-  background-color: #2E7289;
-  border-left: 10px solid #364954;
-}
-body .todoSection .todoRow .rowDate {
-  font-size: 16px;
-  color: #fff;
-}
-body .todoSection .todoRow .rowDesc {
-  font-size: 24px;
-  color: #fff;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  font-weight: bold;
-}
-body .todoSection .todoRow .rowTag {
-  margin-top: 10px;
-}
-body .todoSection .todoRow .rowTag .rowTagData {
-  font-size: 16px;
-  padding: 6px;
-  padding-right: 14px;
-  background-color: #E96573;
-  border-radius: 6px;
-  margin-right: 10px;
-  color: #fff;
-  font-weight: bold;
-}
-body .todoSection .todoRow .rowControl {
-  position: absolute;
-  top: 30%;
-  left: 85%;
-  background-color: #005E87;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid #000;
-  z-index: 2;
-}
-body .todoSection .todoRow .rowControl .rowControlIcon {
-  position: absolute;
-  top: 15%;
-  left: 15%;
-  background-image: url(../images/order.svg);
-  background-size: cover;
-  width: 32px;
-  height: 32px;
-}
-body .todoSection .todoRow .rowBtns {
-  position: absolute;
-  top: 30%;
-  left: 56%;
-  height: 50px;
-  display: flex;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-body .todoSection .todoRow .rowBtns button {
-  width: 50px;
-  height: 50px;
-  background-color: #005E87;
-  border-radius: 50%;
-  color: #fff;
-  text-align: center;
-  border: 1px solid #000;
-  position: relative;
-}
-body .todoSection .todoRow .rowBtns button span {
-  position: absolute;
-  top: 15%;
-  left: 15%;
-  width: 32px;
-  height: 32px;
-  background-size: cover;
-}
-body .todoSection .todoRow .rowBtns button .doneBtn {
-  background-image: url(../images/done.svg);
-}
-body .todoSection .todoRow .rowBtns button .editBtn {
-  background-image: url(../images/edit.svg);
-}
-body .todoSection .todoRow .rowBtns button .deleteBtn {
-  background-image: url(../images/delete.svg);
-}
-body .todoSection .todoRow .rowBtns button .closeBtn {
-  background-image: url(../images/close.svg);
-}
-body .todoSection .todoRow.done {
-  background-color: #07A467;
-}
-body .todoSection .todoRow.done:hover {
-  background-color: #46856d;
-}
-body .todoSection .todoRow.done .rowControl {
-  background-color: #286137;
-}
-body .todoSection .todoRow.done .rowBtns {
-  left: 65%;
-}
-body .todoSection .todoRow.done .rowBtns button {
-  background-color: #286137;
-}
-body .todoSection .todoRow.done .rowBtns button:nth-child(1) {
-  display: none;
-}
+  overflow: auto; }
+  body .todoSection::-webkit-scrollbar {
+    display: none;
+    /* Webkit 기반 브라우저에서 스크롤바를 숨깁니다. */ }
+  body .todoSection .todoRow {
+    width: 100%;
+    height: 120px;
+    background-color: #179BC7;
+    border: 1px solid #364954;
+    border-top: 0;
+    text-align: left;
+    padding: 10px;
+    padding-left: 25px;
+    position: relative;
+    z-index: 1; }
+    body .todoSection .todoRow:hover {
+      background-color: #2E7289;
+      border-left: 10px solid var(--second-color); }
+    body .todoSection .todoRow .rowDate {
+      font-size: 16px;
+      color: #fff; }
+    body .todoSection .todoRow .rowDesc {
+      font-size: 24px;
+      color: #fff;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      font-weight: bold; }
+    body .todoSection .todoRow .rowTag {
+      margin-top: 10px; }
+      body .todoSection .todoRow .rowTag .rowTagData {
+        font-size: 16px;
+        padding: 6px 10px;
+        background-color: var(--second-color);
+        border-radius: 6px;
+        margin-right: 10px;
+        color: #fff;
+        font-weight: bold; }
+    body .todoSection .todoRow .rowControl {
+      position: absolute;
+      top: 30%;
+      left: 85%;
+      background-color: #005E87;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      z-index: 2; }
+      body .todoSection .todoRow .rowControl .rowControlIcon {
+        position: absolute;
+        top: 16%;
+        left: 16%;
+        background-image: url(../images/order.svg);
+        background-size: cover;
+        width: 32px;
+        height: 32px; }
+    body .todoSection .todoRow .rowBtns {
+      position: absolute;
+      top: 30%;
+      left: 56%;
+      height: 50px;
+      display: flex;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2; }
+      body .todoSection .todoRow .rowBtns button {
+        width: 50px;
+        height: 50px;
+        background-color: #005E87;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        position: relative; }
+        body .todoSection .todoRow .rowBtns button span {
+          position: absolute;
+          top: 16%;
+          left: 16%;
+          width: 32px;
+          height: 32px;
+          background-size: cover; }
+        body .todoSection .todoRow .rowBtns button .doneBtn {
+          background-image: url(../images/done.svg); }
+        body .todoSection .todoRow .rowBtns button .editBtn {
+          background-image: url(../images/edit.svg); }
+        body .todoSection .todoRow .rowBtns button .deleteBtn {
+          background-image: url(../images/delete.svg); }
+        body .todoSection .todoRow .rowBtns button .closeBtn {
+          background-image: url(../images/close.svg); }
+  body .todoSection .todoRow.done {
+    background-color: var(--third-color); }
+    body .todoSection .todoRow.done .rowBtns {
+      left: 65%; }
+    body .todoSection .todoRow.done .rowBtns button:nth-child(1) {
+      display: none; }
 body .modal .myPageModalCont {
   position: absolute;
   top: 50%;
@@ -314,110 +266,101 @@ body .modal .myPageModalCont {
   color: #005E87;
   background-color: #92E4FF;
   border-radius: 20px;
-  padding: 10px;
-}
-body .modal .myPageModalCont .myPageTitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body .modal .myPageModalCont .myPageTitle .myIcon {
-  background-image: url(../images/face.svg);
-  width: 36px;
-  height: 36px;
-  background-size: cover;
-  border-radius: 4px;
-  display: inline-block;
-  margin-right: 4px;
-}
-body .modal .myPageModalCont .myPageTitle .myPageLabel {
-  font-size: 32px;
-  font-weight: bold;
-  color: #fff;
-  margin-left: 6px;
-}
-body .modal .myPageModalCont .myPageTitle .closeBtn {
-  position: absolute;
-  top: 3%;
-  left: 79%;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #005E87;
-  border: none;
-}
-body .modal .myPageModalCont .myPageTitle .closeBtn .closeIcon {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  background-image: url(../images/close.svg);
-  width: 40px;
-  height: 40px;
-  background-size: cover;
-  border-radius: 4px;
-  display: inline-block;
-}
-body .modal .myPageModalCont .myPageSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #000;
-  margin-top: 20px;
-  border-radius: 20px;
-  width: 100%;
-  height: 410px;
-  background-color: #179BC7;
-  justify-content: flex-start;
-}
-body .modal .myPageModalCont .myPageSection .myPageImg {
-  background-image: url(../images/picture.svg);
-  width: 200px;
-  height: 200px;
-  background-size: cover;
-  border-radius: 4px;
-}
-body .modal .myPageModalCont .myPageSection .myContInfo {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  -moz-text-align-last: left;
-       text-align-last: left;
-  color: #fff;
-  height: 60px;
-  margin-left: 10px;
-}
-body .modal .myPageModalCont .myPageSection .myContInfo .myLabel {
-  width: 30%;
-  font-size: 24px;
-  color: #005E87;
-  font-weight: bold;
-}
-body .modal .myPageModalCont .myPageSection .myContInfo .myDesc {
-  width: 70%;
-  font-size: 24px;
-}
-body .modal .myPageModalCont .myPageSection .myContInfo .myEdit {
-  width: 20%;
-}
-body .modal .myPageModalCont .myPageSection .myContInfo .myEdit .myEditBtn {
-  background-color: #005E87;
-  background-image: url(../images/edit.svg);
-  width: 40px;
-  height: 40px;
-  background-size: cover;
-  border-radius: 4px;
-}
-body .modal .myPageModalCont .myPageSection .myBtn {
-  width: 75%;
-  height: 50px;
-  background-color: #005E87;
-  border-radius: 10px;
-  color: #fff;
-  margin-top: 10px;
-}
+  padding: 10px; }
+  body .modal .myPageModalCont .myPageTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    body .modal .myPageModalCont .myPageTitle .myIcon {
+      background-image: url(../images/face.svg);
+      width: 36px;
+      height: 36px;
+      background-size: cover;
+      border-radius: 4px;
+      display: inline-block;
+      margin-right: 4px; }
+    body .modal .myPageModalCont .myPageTitle .myPageLabel {
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      margin-left: 6px; }
+    body .modal .myPageModalCont .myPageTitle .closeBtn {
+      position: absolute;
+      top: 2%;
+      left: 79%;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #005E87;
+      border: none; }
+      body .modal .myPageModalCont .myPageTitle .closeBtn .closeIcon {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        background-image: url(../images/close.svg);
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        border-radius: 4px;
+        display: inline-block; }
+  body .modal .myPageModalCont .myPageSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #333;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 100%;
+    height: 410px;
+    background-color: #179BC7;
+    justify-content: flex-start; }
+    body .modal .myPageModalCont .myPageSection .myPageImg {
+      background-image: url(../images/picture.svg);
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+      border-radius: 4px; }
+    body .modal .myPageModalCont .myPageSection .myContInfo {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-align: left;
+      color: #fff;
+      height: 60px;
+      margin-left: 10px; }
+      body .modal .myPageModalCont .myPageSection .myContInfo .myLabel {
+        width: 30%;
+        font-size: 24px;
+        color: #005E87;
+        font-weight: bold; }
+      body .modal .myPageModalCont .myPageSection .myContInfo .myDesc {
+        width: 70%;
+        font-size: 24px; }
+      body .modal .myPageModalCont .myPageSection .myContInfo .myEdit {
+        width: 20%; }
+        body .modal .myPageModalCont .myPageSection .myContInfo .myEdit .myEditBtn {
+          background-color: #005E87;
+          background-image: url(../images/edit.svg);
+          width: 40px;
+          height: 40px;
+          background-size: cover;
+          border-radius: 4px; }
+    body .modal .myPageModalCont .myPageSection .myBtn {
+      width: 75%;
+      height: 50px;
+      background-color: #005E87;
+      border-radius: 10px;
+      color: #fff;
+      margin-top: 10px; }
+      body .modal .myPageModalCont .myPageSection .myBtn a {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center; }
 body .modal .todoModalCont {
   position: absolute;
   top: 46%;
@@ -430,5 +373,219 @@ body .modal .todoModalCont {
   background-color: #92E4FF;
   opacity: 0.5;
   border-radius: 20px;
-  padding: 10px;
-}/*# sourceMappingURL=todo.css.map */
+  padding: 10px; }
+
+@media (max-width: 768px) {
+  body .todoContainer {
+    width: 90%;
+    height: auto; }
+    body .todoContainer .navSection button {
+      font-size: 20px; }
+  body .processSection .processLabel {
+    display: none; }
+  body .processSection .processNumber {
+    width: 20%;
+    font-size: 20px; }
+  body .processSection .processBar {
+    width: 75%; }
+    body .processSection .processBar .barFull {
+      width: 90%; }
+  body .headerSection {
+    margin-top: 10px;
+    margin-bottom: 20px; }
+    body .headerSection .headerTitle {
+      font-size: 28px; }
+    body .headerSection .headerHello {
+      font-size: 16px; }
+  body .todoHeader {
+    font-size: 22px; }
+    body .todoHeader .todoCont {
+      border-top-left-radius: 10px; }
+    body .todoHeader .todoCont.clicked {
+      transform: scale(1.1);
+      border-radius: 10px; }
+    body .todoHeader .DoneCont {
+      border-top-right-radius: 10px; }
+    body .todoHeader .DoneCont.clicked {
+      transform: scale(1.1);
+      border-radius: 10px; }
+  body .todoSection {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 400px;
+    overflow: auto; }
+    body .todoSection::-webkit-scrollbar {
+      display: none; }
+    body .todoSection .todoRow {
+      height: 105px;
+      text-align: left;
+      padding: 5px;
+      padding-left: 15px; }
+      body .todoSection .todoRow:hover {
+        background-color: none;
+        border-left: none; }
+      body .todoSection .todoRow .rowDate {
+        font-size: 14px;
+        color: #fff; }
+      body .todoSection .todoRow .rowDesc {
+        font-size: 20px; }
+      body .todoSection .todoRow .rowTag {
+        margin-top: 10px; }
+        body .todoSection .todoRow .rowTag .rowTagData {
+          font-size: 12px; }
+      body .todoSection .todoRow .rowControl {
+        position: absolute;
+        top: 30%;
+        left: 75%; }
+      body .todoSection .todoRow .rowBtns {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        height: 50px;
+        display: flex;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2; }
+        body .todoSection .todoRow .rowBtns button {
+          width: 50px;
+          height: 50px;
+          background-color: #005E87;
+          border-radius: 50%;
+          color: #fff;
+          text-align: center;
+          border: 1px solid #333;
+          position: relative; }
+          body .todoSection .todoRow .rowBtns button span {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 32px;
+            height: 32px;
+            background-size: cover; }
+          body .todoSection .todoRow .rowBtns button .doneBtn {
+            background-image: url(../images/done.svg); }
+          body .todoSection .todoRow .rowBtns button .editBtn {
+            background-image: url(../images/edit.svg); }
+          body .todoSection .todoRow .rowBtns button .deleteBtn {
+            background-image: url(../images/delete.svg); }
+          body .todoSection .todoRow .rowBtns button .closeBtn {
+            background-image: url(../images/close.svg); }
+    body .todoSection .todoRow.done .rowBtns {
+      left: 50%; }
+  body .modal .myPageModalCont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    width: 90%;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--main-color);
+    color: #005E87;
+    background-color: #92E4FF;
+    border-radius: 20px;
+    padding: 10px; }
+    body .modal .myPageModalCont .myPageTitle {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      body .modal .myPageModalCont .myPageTitle .myIcon {
+        background-image: url(../images/face.svg);
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 4px; }
+      body .modal .myPageModalCont .myPageTitle .myPageLabel {
+        font-size: 28px;
+        font-weight: bold;
+        color: #fff;
+        margin-left: 6px; }
+      body .modal .myPageModalCont .myPageTitle .closeBtn {
+        position: absolute;
+        top: 3%;
+        left: 79%;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #005E87;
+        border: none; }
+        body .modal .myPageModalCont .myPageTitle .closeBtn .closeIcon {
+          position: absolute;
+          top: 4px;
+          left: 4px;
+          background-image: url(../images/close.svg);
+          width: 32px;
+          height: 32px;
+          background-size: cover;
+          border-radius: 4px;
+          display: inline-block; }
+    body .modal .myPageModalCont .myPageSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #333;
+      margin-top: 20px;
+      border-radius: 20px;
+      width: 100%;
+      height: 410px;
+      background-color: #179BC7;
+      justify-content: flex-start; }
+      body .modal .myPageModalCont .myPageSection .myPageImg {
+        background-image: url(../images/picture.svg);
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        border-radius: 4px; }
+      body .modal .myPageModalCont .myPageSection .myContInfo {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: left;
+        color: #fff;
+        height: 60px;
+        margin-left: 10px; }
+        body .modal .myPageModalCont .myPageSection .myContInfo .myLabel {
+          width: 30%;
+          font-size: 20px;
+          color: #005E87;
+          font-weight: bold; }
+        body .modal .myPageModalCont .myPageSection .myContInfo .myDesc {
+          width: 70%;
+          font-size: 20px; }
+        body .modal .myPageModalCont .myPageSection .myContInfo .myEdit {
+          width: 20%; }
+          body .modal .myPageModalCont .myPageSection .myContInfo .myEdit .myEditBtn {
+            background-color: #005E87;
+            background-image: url(../images/edit.svg);
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            border-radius: 4px; }
+      body .modal .myPageModalCont .myPageSection .myBtn {
+        width: 75%;
+        height: 50px;
+        background-color: #005E87;
+        border-radius: 10px;
+        color: #fff;
+        margin-top: 10px; }
+  body .modal .todoModalCont {
+    position: absolute;
+    top: 46%;
+    left: 58%;
+    width: 90%;
+    height: 240px;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--main-color);
+    color: #005E87;
+    background-color: #92E4FF;
+    opacity: 0.5;
+    border-radius: 20px;
+    padding: 10px; } }
+
+/*# sourceMappingURL=todo.css.map */

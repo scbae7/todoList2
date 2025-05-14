@@ -11,6 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const todoContButton = document.querySelector('.todoCont'); // TODO 버튼 선택
     const doneContButton = document.querySelector('.DoneCont'); // DONE 버튼 선택
 
+    todoContButton.addEventListener('click', function() {
+        todoContButton.classList.add('clicked')
+        doneContButton.classList.remove('clicked');
+    });
+
+    doneContButton.addEventListener('click', function() {
+        doneContButton.classList.add('clicked')
+        todoContButton.classList.remove('clicked');
+    });
+
     // TODO 버튼 클릭 시
     todoContButton.addEventListener('click', function () {
         todoRows.forEach(function (row) {

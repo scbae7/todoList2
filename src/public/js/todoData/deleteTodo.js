@@ -1,49 +1,61 @@
+import { ConfirmModal } from "../confirmModal.js";
 import { updateProgress } from '../updatePro.js';
-document.querySelectorAll('.deleteBtn').forEach(button=>{
-    button.addEventListener('click',(event)=>{
+
+document.querySelectorAll('#deleteRow').forEach(button => {
+    button.addEventListener('click', (event) => {
         event.stopPropagation();
-        console.log('버튼')
-        const todoNum = button.parentElement.parentElement.parentElement.getAttribute('data-todonum');
-        // console.log(todoNum);
+        const todoNum = button.parentElement.parentElement.getAttribute('data-todonum');
         let todoFile = null;
-        let todoFileAttribute = null;
-        if(todoFileAttribute){
-          todoFileAttribute = button.parentElement.parentElement.parentElement.getAttribute("data-todoFile");
-        }
-        console.log(todoFileAttribute);
-        if(todoFileAttribute){
-          todoFile = todoFileAttribute;;
-        }
+        let todoFileAttribute = button.parentElement.parentElement.getAttribute("data-todoFile");
 
-        let requestBody = {
-          todoNum: todoNum
-        };
-
-        if (todoFile) {
-            requestBody.todoFile = todoFile;
+        if (todoFileAttribute) {
+            todoFileAttribute = button.parentElement.parentElement.getAttribute("data-todoFile");
+        }
+        if (todoFileAttribute) {
+            todoFile = todoFileAttribute;;
         }
 
-        fetch(`/todo/deleteTodo/${todoNum}`,{
-            method:'post',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              requestBody
-            }),
-          })
-          .then(response=>{
-            if(!response.ok){
-              throw new Error('투두 삭제에 실패했습니다');
+        const confirmModal = new ConfirmModal("confirmModal");
+        confirmModal.showModal();
+
+        const deleteUserBtn = document.querySelector('.deleteUser');
+        deleteUserBtn.addEventListener('click', async () => {
+            let requestBody = {
+                todoNum: todoNum
+            };
+
+            if (todoFile) {
+                requestBody.todoFile = todoFile;
             }
-            return response.json();
-          })
-          .then(data=>{
-            console.log(data);
-            const deletedElement = button.parentElement.parentElement.parentElement; // 삭제된 항목의 부모 요소 선택
-            deletedElement.remove(); // 선택된 요소를 DOM에서 완전히 제거합니다.
-            updateProgress();
-          })
-          .catch(error=>console.error('에러 발생:',error));
-    })
-})
+
+            try {
+                const response = await fetch(`/todo/deleteTodo/${todoNum}`, {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        requestBody
+                    }),
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    const deletedElement = button.parentElement.parentElement;
+                    deletedElement.remove();
+                    updateProgress();
+                    document.querySelector('.modal#confirmModal').style.display = "none";
+                } else {
+                    console.error('삭제 실패:', result.message);
+                    alert('삭제에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('에러 발생:', error);
+                alert('서버 오류');
+            }
+        });
+        document.querySelector('.modalBtn').addEventListener("click",()=>{
+          document.querySelector('.modal#confirmModal').style.display = "none";
+        })
+    });
+});

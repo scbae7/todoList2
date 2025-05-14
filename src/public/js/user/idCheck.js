@@ -1,4 +1,8 @@
 import FormMessage from './formMessage.js';
+import {
+  ConfirmModal
+} from "../confirmModal.js";
+
 document.querySelector('.id-btn').addEventListener('click', (e) => {
   e.preventDefault();
   console.log('hi');
@@ -20,11 +24,15 @@ function handleSubmit() {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          alert(data.message);
+          const confirmModal = new ConfirmModal("confirmModal");
+          confirmModal.showModalLink(data.message, false);
+          // alert(data.message);
           console.log(data.message);
 
         } else {
-          alert(data.message);
+          const confirmModal = new ConfirmModal("confirmModal");
+          confirmModal.showModalLink(data.message, false);
+          // alert(data.message);
           console.error('아이디 있음:', data.message);
           e.preventDefault();
           //로그인 실패 메시지를 어딘가에 표시하거나 적절히 처리

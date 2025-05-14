@@ -16,12 +16,13 @@
       .inputRow
         label(class="inputLabel" for="todoDueDate") 날짜
         input(class="inputInfo" type="date", id="addTodoDueDate", name="todoDueDate")
+        span.dateIcon now
       .inputRow
         label(class="inputLabel",for="todoDesc") 설명
-        textarea.editTodoDesc(id="addTodoDesc",class="inputInfo", name="todoDesc" placeholder="설명" maxlength="50") 설명
+        textarea.editTodoDesc(id="addTodoDesc",class="inputInfo", name="todoDesc" placeholder="설명을 입력해주세요!" maxlength="50")
       .inputRow
         label(class="inputLabel",for="todoTag") 태그
-        input(type="text", id="addTodoTag", class="inputInfo",name="todoTag", placeholder=",로 나눠서 작성해주세요." maxlength="15")
+        input(type="text", id="addTodoTag", class="inputInfo",name="todoTag", placeholder=",로 나눠서 작성해주세요!" maxlength="15")
       .inputRow
         label(class="inputLabel",for="todoFile") 파일(jpg,png)
         input(class="inputInfo" type="file", id="addTodoFile", name="todoFile", placeholder="설명" maxlength="15")

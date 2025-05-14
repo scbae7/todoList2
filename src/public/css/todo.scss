@@ -1,9 +1,9 @@
 body {
   .todoContainer {
     width: 560px;
-    height: 800px;
+    height: 810px;
     padding: 20px;
-    background-color: #92E4FF;
+    background-color: var(--second-color);
 
     .navSection {
       width: 100%;
@@ -65,15 +65,14 @@ body {
     .processLabel {
       font-size: 24px;
       font-weight: bold;
-      color: #179BC7;
+      color: #fff;
       margin-left: 10px;
     }
 
     .processNumber {
       width: 80px;
       height: 40px;
-      color: #179BC7;
-      border: 1px solid #179BC7;
+      color: var(--second-color);
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -95,7 +94,7 @@ body {
         width: 300px;
         height: 20px;
         border-radius: 6px;
-        background-color: #d9d9d9;
+        background-color: var(--second-color);
         display: flex;
         align-items: center;
       }
@@ -103,7 +102,7 @@ body {
       .barNumber {
         height: 20px;
         border-radius: 6px;
-        background-color: #179BC7;
+        background-color: var(--third-color);
       }
     }
   }
@@ -119,24 +118,24 @@ body {
     .headerTitle {
       font-size: 36px;
       font-weight: bold;
-      color: #179BC7;
+      color: #fff;
       display: flex;
       align-items: center;
     }
 
     .headerIcon {
-      background-image: url(../images/list.svg);
+      background-image: url(../images/list2.svg);
       background-size: cover;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 4px;
       display: inline-block;
       margin-right: 10px;
     }
 
     .headerHello {
-      font-size: 16px;
-      color: #179BC7;
+      font-size: 20px;
+      color: #fff;
     }
   }
 
@@ -148,9 +147,10 @@ body {
     font-weight: bold;
     font-size: 26px;
     height: 50px;
+    border-bottom: 1px solid #364954;
 
     .todoCont {
-      background-color: #179BC7;
+      background-color: var(--third-color);
       flex: 1;
       width: calc(100% / 3);
       height: inherit;
@@ -160,15 +160,20 @@ body {
       justify-content: center;
       box-sizing: border-box;
       cursor: pointer;
+      border: 1px solid #333;
+      border-bottom: 0;
 
       &:hover {
-        scale: 1.2;
-        border-radius: 10px;
+        background-color: var(--second-color);
       }
+    }
+    .todoCont.clicked {
+      background-color: var(--second-color);
+      z-index: 2;
     }
 
     .addCont {
-      background-color: #E96573;
+      background-color: var(--third-color);
       flex: 1;
       width: calc(100% / 3);
       height: inherit;
@@ -177,15 +182,15 @@ body {
       justify-content: center;
       box-sizing: border-box;
       cursor: pointer;
+      border-top: 1px solid #333;
 
       &:hover {
-        scale: 1.2;
-        border-radius: 10px;
+        background-color: var(--second-color);
       }
     }
 
     .DoneCont {
-      background-color: #07A467;
+      background-color: var(--third-color);
       flex: 1;
       width: calc(100% / 3);
       height: inherit;
@@ -195,11 +200,16 @@ body {
       justify-content: center;
       box-sizing: border-box;
       cursor: pointer;
+      border: 1px solid #333;
+      border-bottom: 0;
 
       &:hover {
-        scale: 1.2;
-        border-radius: 10px;
+        background-color: var(--second-color);
       }
+    }
+    .DoneCont.clicked {
+      background-color: var(--second-color);
+      z-index: 2;
     }
   }
 
@@ -220,9 +230,9 @@ body {
       width: 100%;
       height: 120px;
       background-color: #179BC7;
-      border-top: 1px solid #364954;
-      border-bottom: 1px solid #364954;
-      text-align-last: left;
+      border: 1px solid #364954;
+      border-top: 0;
+      text-align: left;
       padding: 10px;
       padding-left: 25px;
       position: relative;
@@ -230,7 +240,7 @@ body {
 
       &:hover {
         background-color: #2E7289;
-        border-left: 10px solid #364954;
+        border-left: 10px solid var(--second-color);
       }
 
       .rowDate {
@@ -251,9 +261,8 @@ body {
 
         .rowTagData {
           font-size: 16px;
-          padding: 6px;
-          padding-right: 14px;
-          background-color: #E96573;
+          padding: 6px 10px;
+          background-color: var(--second-color);
           border-radius: 6px;
           margin-right: 10px;
           color: #fff;
@@ -269,13 +278,12 @@ body {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        border: 1px solid #000;
         z-index: 2;
 
         .rowControlIcon {
           position: absolute;
-          top: 15%;
-          left: 15%;
+          top: 16%;
+          left: 16%;
           background-image: url(../images/order.svg);
           background-size: cover;
           width: 32px;
@@ -301,13 +309,12 @@ body {
           border-radius: 50%;
           color: #fff;
           text-align: center;
-          border: 1px solid #000;
           position: relative;
 
           span {
             position: absolute;
-            top: 15%;
-            left: 15%;
+            top: 16%;
+            left: 16%;
             width: 32px;
             height: 32px;
             background-size: cover;
@@ -333,23 +340,23 @@ body {
     }
 
     .todoRow.done {
-      background-color: #07A467;
+      background-color: var(--third-color);
 
-      &:hover {
-        background-color: #46856d;
-      }
+      // &:hover {
+      //   background-color: #46856d;
+      // }
 
-      .rowControl {
-        background-color: #286137;
-      }
+      // .rowControl {
+      //   background-color: #286137;
+      // }
 
       .rowBtns {
         left: 65%;
       }
 
-      .rowBtns button {
-        background-color: #286137;
-      }
+      // .rowBtns button {
+      //   background-color: #286137;
+      // }
 
       .rowBtns button:nth-child(1) {
         display: none;
@@ -397,7 +404,7 @@ body {
 
         .closeBtn {
           position: absolute;
-          top: 3%;
+          top: 2%;
           left: 79%;
           width: 48px;
           height: 48px;
@@ -423,7 +430,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid #000;
+        border: 1px solid #333;
         margin-top: 20px;
         border-radius: 20px;
         width: 100%;
@@ -447,7 +454,7 @@ body {
           padding: 10px;
           margin-top: 20px;
           margin-bottom: 10px;
-          text-align-last: left;
+          text-align: left;
           color: #fff;
           height: 60px;
           margin-left: 10px;
@@ -486,6 +493,14 @@ body {
           border-radius: 10px;
           color: #fff;
           margin-top: 10px;
+
+          a {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+          }
         }
       }
     }
@@ -514,4 +529,321 @@ body {
   //   background-size: cover;
   //   background-repeat: no-repeat;
   // }
+}
+@media (max-width: 768px) {
+  body {
+    .todoContainer {
+      width: 90%;
+      height: auto;
+
+      .navSection {
+        button {
+          font-size: 20px;
+        }
+      }
+    }
+
+    
+  
+    .processSection {
+  
+      .processLabel {
+        display: none;
+      }
+  
+      .processNumber {
+        width: 20%;
+        font-size: 20px;
+      }
+  
+      .processBar {
+        width: 75%;
+  
+        .barFull {
+          width: 90%;
+        }
+      }
+    }
+  
+    .headerSection {
+      margin-top: 10px;
+      margin-bottom: 20px;
+  
+      .headerTitle {
+        font-size: 28px;
+      }
+  
+      .headerHello {
+        font-size: 16px;
+      }
+    }
+  
+    .todoHeader {
+      font-size: 22px;
+      .todoCont {
+        border-top-left-radius: 10px;
+      }
+      .todoCont.clicked {
+        transform: scale(1.1);
+        border-radius: 10px;
+      }
+      
+      .DoneCont {
+        border-top-right-radius: 10px;
+      }
+      .DoneCont.clicked {
+        transform: scale(1.1);
+        border-radius: 10px;
+      }
+    }
+  
+    .todoSection {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      height: 400px;
+      overflow: auto;
+  
+      &::-webkit-scrollbar {
+        display: none;
+      }
+  
+      .todoRow {
+        height: 105px;
+        text-align: left;
+        padding: 5px;
+        padding-left: 15px;
+        &:hover {
+          background-color: none;
+          border-left: none;
+        }
+  
+        .rowDate {
+          font-size: 14px;
+          color: #fff;
+        }
+  
+        .rowDesc {
+          font-size: 20px;
+        }
+  
+        .rowTag {
+          margin-top: 10px;
+  
+          .rowTagData {
+            font-size: 12px;
+          }
+        }
+  
+        .rowControl {
+          position: absolute;
+          top: 30%;
+          left: 75%;
+        }
+  
+        .rowBtns {
+          position: absolute;
+          top: 30%;
+          left: 30%;
+          height: 50px;
+          display: flex;
+          display: none;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+  
+          button {
+            width: 50px;
+            height: 50px;
+            background-color: #005E87;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            border: 1px solid #333;
+            position: relative;
+  
+            span {
+              position: absolute;
+              top: 15%;
+              left: 15%;
+              width: 32px;
+              height: 32px;
+              background-size: cover;
+            }
+  
+            .doneBtn {
+              background-image: url(../images/done.svg);
+            }
+  
+            .editBtn {
+              background-image: url(../images/edit.svg);
+            }
+  
+            .deleteBtn {
+              background-image: url(../images/delete.svg);
+            }
+  
+            .closeBtn {
+              background-image: url(../images/close.svg);
+            }
+          }
+        }
+      }
+  
+      .todoRow.done {
+  
+        .rowBtns {
+          left: 50%;
+        }
+      }
+    }
+  
+    .modal {
+      .myPageModalCont {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        width: 90%;
+        height: 500px;
+        transform: translate(-50%, -50%);
+        border: 1px solid var(--main-color);
+        color: #005E87;
+        background-color: #92E4FF;
+        border-radius: 20px;
+        padding: 10px;
+  
+        .myPageTitle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          .myIcon {
+            background-image: url(../images/face.svg);
+            width: 32px;
+            height: 32px;
+            background-size: cover;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 4px;
+  
+          }
+  
+          .myPageLabel {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 6px;
+          }
+  
+          .closeBtn {
+            position: absolute;
+            top: 3%;
+            left: 79%;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #005E87;
+            border: none;
+  
+            .closeIcon {
+              position: absolute;
+              top: 4px;
+              left: 4px;
+              background-image: url(../images/close.svg);
+              width: 32px;
+              height: 32px;
+              background-size: cover;
+              border-radius: 4px;
+              display: inline-block;
+            }
+          }
+        }
+  
+        .myPageSection {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid #333;
+          margin-top: 20px;
+          border-radius: 20px;
+          width: 100%;
+          height: 410px;
+          background-color: #179BC7;
+          justify-content: flex-start;
+  
+          .myPageImg {
+            background-image: url(../images/picture.svg);
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            border-radius: 4px;
+  
+          }
+  
+          .myContInfo {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: left;
+            color: #fff;
+            height: 60px;
+            margin-left: 10px;
+  
+            .myLabel {
+              width: 30%;
+              font-size: 20px;
+              color: #005E87;
+              font-weight: bold;
+            }
+  
+            .myDesc {
+              width: 70%;
+              font-size: 20px;
+            }
+  
+            .myEdit {
+              width: 20%;
+  
+              .myEditBtn {
+                background-color: #005E87;
+                background-image: url(../images/edit.svg);
+                width: 40px;
+                height: 40px;
+                background-size: cover;
+                border-radius: 4px;
+  
+              }
+            }
+          }
+  
+          .myBtn {
+            width: 75%;
+            height: 50px;
+            background-color: #005E87;
+            border-radius: 10px;
+            color: #fff;
+            margin-top: 10px;
+          }
+        }
+      }
+  
+      .todoModalCont {
+        position: absolute;
+        top: 46%;
+        left: 58%;
+        width: 90%;
+        height: 240px;
+        transform: translate(-50%, -50%);
+        border: 1px solid var(--main-color);
+        color: #005E87;
+        background-color: #92E4FF;
+        opacity: 0.5;
+        border-radius: 20px;
+        padding: 10px;
+      }
+    }
+  }
 }

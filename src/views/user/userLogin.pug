@@ -8,13 +8,14 @@ html(lang="ko")
     link(rel="stylesheet", href="../css/reset.css")
     link(rel="stylesheet", href="../css/common.css")
   body 
+    include ../modal/confirmLoginModal.pug
     .container
       h1.formTitle
         a(href="/user/login") LOG IN
+        button.simpleLogin 간편 로그인
       form(id="loginForm" action="", method="", class="formSection")
-        input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디 aaa123" ,maxlength="", required)
-        input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호 1234!a" ,maxlength="", required)
-        .formMessage
+        input(type="text", id="idInput",class="formContent" , name="idInput", placeholder="아이디" ,maxlength="", required)
+        input(type="password",id="pwInput" ,class="formContent" , name="pwInput", placeholder="비밀번호" ,maxlength="", required)
         //- button(id="loginBtn", type="submit" ,class="formContent formBtn") 로그인
         button(id="loginBtn", type="submit" ,class="formContent formBtn") 로그인
         .supLink
@@ -30,6 +31,7 @@ html(lang="ko")
     script(src="../js/user/login.js" type="module")
     script(src="../js/user/formMessage.js" type="module")
     script(src="../js/regEx3.js" type="module")
+    script(src="../js/simpleLogin.js")
     
     
     

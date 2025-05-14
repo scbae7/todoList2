@@ -1,5 +1,6 @@
 import FormMessage from './formMessage.js';
 import { FormValidator } from "../regEx3.js";
+import {ConfirmModal} from "../confirmModal.js";
 
 // 폼 유효성 검사 인스턴스 생성
 const formValidator = new FormValidator("loginForm");
@@ -39,12 +40,16 @@ function handleSubmit() {
         window.location.href = "/todo/todoMain";
       } else {
         console.error('로그인 실패:', data.message);
-        const formMessage = new FormMessage('formMessage');
-        formMessage.errMessage('로그인 실패', data);
+        // const formMessage = new FormMessage('formMessage');
+        // formMessage.errMessage('로그인 실패', data);
+        const confirmModal = new ConfirmModal("confirmModal");
+        confirmModal.showModalLink(data.message, true);
       }
     })
     .catch(error => console.error('에러 발생', error));
   } else {
-    console.log("폼 제출 실패");
+    // console.log("폼 제출 실패");
+    const confirmModal = new ConfirmModal("confirmModal");
+    confirmModal.showModalLink("다시 한번 확인해주세요!", false);
   }
 }

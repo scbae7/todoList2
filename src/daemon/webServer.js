@@ -8,6 +8,7 @@ class WebServer {
     const app = express();
     app.set('view engine', 'pug');
     app.set('views','./src/views');
+    app.locals.pretty = true;
     app.use(express.static('./src/public'));
     app.use(session({
       secret: 'your_secret_key',

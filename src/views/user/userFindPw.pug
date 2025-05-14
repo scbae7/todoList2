@@ -7,14 +7,16 @@ html(lang="ko")
     title 비밀번호 찾기
     link(rel="stylesheet", href="../css/reset.css")
     link(rel="stylesheet", href="../css/common.css")
+    script(src="https:/www.google.com/recaptcha/api.js" async defer)
   body 
     include ../modal/findPwModal.pug
-    .container
+    .container.cap
       h1.formTitle 
         a(href="/user/findPw") 비밀번호 찾기
       form(id="findPwForm",action="/user/findPw",method="post",class="formSection")
         input(type="text",id="idInput",class="formContent",name="userId",placeholder="아이디",maxlength="")
         input(type="text",id="emailInput",class="formContent",name="userEmail",placeholder="이메일",maxlength="")
+        .g-recaptcha(data-sitekey="6Lc3CLcpAAAAAImzkLmUUtCmdRSHadwbIh57PWdp")
         button(type="submit",id="findPwBtn",class="formContent formBtn") 비밀번호 찾기
         .supLink
           a(href="/user/findId")

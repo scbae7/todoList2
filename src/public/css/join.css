@@ -1,28 +1,53 @@
 body .joinContainer {
   width: 500px;
-  height: 720px;
-}
-body .joinContainer .id-cont {
-  position: relative;
-}
-body .joinContainer .id-cont .id-btn {
-  position: absolute;
-  top: 6%;
-  right: 10px;
-  transform: translateY(-50%);
-  border-radius: 6px;
-  padding: 6px;
-}
-body .joinContainer .formSection .formContent {
-  width: 340px;
-  font-size: 16px;
-}
-body .joinContainer .formSection .joinBtnSection {
-  width: 340px;
-  display: flex;
-  justify-content: space-between;
-}
-body .joinContainer .formSection .joinBtnSection .formBtn {
-  width: 140px;
-  font-size: 20px;
-}/*# sourceMappingURL=join.css.map */
+  height: 780px; }
+  body .joinContainer .id-cont {
+    position: relative; }
+    body .joinContainer .id-cont .id-btn {
+      position: absolute;
+      top: 6%;
+      right: 10px;
+      transform: translateY(-50%);
+      border-radius: 6px;
+      padding: 6px; }
+  body .joinContainer .formSection .formContent {
+    width: 340px;
+    font-size: 16px; }
+  body .joinContainer .formSection .joinBtnSection {
+    width: 340px;
+    display: flex;
+    justify-content: space-between; }
+    body .joinContainer .formSection .joinBtnSection .formBtn {
+      width: 140px;
+      font-size: 20px; }
+
+@media (max-width: 768px) {
+  body .joinContainer {
+    width: 90%;
+    height: auto; }
+    body .joinContainer .id-cont {
+      position: relative;
+      width: 100%; }
+      body .joinContainer .id-cont .id-btn {
+        width: 25%;
+        position: absolute;
+        top: 0%;
+        right: 5%;
+        transform: translateY(-50%);
+        border-radius: 6px;
+        padding: 6px;
+        font-size: 14px; }
+    body .joinContainer .formSection .formContent {
+      width: 90%;
+      font-size: 14px; }
+    body .joinContainer .formSection .joinBtnSection {
+      width: 90%;
+      display: flex;
+      justify-content: space-between; }
+      body .joinContainer .formSection .joinBtnSection .formBtn {
+        width: 80%;
+        font-size: 14px; }
+      body .joinContainer .formSection .joinBtnSection a {
+        width: 90%; } }
+
+/*# sourceMappingURL=join.css.map */

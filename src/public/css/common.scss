@@ -2,13 +2,18 @@
 
 :root {
   --main-color: #009BB6;
-  --secondary-color: #aaa;
+  --second-color: #005E87;
+  --third-color: #179BC7;
   --main-font: "Nanum Gothic", sans-serif;
+}
+
+button, input {
+  font-family: var(--main-font);
 }
 
 body {
   font-family: var(--main-font);
-  background: radial-gradient(#ffc47b, #009BB6);
+  background: radial-gradient(#ffc47b, var(--main-color));
   width: 100%;
   height: 100vh;
   position: relative;
@@ -28,8 +33,20 @@ body {
       font-size: 32px;
       font-weight: bold;
       color: var(--main-color);
-      padding-top: 70px;
+      padding-top: 60px;
       padding-bottom: 60px;
+      position: relative;
+
+      .simpleLogin {
+        position: absolute;
+        width: 100px;
+        top: 70%;
+        left: 150px;
+        border-radius: 6px;
+        background-color: var(--main-color);
+        color: #fff;
+        padding: 4px;
+      }
     }
 
     .formSection {
@@ -74,6 +91,11 @@ body {
       }
 
       .supLink {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #aaa;
         font-size: 16px;
 
@@ -81,6 +103,7 @@ body {
           border-right: 3px solid #777777;
           padding-left: 6px;
           padding-right: 6px;
+          width: 120px;
 
           &:last-child {
             border-right: none;
@@ -91,13 +114,17 @@ body {
 
   }
 
+  .container.cap {
+    height:580px;
+  }
+
   .bigContainer {
     width: 600px;
   }
 
   .modal {
     display: none;
-    position: fixed;
+    position: sticky;
     z-index: 1;
     left: 0;
     top: 0;
@@ -161,4 +188,67 @@ body {
 }
 .hidden {
   display: none;
+}
+
+/* 반응형 디자인 추가 */
+@media (max-width: 768px) {
+  body {
+    .container,.container.cap {
+      width: 80%;
+      height: auto;
+      padding: 20px;
+      padding-top: 0;
+    }
+  
+    .container .formTitle {
+      font-size: 28px;
+      padding-top: 50px;
+      padding-bottom: 40px;
+      font-weight: bold;
+
+      .simpleLogin {
+        left: 33%;
+      }
+    }
+  
+    .container .formSection .formContent {
+      width: 80%;
+      height: 40px;
+      font-size: 16px;
+    }
+  
+    .container .formSection .formBtn {
+      width: 80%;
+      height: 40px;
+      font-size: 18px;
+    }
+  
+    .container .formSection .supLink {
+      font-size: 14px;
+      a {
+        padding: 0;
+      }
+    }
+  
+    .modalContent {
+      width: 80%;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .modalContent .modalTitle {
+      font-size: 24px;
+    }
+  
+    .modalContent .modalDesc p {
+      font-size: 18px;
+    }
+  
+    .modalContent .modalBtn {
+      width: 100px;
+      height: 40px;
+      font-size: 18px;
+    }
+  }
+  
 }

@@ -120,9 +120,10 @@ class UserController {
   async userDelete(req, res) {
     try {
       const sessionId = req.session.user.userId;
-      console.log(sessionId);
+      console.log("sessionId",sessionId);
       const { userId, userPw } = req.body;
       if(sessionId == userId){
+        console.log("진입")
         const result = await userModel.userDelete(userId, userPw);
         res.status(200).json({ success: true, message: '회원 탈퇴 성공!' });
       }else{

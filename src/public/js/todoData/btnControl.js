@@ -12,7 +12,7 @@ rowControls.forEach(rowControl => {
   });
 });
 
-const closeBtns = document.querySelectorAll('.todoRow .closeBtn');
+const closeBtns = document.querySelectorAll('.todoRow #closeRow');
 closeBtns.forEach(closeBtn => {
   closeBtn.addEventListener('click', (e) => {
     e.preventDefault();

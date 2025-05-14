@@ -4,5 +4,6 @@
     .modalDesc#modalContent
       //- p 이메일로 아이디가
       //- p 발급되었습니다.
-    a(href="/user/login")
-      button#findIdBtn.modalBtn 확인
+    button#modalCloseBtn.modalBtn 확인
+    a(href="/user/login" id="modalLoginLink")
+      button.modalBtn 확인

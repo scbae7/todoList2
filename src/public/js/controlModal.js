@@ -27,8 +27,6 @@ class ControlModal {
     e.preventDefault();
     if (this.modal) {
       this.modal.style.display = "none";
-    } else {
-      console.error("Modal element is not found!");
     }
   }
   
