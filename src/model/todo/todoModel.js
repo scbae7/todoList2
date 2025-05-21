@@ -7,6 +7,9 @@ data.connect((err) => {
     console.log('DB 연결 성공');
   }
 })
+
+console.log('DB_HOST:', process.env.DB_HOST);
+console.log('DB_PORT:', process.env.DB_PORT);
 class TodoModel {
   constructor(id) {
     this.id = id;
