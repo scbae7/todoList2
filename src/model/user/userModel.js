@@ -1,10 +1,11 @@
 import db from '../../conf/db.js';
-import mysql from 'mysql';
+import mysql from 'mysql2';
+
 const data = mysql.createConnection(db());
 
 data.connect((err) => {
   if (err) {
-    console.error('DB 연결 실패:', err.message);
+    console.error('DB 연결 실패:', err.code, err.message);
   } else {
     console.log('DB 연결 성공');
   }
