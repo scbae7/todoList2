@@ -2,7 +2,7 @@ import db from '../../conf/db.js';
 import mysql from 'mysql';
 const data = mysql.createConnection(db());
 
-parseConnectionUrl.connect((err) => {
+data.connect((err) => {
   if (err) {
     console.error('DB 연결 실패:', err.message);
   } else {
