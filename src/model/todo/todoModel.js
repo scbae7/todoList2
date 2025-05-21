@@ -1,7 +1,4 @@
-import db from '../../conf/db.js';
-import mysql from 'mysql2';
-
-const data = mysql.createConnection(db());
+import data from '../../conf/db.js';
 
 data.connect((err) => {
   if (err) {
