@@ -1,3 +1,6 @@
+import cloudinary from '../conf/cloudinary.js';
+import streamifier from 'streamifier';
+
 import todoModel from '../model/todo/todoModel.js';
 import path from 'path';
 import fs from 'fs';
@@ -54,14 +57,31 @@ class TodoController {
         todoTag,
         todoUserId
       } = req.body;
+
       console.log(
         req.body
       );
+
       let todoFile = null;
-      if(req.file){
-        todoFile = req.file.path;
+
+      // 이미지가 있을 경우 cloudinary 업로드
+      if (req.file) {
+        const result = await new Promise((resolve, reject) => {
+          const uploadStream = cloudinary.uploader.upload_stream(
+            { folder: 'todo' }, // 원하는 cloudinary 폴더
+            (error, result) => {
+              if (result) resolve(result);
+              else reject(error);
+            }
+          );
+          streamifier.createReadStream(req.file.buffer).pipe(uploadStream);
+        });
+
+        todoFile = result.secure_url; // ✅ Cloudinary URL만 저장
       }
+
       console.log(req.file);
+
       await todoModel.addTodo(
         todoCont,
         todoDate,
@@ -133,19 +153,35 @@ class TodoController {
         todoUserId,
         todoNum
       } = req.body;
+
       console.log(
         "reqBody",req.body
       );
+
       let todoFile = null;
       let oldTodoFile = null;
-      if(req.file){
-        todoFile = req.file.path;
+
+      if (req.file) {
+        const result = await new Promise((resolve, reject) => {
+          const uploadStream = cloudinary.uploader.upload_stream(
+            { folder: 'todo' },
+            (error, result) => {
+              if (result) resolve(result);
+              else reject(error);
+            }
+          );
+          streamifier.createReadStream(req.file.buffer).pipe(uploadStream);
+        });
+        todoFile = result.secure_url; // Cloudinary URL 저장
       }
+
       if(req.body.oldTodoFile){
         oldTodoFile = req.body.oldTodoFile;
       }
+
       console.log("oldTodo",oldTodoFile);
       console.log("reqFile",req.file);
+
       await todoModel.editTodo(
         todoCont,
         todoDate,
@@ -155,14 +191,16 @@ class TodoController {
         todoFile,
         todoNum,
       );
+      
       if(oldTodoFile && req.file){
-        fs.unlink(oldTodoFile,(err)=>{
-          if(err){
-            console.error("파일 삭제 실패:",err);
-          }else{
-            console.log("기존 파일 삭제 성공")
-          }
-        })
+        // fs.unlink(oldTodoFile,(err)=>{
+        //   if(err){
+        //     console.error("파일 삭제 실패:",err);
+        //   }else{
+        //     console.log("기존 파일 삭제 성공")
+        //   }
+        // })
+        console.log("기존 파일 삭제 필요 시 Cloudinary API 활용");
       }
       console.log('투두수정 성공');
       res.status(200).json({success: true});

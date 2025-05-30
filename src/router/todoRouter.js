@@ -9,14 +9,17 @@ class TodoRouter {
     this.router.use(express.json());
     this.router.use(express.urlencoded({ extended: true }));
 
-    this.storage = multer.diskStorage({
-      destination: function (req, file, cb) {
-          cb(null, 'src/public/file'); // 파일이 저장될 폴더 지정
-      },
-      filename: function (req, file, cb) {
-          cb(null, Date.now() + path.extname(file.originalname)); // 파일명 설정
-      }
-    });
+    // 로컬로 저장할때 사용
+    // this.storage = multer.diskStorage({
+    //   destination: function (req, file, cb) {
+    //       cb(null, 'src/public/file'); // 파일이 저장될 폴더 지정
+    //   },
+    //   filename: function (req, file, cb) {
+    //       cb(null, Date.now() + path.extname(file.originalname)); // 파일명 설정
+    //   }
+    // });
+
+    this.storage = multer.memoryStorage();
 
     this.fileFilter = (req,file,cb)=>{
       if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
