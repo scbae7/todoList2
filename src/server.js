@@ -7,6 +7,7 @@ dotenv.config();
 // 2024/04/25 v1
 import webServerConf from './conf/webServerConf.js';
 import webService from './daemon/webServer.js'
+import { startKeepAlive } from './daemon/keepAlive.js';
 
 import todoRouter from './router/todoRouter.js'
 import userRouter from './router/userRouter.js'
@@ -26,6 +27,7 @@ class TodoList {
     webService.use('/admin',adminRouter);
     webService.listen(this.webServerConf.port,()=>{
       console.log(`${this.webServerConf.port} port open!`);
+      startKeepAlive();
     })
   }
 }
