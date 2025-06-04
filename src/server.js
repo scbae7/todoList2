@@ -27,7 +27,7 @@ class TodoList {
     webService.use('/admin',adminRouter);
     webService.listen(this.webServerConf.port,()=>{
       console.log(`${this.webServerConf.port} port open!`);
-      startKeepAlive();
+      // startKeepAlive();
     })
   }
 }
