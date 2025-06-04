@@ -2,6 +2,8 @@ import axios from 'axios';
 import cron from 'node-cron';
 
 export function startKeepAlive() {
+  console.log('[KeepAlive] 슬립 방지 서비스 시작됨');
+
   const SELF_URL = 'https://todolist2-d0cr.onrender.com';
   
   cron.schedule('*/14 * * * *', async () => {
